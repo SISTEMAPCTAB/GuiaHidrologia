@@ -34,6 +34,7 @@
   cloudProgress={done:(p?.completed_modules||[]).map(Number),activities:acts,finalScore:att?.score,finalCorrect:att?.correct_count,finalTotal:att?.total_questions||20,finalApproved:!!att?.approved,finalDate:att?.created_at}; return cloudProgress;
  }
  async function loadCert(){const {data}=await client().from('certificates').select('*').eq('user_id',currentUser.id).eq('course_code',cfg.COURSE_CODE||'AMH-HID-2026').maybeSingle();cloudCertificate=data||null;return cloudCertificate}
+ async function enter(u,p){currentUser={id:u.id,email:u.email,name:p.full_name,role:p.role_title,inst:p.institution,mun:p.municipality,tel:p.phone,user:p.username};adminMode=false;guestMode=false;await Promise.all([loadProgress(),loadCert(),touch()]);startApp();renderNavCloud();renderModuleCloud(firstAvailable())}
  window.getProgress=()=>cloudProgress;window.setProgress=p=>{cloudProgress=p||{done:[],activities:{}}};
  window.togglePassword=function(inputId,button){const input=document.getElementById(inputId);if(!input||!button)return;const showing=input.type==='text';input.type=showing?'password':'text';button.textContent=showing?'👁 Mostrar':'🙈 Ocultar';button.setAttribute('aria-label',showing?'Mostrar contraseña':'Ocultar contraseña');button.setAttribute('aria-pressed',showing?'false':'true')};
  window.showRegister=function(){
