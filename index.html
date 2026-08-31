@@ -1,0 +1,2255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#0a2540" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="description" content="Guía Interactiva de Hidrología e Inundaciones de Tabasco | AMH Sección Tabasco" />
+
+<title>Guía Interactiva de Hidrología e Inundaciones de Tabasco | AMH Sección Tabasco</title>
+<meta name="theme-color" content="#0a2540">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Hidrología AMH">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+:root{
+  --navy:#0a2540;--navy2:#1a3a5c;--cyan:#0ea5e9;--cyan2:#38bdf8;--cyan3:#e0f2fe;
+  --emerald:#10b981;--em2:#ecfdf5;--amber:#f59e0b;--am2:#fffbeb;
+  --rose:#f43f5e;--rose2:#fff1f2;--ink:#0f172a;--muted:#64748b;
+  --border:#e2e8f0;--surface:#f8fafc;--wh:#ffffff;
+  --sh:0 2px 8px rgba(10,37,64,.08);--shm:0 6px 24px rgba(10,37,64,.12);--shl:0 16px 48px rgba(10,37,64,.16);
+  --r:18px;--rs:10px;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--surface);color:var(--ink);line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Fraunces',Georgia,serif;line-height:1.2;letter-spacing:-.02em}
+h1{font-size:clamp(26px,4.5vw,52px);margin:0 0 12px;font-weight:900}
+h2{font-size:clamp(21px,3vw,34px);color:var(--navy);margin:0 0 14px;font-weight:700}
+h3{color:var(--navy2);margin:20px 0 8px;font-size:19px;font-weight:700}
+h4{color:var(--emerald);margin:14px 0 6px;font-size:15px;font-weight:700}
+p{margin:8px 0 12px}
+ul{padding-left:22px}
+button,.btn{border:0;border-radius:999px;padding:10px 20px;font-weight:700;font-size:14px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:6px;font-family:inherit;transition:all .2s ease;letter-spacing:.01em}
+button:hover{transform:translateY(-1px)}
+button:disabled{opacity:.45;cursor:not-allowed;transform:none}
+.btn-primary{background:var(--wh);color:var(--navy);box-shadow:var(--shm)}
+.btn-primary:hover{box-shadow:var(--shl)}
+.btn-secondary{background:rgba(255,255,255,.18);color:#fff;border:1px solid rgba(255,255,255,.3);backdrop-filter:blur(4px)}
+.btn-secondary:hover{background:rgba(255,255,255,.28)}
+.btn-green{background:linear-gradient(135deg,var(--emerald),#059669);color:white;box-shadow:0 4px 14px rgba(16,185,129,.3)}
+.btn-green:hover{box-shadow:0 8px 22px rgba(16,185,129,.42)}
+.btn-blue{background:linear-gradient(135deg,var(--cyan),#0284c7);color:white;box-shadow:0 4px 14px rgba(14,165,233,.3)}
+.btn-blue:hover{box-shadow:0 8px 22px rgba(14,165,233,.42)}
+.btn-dark{background:var(--navy);color:white;box-shadow:var(--sh)}
+.btn-dark:hover{background:var(--navy2)}
+.btn-light{background:var(--cyan3);color:var(--navy)}
+.btn-light:hover{background:#bae6fd}
+.btn-warn{background:var(--am2);color:#92400e;border:1px solid #fde68a}
+.hidden{display:none!important}
+header.hero{
+  background:linear-gradient(135deg,#062040 0%,#0a3459 50%,#0e4d3b 100%);
+  color:white;padding:38px 24px 34px;position:relative;overflow:hidden
+}
+header.hero::before{
+  content:'';position:absolute;inset:0;
+  background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events:none
+}
+header.hero::after{content:'';position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(14,165,233,.12) 0%,transparent 70%);top:-150px;right:-120px;pointer-events:none}
+.hero-inner{max-width:980px;margin:auto;display:grid;grid-template-columns:1fr;gap:28px;align-items:center;position:relative;z-index:1}
+.badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);padding:6px 14px;border-radius:999px;font-weight:600;font-size:13px;margin-bottom:14px;letter-spacing:.03em}
+.badge::before{content:'●';color:#34d399;font-size:8px}
+.hero p{font-size:17px;max-width:760px;opacity:.9;line-height:1.7}
+.hero-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:var(--r);padding:20px;box-shadow:0 20px 60px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.1);backdrop-filter:blur(8px)}
+.hero-card svg{width:100%;height:auto;display:block}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px;position:relative;z-index:5}
+.loginbox{background:var(--wh);border:1px solid var(--border);border-radius:var(--r);padding:28px;margin:28px auto;max-width:900px;box-shadow:var(--shl)}
+label{font-weight:600;color:var(--navy);font-size:13px;text-transform:uppercase;letter-spacing:.05em}
+input,select,textarea{width:100%;padding:12px 14px;border:2px solid var(--border);border-radius:var(--rs);margin:6px 0 14px;font:inherit;font-size:15px;background:var(--wh);transition:border-color .2s,box-shadow .2s;color:var(--ink)}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--cyan);box-shadow:0 0 0 3px rgba(14,165,233,.12)}
+.layout{display:grid;grid-template-columns:300px 1fr;max-width:1600px;margin:auto;min-height:100vh;overflow-x:hidden}
+aside{background:var(--wh);border-right:1px solid var(--border);min-height:100vh;position:sticky;top:0;height:100vh;overflow:auto;padding:16px 14px;scrollbar-width:thin;scrollbar-color:var(--border) transparent}
+.logoBox{display:flex;gap:10px;align-items:center;border-bottom:1px solid var(--border);padding-bottom:14px;margin-bottom:14px}
+.logoMark{width:48px;height:48px;border-radius:14px;background:linear-gradient(135deg,var(--navy),var(--emerald));display:flex;align-items:center;justify-content:center;color:white;font-weight:900;font-size:13px;flex-shrink:0;box-shadow:0 4px 12px rgba(10,37,64,.25)}
+.nav button{width:100%;text-align:left;margin:2px 0;background:transparent;color:var(--muted);display:block;padding:9px 12px;border-radius:var(--rs);font-size:13px;font-weight:600;transition:all .15s ease;border:0;border-left:3px solid transparent}
+.nav button:hover{background:var(--surface);color:var(--navy);transform:none}
+.nav button.active{background:linear-gradient(135deg,rgba(10,37,64,.06),rgba(14,165,233,.07));color:var(--navy);border-left-color:var(--cyan);font-weight:800}
+main{padding:24px;min-width:0;overflow-x:hidden;word-break:break-word}
+section.module,.panel{background:var(--wh);border:1px solid var(--border);border-radius:var(--r);padding:28px;margin:0 0 20px;box-shadow:var(--sh);animation:fsi .3s ease}
+@keyframes fsi{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.card{background:var(--wh);border:1px solid var(--border);border-radius:var(--r);padding:18px;transition:box-shadow .2s,transform .2s}
+.card:hover{box-shadow:var(--shm);transform:translateY(-2px)}
+.note{background:var(--em2);border-left:4px solid var(--emerald);padding:14px 16px;border-radius:0 var(--rs) var(--rs) 0;margin:14px 0}
+.warn{background:var(--am2);border-left:4px solid var(--amber);padding:14px 16px;border-radius:0 var(--rs) var(--rs) 0;margin:14px 0}
+.key{background:linear-gradient(135deg,#eff6ff,#ecfdf5);border-left:4px solid var(--cyan);padding:14px 16px;border-radius:0 var(--rs) var(--rs) 0;margin:14px 0;font-weight:600}
+.danger{background:var(--rose2);border-left:4px solid var(--rose);padding:14px 16px;border-radius:0 var(--rs) var(--rs) 0;margin:14px 0}
+.pill{display:inline-block;background:var(--cyan3);border:1px solid #bae6fd;border-radius:999px;padding:4px 10px;margin:3px;font-size:12px;font-weight:600;color:var(--navy)}
+table{width:100%;border-collapse:collapse;margin:14px 0;border-radius:var(--r);overflow:hidden;box-shadow:var(--sh)}
+th,td{border:1px solid var(--border);padding:12px 14px;text-align:left;vertical-align:top;min-width:90px}
+th{background:linear-gradient(180deg,var(--surface),#e8f0f8);color:var(--navy);font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.04em}
+tr:nth-child(even) td{background:#f8fbff}
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:var(--r);margin:14px 0;box-shadow:var(--sh);max-width:100%}
+.table-wrap table{margin:0;border-radius:0;box-shadow:none}
+.progress{height:8px;background:var(--border);border-radius:999px;overflow:hidden;margin:8px 0 4px}
+.progress>span{display:block;height:100%;background:linear-gradient(90deg,var(--cyan),var(--emerald));width:0%;transition:width .7s cubic-bezier(.4,0,.2,1);border-radius:999px}
+.footerNav{display:flex;justify-content:space-between;gap:10px;margin-top:24px;padding-top:20px;border-top:1px solid var(--border)}
+.accordion{border:1px solid var(--border);border-radius:var(--rs);overflow:hidden;margin:10px 0}
+.acc-head{background:var(--surface);padding:13px 16px;font-weight:700;cursor:pointer;display:flex;justify-content:space-between;gap:12px;color:var(--navy);transition:background .15s;font-size:14px}
+.acc-head:hover{background:#edf2f7}
+.acc-body{display:none;padding:16px;background:white;border-top:1px solid var(--border);animation:accO .2s ease}
+.acc-body.open{display:block}
+@keyframes accO{from{opacity:0}to{opacity:1}}
+.flip-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.flip-card{perspective:1000px;height:180px;cursor:pointer}
+.flip-inner{position:relative;width:100%;height:100%;transition:transform .5s cubic-bezier(.4,0,.2,1);transform-style:preserve-3d}
+.flip-card.flipped .flip-inner{transform:rotateY(180deg)}
+.flip-front,.flip-back{position:absolute;width:100%;height:100%;backface-visibility:hidden;border:1px solid var(--border);border-radius:var(--r);padding:16px;display:flex;align-items:center;justify-content:center;text-align:center;box-shadow:var(--sh)}
+.flip-front{background:linear-gradient(135deg,var(--cyan3),var(--em2));font-size:15px;font-weight:800;color:var(--navy);font-family:'Fraunces',serif}
+.flip-back{background:white;transform:rotateY(180deg);font-size:13px;align-items:flex-start;text-align:left;overflow:auto;line-height:1.55}
+.interactive-box{background:linear-gradient(135deg,#f0f9ff,#f0fdf4);border:1px solid #bae6fd;border-radius:var(--r);padding:20px;margin:18px 0}
+.interactive-box h3{margin-top:0;color:var(--navy)}
+.result{margin-top:14px;background:var(--wh);border:1px solid var(--border);border-radius:var(--rs);padding:14px 16px;line-height:1.6;box-shadow:var(--sh)}
+.region-map{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:stretch}
+.map-canvas{background:linear-gradient(145deg,#e6f7ff,#eef7e7);border:1px solid var(--border);border-radius:var(--r);padding:18px;min-height:360px;position:relative;overflow:hidden}
+.map-zone{position:absolute;border:2px solid rgba(10,37,64,.25);background:rgba(255,255,255,.84);border-radius:16px;padding:10px;font-weight:700;color:var(--navy);cursor:pointer;box-shadow:var(--sh);transition:all .2s ease;font-size:13px;backdrop-filter:blur(4px)}
+.map-zone:hover,.map-zone.active{transform:scale(1.04);background:var(--navy);color:white;box-shadow:var(--shm)}
+.zone-us{right:28px;top:70px;width:210px}
+.zone-sierra{left:75px;top:48px;width:205px}
+.zone-grijalva{left:95px;top:180px;width:240px}
+.zone-chontalpa{left:38px;bottom:55px;width:215px}
+.zone-costa{right:40px;bottom:42px;width:235px}
+.water-line{position:absolute;height:6px;background:var(--cyan);border-radius:999px;opacity:.4;transform-origin:left center}
+.route-box{display:grid;grid-template-columns:1fr 1.1fr;gap:16px}
+.route-steps button{display:block;width:100%;margin:5px 0;text-align:left;background:var(--surface);color:var(--navy);border-radius:var(--rs);font-size:13px;padding:10px 14px}
+.route-steps button.active{background:var(--emerald);color:white}
+.timeline{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+.timepoint{background:var(--surface);border:2px solid var(--border);border-radius:999px;padding:8px 14px;cursor:pointer;font-weight:700;color:var(--navy);font-size:13px;transition:all .2s}
+.timepoint.active{background:var(--navy);color:white;border-color:var(--navy)}
+.timepoint:hover:not(.active){border-color:var(--cyan);color:var(--cyan)}
+.hydro-wrap{display:grid;grid-template-columns:1.25fr .75fr;gap:16px;align-items:start}
+.hydro-svg{background:white;border:1px solid var(--border);border-radius:var(--r);padding:12px;width:100%;height:auto}
+.hydro-point{cursor:pointer}
+.hydro-point circle{fill:white;stroke:var(--cyan);stroke-width:4;transition:fill .2s}
+.hydro-point:hover circle,.hydro-point.active circle{fill:var(--amber);stroke:var(--amber)}
+.option{display:block;border:2px solid var(--border);border-radius:var(--rs);padding:12px 14px;margin:8px 0;background:white;cursor:pointer;transition:all .15s;font-size:14px}
+.option:hover{border-color:var(--cyan);background:var(--cyan3)}
+.option.correct{border-color:var(--emerald);background:var(--em2)}
+.option.wrong{border-color:var(--rose);background:var(--rose2)}
+.case-card{border:1px solid var(--border);border-radius:var(--r);padding:18px;background:white;margin:14px 0;box-shadow:var(--sh)}
+.dropzone{border:2px dashed var(--border);border-radius:var(--rs);padding:14px;min-height:54px;background:#fafafa}
+.choice-chip{display:inline-flex;align-items:center;background:var(--surface);border:2px solid var(--border);border-radius:999px;padding:8px 14px;margin:4px;cursor:pointer;font-size:13px;font-weight:600;transition:all .15s}
+.choice-chip.selected{background:var(--navy);color:white;border-color:var(--navy)}
+.choice-chip:hover:not(.selected){border-color:var(--cyan)}
+.glossary-results{max-height:440px;overflow:auto;padding-right:4px}
+.glossary-results .card{border-radius:var(--rs);margin-bottom:10px}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.kpi{background:linear-gradient(135deg,var(--surface),white);border:1px solid var(--border);border-radius:var(--r);padding:18px;text-align:center;transition:box-shadow .2s,transform .2s}
+.kpi:hover{box-shadow:var(--shm);transform:translateY(-2px)}
+.kpi b{font-size:32px;color:var(--navy);display:block;font-family:'Fraunces',serif}
+.adminTabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.adminTabs button{background:var(--surface);color:var(--navy);border-radius:var(--rs)!important}
+.adminTabs button.active{background:var(--navy);color:white}
+.menuToggle{display:none;position:fixed;right:16px;bottom:20px;z-index:30;border-radius:999px!important;background:var(--navy);color:white;box-shadow:var(--shl);padding:12px 18px;font-size:14px;font-weight:700}
+main{padding:24px;min-width:0;padding-bottom:90px;overflow-x:hidden;word-break:break-word}
+.cert{border:10px solid var(--navy);padding:34px;text-align:center;background:white;max-width:900px;margin:auto;border-radius:var(--r)}
+.cert h2{font-size:34px;color:var(--navy)}
+.semaforo-box{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:14px 0}
+.sem-card{border-radius:var(--r);padding:16px;text-align:center;font-weight:800;font-size:14px;border:2px solid transparent;transition:all .25s ease;cursor:default}
+.sem-verde{background:var(--em2);color:#065f46}
+.sem-amarillo{background:#fefce8;color:#713f12}
+.sem-naranja{background:#fff7ed;color:#7c2d12}
+.sem-rojo{background:var(--rose2);color:#881337}
+.sem-card.active{transform:scale(1.06)}
+.sem-verde.active{box-shadow:0 0 0 3px var(--emerald),0 8px 24px rgba(16,185,129,.25)}
+.sem-amarillo.active{box-shadow:0 0 0 3px var(--amber),0 8px 24px rgba(245,158,11,.25)}
+.sem-naranja.active{box-shadow:0 0 0 3px #f97316,0 8px 24px rgba(249,115,22,.25)}
+.sem-rojo.active{box-shadow:0 0 0 3px var(--rose),0 8px 24px rgba(244,63,94,.25)}
+.check-grid{display:grid!important;grid-template-columns:repeat(auto-fit,minmax(245px,1fr))!important;gap:10px!important;margin:12px 0 16px!important}
+.check-item{display:flex!important;align-items:center!important;gap:12px!important;min-height:56px;padding:12px 14px!important;background:white!important;border:2px solid var(--border)!important;border-radius:12px!important;color:var(--navy)!important;font-weight:600!important;cursor:pointer;transition:all .15s ease;text-align:left!important}
+.check-item:hover{border-color:var(--cyan)!important;background:var(--cyan3)!important}
+.check-item input[type="checkbox"]{width:20px!important;height:20px!important;min-width:20px!important;margin:0!important;accent-color:var(--cyan);cursor:pointer}
+.check-item:has(input:checked){background:var(--cyan3)!important;border-color:var(--cyan)!important}
+.tool-action-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:10px 0 12px}
+.tool-help{display:block;color:var(--muted);font-size:13px;margin-top:4px}
+.tool-result-title{color:var(--navy);font-weight:800;font-size:18px;font-family:'Fraunces',serif;margin-bottom:6px}
+.tool-badge{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;background:var(--navy);color:white;border-radius:999px;font-size:12px;font-weight:800;flex-shrink:0}
+.myth-card{border:1px solid var(--border);border-radius:var(--rs);background:white;padding:14px 16px;margin:10px 0;cursor:pointer;transition:all .2s}
+.myth-card:hover{border-color:var(--cyan);background:var(--cyan3)}
+.myth-card.open{border-color:var(--emerald);background:var(--em2)}
+.myth-card .realidad{display:none;margin-top:10px;padding-top:10px;border-top:1px dashed var(--emerald)}
+.myth-card.open .realidad{display:block}
+.relation-row{display:grid;grid-template-columns:1fr 1fr auto;gap:10px;align-items:center;margin:8px 0;background:white;border:1px solid var(--border);border-radius:var(--rs);padding:10px 12px}
+.mini-eval{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:18px;margin:18px 0}
+.final-question{background:white;border:1px solid var(--border);border-radius:var(--r);padding:20px;margin:16px 0;box-shadow:var(--sh)}
+.final-question h3{margin-top:0;font-size:17px}
+.final-option{display:block;width:100%;text-align:left;background:var(--surface);border:2px solid var(--border);border-radius:var(--rs);padding:12px 14px;margin:8px 0;cursor:pointer;font-weight:600;font-size:14px;transition:all .15s;font-family:inherit}
+.final-option:hover{border-color:var(--cyan);background:var(--cyan3)}
+.final-option.selected{border-color:var(--cyan);background:var(--cyan3);box-shadow:0 0 0 2px rgba(14,165,233,.2)}
+.final-option.correct{border-color:var(--emerald);background:var(--em2)}
+.final-option.wrong{border-color:var(--rose);background:var(--rose2)}
+.diploma-digital{max-width:1000px;margin:0 auto;background:white;border:8px solid var(--navy);border-radius:var(--r);padding:40px;text-align:center;position:relative;overflow:hidden;box-shadow:var(--shl)}
+.diploma-digital::before{content:"";position:absolute;inset:20px;border:2px solid #d7b46a;border-radius:10px;pointer-events:none;opacity:.6}
+.diploma-digital::after{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--navy),var(--cyan),var(--emerald))}
+.diploma-logo{max-width:380px;width:72%;height:auto;display:block;margin:0 auto 20px}
+.diploma-title{color:var(--navy);font-size:38px;font-weight:900;margin:8px 0;font-family:'Fraunces',serif}
+.diploma-subtitle{color:var(--cyan);font-size:18px;font-weight:700;margin-bottom:20px}
+.diploma-name{font-size:34px;color:var(--ink);font-weight:800;margin:18px 0;border-bottom:2px solid #d7b46a;display:inline-block;padding:0 28px 8px;font-family:'Fraunces',serif}
+.diploma-text{max-width:780px;margin:12px auto;font-size:17px;color:var(--muted)}
+.signature-box{margin:36px auto 0;max-width:520px;text-align:center}
+.signature-name{font-family:"Brush Script MT","Segoe Script","Lucida Handwriting",cursive;font-size:34px;color:var(--navy);margin-bottom:4px}
+.signature-line{border-top:2px solid var(--ink);padding-top:8px;font-weight:800;color:var(--ink)}
+.signature-role{font-size:13px;color:var(--muted);margin-top:4px}
+.hero-logo{display:block;width:100%;max-width:640px;height:auto!important;max-height:none!important;object-fit:contain!important;object-position:center center!important;background:#ffffff;border-radius:14px;padding:0;margin:0 0 18px 0;box-shadow:var(--shm)}
+.sidebar-logo{display:block;width:100%;height:auto!important;object-fit:contain!important;object-position:center center!important;background:#ffffff;border:1px solid var(--border);border-radius:12px;padding:0;margin:0 0 12px 0}
+.cert-logo{display:block;max-width:520px;width:90%;height:auto!important;object-fit:contain!important;object-position:center center!important;margin:0 auto 18px auto;background:#ffffff}
+.small{font-size:13px;color:var(--muted)}
+/* TOAST */
+#toast-container{position:fixed;top:20px;right:20px;z-index:9999;display:flex;flex-direction:column;gap:10px;pointer-events:none}
+.toast{background:var(--navy);color:white;padding:12px 20px;border-radius:var(--rs);font-weight:600;font-size:14px;box-shadow:var(--shl);animation:toastIn .3s ease;opacity:1;transition:opacity .3s}
+.toast.fade{opacity:0}
+.toast.success{background:linear-gradient(135deg,var(--emerald),#059669)}
+.toast.info{background:linear-gradient(135deg,var(--cyan),#0284c7)}
+@keyframes toastIn{from{transform:translateX(60px);opacity:0}to{transform:none;opacity:1}}
+
+/* Ajustes v22: diseño juvenil, legibilidad móvil y tarjetas sin palabras partidas */
+.card, .flip-front, .flip-back, .acc-head, .result, td, th{
+  word-break: normal!important;
+  overflow-wrap: break-word!important;
+  hyphens: none!important;
+}
+.card h3, .flip-front, .flip-back b{
+  word-break: normal!important;
+  overflow-wrap: normal!important;
+  white-space: normal!important;
+}
+.flip-grid{grid-template-columns:repeat(auto-fit,minmax(190px,1fr))!important}
+.flip-front{
+  flex-direction:column!important;
+  gap:8px;
+  padding:20px!important;
+  font-size:clamp(18px,3vw,24px)!important;
+  min-width:0;
+}
+.flip-front::before{
+  content:"💧";
+  display:block;
+  font-size:30px;
+  line-height:1;
+}
+.flip-back{
+  padding:18px!important;
+  font-size:14px!important;
+}
+.youth-band{
+  background:linear-gradient(135deg,#e0f2fe,#ecfdf5);
+  border:1px solid #bae6fd;
+  border-radius:22px;
+  padding:18px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:12px;
+  margin:16px 0;
+}
+.youth-card{
+  background:rgba(255,255,255,.88);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:16px;
+  box-shadow:var(--sh);
+}
+.youth-card b{display:block;color:var(--navy);font-size:16px;margin-bottom:4px}
+.badge-smn{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  background:#0a2540;
+  color:white;
+  border-radius:999px;
+  padding:5px 10px;
+  font-size:12px;
+  font-weight:800;
+  margin:4px 4px 8px 0;
+}
+
+
+/* Respuestas equilibradas: mismo formato, alineadas a la izquierda y sin pistas visuales por tamaño */
+.option,.final-option{
+  width:100%!important;
+  display:flex!important;
+  align-items:flex-start!important;
+  justify-content:flex-start!important;
+  text-align:left!important;
+  line-height:1.45!important;
+  min-height:58px!important;
+  white-space:normal!important;
+}
+.option.correct,.option.wrong,.final-option.correct,.final-option.wrong{
+  text-align:left!important;
+  justify-content:flex-start!important;
+  font-weight:600!important;
+}
+.mini-eval .option,.case-card .option,.final-question .final-option{
+  padding:12px 14px!important;
+  font-size:14px!important;
+}
+
+@media(max-width:1050px){
+  .hero-inner,.grid,.grid2,.grid4,.region-map,.route-box,.hydro-wrap{grid-template-columns:1fr}
+  .flip-grid{grid-template-columns:repeat(2,1fr)}
+  .layout{display:block!important;width:100%}
+  main{padding:16px;width:100%;max-width:100%;box-sizing:border-box;padding-bottom:90px}
+  section.module,.panel{padding:18px 14px}
+  aside{position:fixed;left:-315px;top:0;z-index:15;width:300px;transition:left .25s ease;box-shadow:4px 0 24px rgba(0,0,0,.15)}
+  aside.open{left:0}
+  .menuToggle{display:flex!important}
+  h1{font-size:clamp(22px,6vw,38px)}
+  h2{font-size:clamp(18px,5vw,28px)}
+  h3{font-size:16px}
+}
+@media(max-width:560px){
+  .flip-grid{grid-template-columns:1fr}
+  .map-canvas{min-height:520px}
+  .map-zone{left:20px!important;right:auto!important;width:calc(100% - 40px)!important}
+  .zone-sierra{top:30px}.zone-us{top:125px}.zone-grijalva{top:220px}.zone-chontalpa{top:315px}.zone-costa{top:410px}
+  .kpis{grid-template-columns:repeat(2,1fr)}
+  .semaforo-box{grid-template-columns:repeat(2,1fr)}
+  .hero-inner{padding:0}
+  header.hero{padding:24px 16px 20px}
+  .actions{gap:8px}
+  .actions button{padding:9px 14px;font-size:13px}
+  .hero-card{display:none}
+  .interactive-box{padding:14px 12px}
+  .interactive-box .grid4{grid-template-columns:1fr 1fr}
+  .flip-card{height:160px}
+  .footerNav{flex-direction:column;gap:8px}
+  .footerNav button{width:100%;justify-content:center}
+  th,td{padding:8px 10px;font-size:13px}
+  .semaforo-box{grid-template-columns:1fr 1fr}
+  .kpi{padding:12px}
+  .kpi b{font-size:26px}
+  .diploma-digital{padding:20px 14px}
+  .diploma-title{font-size:28px}
+  .diploma-name{font-size:24px;padding:0 14px 6px}
+}
+@media(max-width:760px){
+  .semaforo-box,.check-grid,.relation-row{grid-template-columns:1fr!important}
+}
+@media print{
+  aside,.footerNav,.actions,.menuToggle,.nav,.quiz,.noPrint,.adminTabs{display:none!important}
+  .layout{display:block}.panel,section.module{box-shadow:none;border:0}
+  .cert,.diploma-digital{page-break-inside:avoid}
+}
+@media(max-width:560px){.result>div[style*="grid-template-columns:repeat(2"]{grid-template-columns:1fr!important}}
+
+/* Imágenes didácticas integradas AMH */
+.amh-visual{margin:16px 0 22px;border:1px solid var(--border);border-radius:18px;overflow:hidden;background:#fff;box-shadow:var(--shm)}
+.amh-visual img{display:block;width:100%;height:auto;object-fit:contain;background:#fff}
+.amh-visual figcaption{font-size:12px;color:var(--muted);padding:8px 12px;background:#f8fafc;border-top:1px solid var(--border)}
+.amh-gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:14px;margin:16px 0 22px}
+.amh-gallery .amh-visual{margin:0}
+@media(max-width:560px){.amh-gallery{grid-template-columns:1fr}.amh-visual{border-radius:12px}}
+
+
+/* Imágenes didácticas integradas */
+.amh-visual{margin:16px 0 22px;border:1px solid var(--border);border-radius:18px;overflow:hidden;background:#fff;box-shadow:var(--shm)}
+.amh-visual img{display:block;width:100%;height:auto;object-fit:contain;background:#fff}
+.amh-gallery{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0 22px}
+.amh-gallery .amh-visual{margin:0}
+@media(max-width:760px){.amh-gallery{grid-template-columns:1fr}.amh-visual{border-radius:12px}}
+
+
+/* Corrección: cuando una galería tiene una sola imagen, usar todo el ancho para evitar espacio en blanco */
+.amh-gallery:has(> .amh-visual:only-child){grid-template-columns:1fr!important;}
+.amh-gallery > .amh-visual:only-child{grid-column:1/-1!important;width:100%!important;}
+.amh-gallery > .amh-visual:only-child img{width:100%!important;max-width:100%!important;}
+
+
+.amh-fullwidth{width:100%!important;max-width:100%!important;margin:18px 0 26px!important;}
+.amh-fullwidth img{width:100%!important;max-width:100%!important;height:auto!important;display:block!important;object-fit:contain!important;}
+
+
+/* Portada principal actualizada */
+.hero-logo{
+  display:block!important;
+  width:100%!important;
+  max-width:1280px!important;
+  height:auto!important;
+  max-height:none!important;
+  object-fit:contain!important;
+  object-position:center center!important;
+  background:transparent!important;
+  border-radius:18px!important;
+  padding:0!important;
+  margin:0 0 22px 0!important;
+  box-shadow:0 10px 30px rgba(0,0,0,.25)!important;
+}
+
+
+/* Inicio limpio sin repetición de título y textos */
+header.hero{
+  padding:0 0 28px!important;
+}
+header.hero .hero-inner{
+  max-width:1280px!important;
+  display:block!important;
+}
+header.hero .hero-logo{
+  margin:0 auto 22px auto!important;
+  width:100%!important;
+  max-width:1280px!important;
+  border-radius:0 0 18px 18px!important;
+}
+header.hero .actions{
+  max-width:1120px!important;
+  margin:0 auto!important;
+  padding:0 24px!important;
+}
+@media(max-width:560px){
+  header.hero .actions{
+    padding:0 14px!important;
+  }
+  header.hero .hero-logo{
+    border-radius:0 0 12px 12px!important;
+  }
+}
+
+</style>
+
+<style id="mobile-performance-optimizations">
+@media (hover:none) and (pointer:coarse){
+  button:hover,.card:hover,.kpi:hover,.map-zone:hover,.option:hover,.final-option:hover{transform:none!important;box-shadow:inherit}
+  *{-webkit-tap-highlight-color:transparent}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+}
+img{content-visibility:auto}
+
+.activity-lock{border:1px solid #fde68a;background:#fffbeb;border-radius:14px;padding:14px 16px;margin:16px 0}.activity-ok{border:1px solid #a7f3d0;background:#ecfdf5;border-radius:14px;padding:14px 16px;margin:16px 0}.req-list{display:grid;gap:8px;margin:10px 0}.req-item{display:flex;align-items:center;gap:10px;padding:9px 11px;background:#fff;border:1px solid var(--border);border-radius:10px}.req-item .state{font-weight:900;min-width:22px}.nav button.locked{opacity:.45;cursor:not-allowed}.nav button.done::after{content:" ✓";color:var(--emerald)}.offline-banner{position:fixed;left:0;right:0;bottom:0;z-index:10000;background:#7c2d12;color:#fff;text-align:center;padding:8px 12px;font-weight:700}.update-banner{position:fixed;left:12px;right:12px;bottom:14px;z-index:10001;background:#0a2540;color:#fff;padding:12px 14px;border-radius:14px;box-shadow:var(--shl);display:flex;justify-content:space-between;align-items:center;gap:12px}@media(max-width:560px){.update-banner{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<header class="hero" id="hero">
+ <div class="hero-inner">
+  <div>
+   <img src="images/img_01.webp" alt="Logo de la Asociación Mexicana de Hidráulica Sección Tabasco" class="hero-logo" decoding="async">
+   <div class="actions">
+    <button class="btn-primary" onclick="showLogin()">Ingresar con cuenta</button>
+    <button class="btn-secondary" onclick="showRegister()">Crear cuenta</button>
+    <button class="btn-secondary" id="installAppBtn" hidden>Instalar aplicación</button>
+   </div>
+   <div id="networkStatus" class="small" style="max-width:1120px;margin:12px auto 0;padding:0 24px;color:#fff;opacity:.9"></div>
+  </div>
+ </div>
+</header>
+
+<div id="authArea" class="loginbox hidden"></div>
+
+<div class="layout hidden" id="app">
+ <aside id="sidebar">
+  <img src="images/img_02.jpg" alt="Logo AMH Sección Tabasco" class="sidebar-logo" loading="lazy" decoding="async">
+  <div class="logoBox">
+   <div class="logoMark">AMH</div>
+   <div><b>Hidrología Tabasco</b><br><small id="userMini">Usuario</small></div>
+  </div>
+  <div class="panel" style="padding:12px">
+   <b>Avance general</b>
+   <div class="progress"><span id="progBar"></span></div>
+   <small id="progText">0%</small>
+  </div>
+  <div class="nav" id="nav"></div>
+ </aside>
+ <main id="content"></main>
+</div>
+<button class="menuToggle" onclick="document.getElementById('sidebar').classList.toggle('open')">☰ Menú</button>
+
+<script>
+let currentUser=null;
+let currentModule=0;
+let adminMode=false;
+let guestMode=false;
+
+/* DATA */
+const regionData={
+ "Sierra":{
+  origen:"Lluvias orográficas sobre cuencas cortas y pendientes fuertes.",
+  rios:"Oxolotán, Amatán, Tacotalpa, La Sierra, Teapa, Puyacatengo, Pichucalco y sistema Puxcatán–Tulijá–Chilapa.",
+  municipios:"Tacotalpa, Teapa, Jalapa y zonas bajas conectadas.",
+  respuesta:"Rápida.",
+  duracion:"Corta a media, con ascensos acelerados.",
+  factor:"Intensidad de lluvia, saturación y pendiente.",
+  tipo:"Crecientes rápidas, escurrimiento torrencial y arrastre de sedimentos.",
+  clave:"En la Sierra importa mucho el tiempo de respuesta: una lluvia intensa puede reflejarse rápidamente aguas abajo."
+ },
+ "Usumacinta":{
+  origen:"Cuenca transfronteriza con aportes de Guatemala, Chiapas y Tabasco.",
+  rios:"Usumacinta, La Pasión, Lacantún y afluentes regionales.",
+  municipios:"Tenosique, Balancán, Emiliano Zapata, Jonuta y Centla.",
+  respuesta:"Progresiva.",
+  duracion:"Prolongada, por gran volumen y planicies de regulación.",
+  factor:"Volumen, propagación de creciente y almacenamiento en planicie.",
+  tipo:"Inundación extensa, lenta y de permanencia elevada.",
+  clave:"El Usumacinta no se interpreta solo con lluvia local; la señal puede originarse muy lejos de Tabasco."
+ },
+ "Samaria–Carrizal":{
+  origen:"Descargas reguladas del Alto Grijalva, Mezcalapa, aportes locales y bifurcación hidráulica.",
+  rios:"Mezcalapa, Platanar, Samaria, Carrizal, Grijalva urbano y sistemas asociados.",
+  municipios:"Nacajuca, Jalpa de Méndez, Cunduacán, Centro y zonas conurbadas.",
+  respuesta:"Media y compleja.",
+  duracion:"Variable, según gasto, lluvia local y remanso.",
+  factor:"Distribución Samaria-Carrizal, El Macayo, remanso y niveles aguas abajo.",
+  tipo:"Inundación fluvial, pluvial y por remanso en planicie.",
+  clave:"Este sistema combina regulación, bifurcaciones, estructuras de control y condiciones locales."
+ },
+ "Chontalpa":{
+  origen:"Planicie agrícola, drenes, lluvias locales y sistemas Tonalá–Zanapa; con posibles interacciones de planicie hacia sistemas vecinos.",
+  rios:"Tonalá, Zanapa, drenes agrícolas, canales y sistemas de planicie.",
+  municipios:"Huimanguillo y Cárdenas.",
+  respuesta:"Media.",
+  duracion:"Media a prolongada si drenes y suelos están saturados.",
+  factor:"Capacidad de drenaje, infraestructura carretera y saturación.",
+  tipo:"Inundación fluvial, pluvial, agrícola y mixta.",
+  clave:"En Chontalpa, el drenaje de planicie y la infraestructura son tan importantes como el río principal."
+ },
+ "Costa–Pantanos":{
+  origen:"Interacción de ríos, lagunas, humedales, bocanas, marea, Norte y Golfo de México.",
+  rios:"Tres Brazos, Grijalva-Usumacinta deltaico, río Seco, lagunas costeras y bocanas.",
+  municipios:"Centla, Paraíso y Comalcalco.",
+  respuesta:"Lenta.",
+  duracion:"Prolongada por baja pendiente y salida limitada.",
+  factor:"Marea, Norte, azolvamiento, bocanas, remanso y lagunas saturadas.",
+  tipo:"Inundación costera, lagunar, fluvial y por remanso.",
+  clave:"Aquí el problema suele ser la lenta salida del agua hacia el Golfo."
+ },
+ "Área urbana":{
+  origen:"Lluvia local intensa sobre superficies impermeables, drenaje pluvial limitado, vasos reguladores ocupados o insuficientes y posible influencia de ríos altos.",
+  rios:"Drenes urbanos, cárcamos, canales, alcantarillas, vasos de regulación, pasos hidráulicos y cauces urbanos o periurbanos.",
+  municipios:"Cabeceras municipales y zonas conurbadas; especialmente Villahermosa y áreas urbanas bajas.",
+  respuesta:"Muy rápida a media.",
+  duracion:"Corta si el drenaje funciona; prolongada si coinciden río alto, cárcamos rebasados o descarga impedida.",
+  factor:"Intensidad horaria, impermeabilización, basura en rejillas, capacidad de cárcamos, drenes y nivel del río receptor.",
+  tipo:"Inundación pluvial urbana, anegamiento, encharcamiento severo y posible inundación mixta pluvial-fluvial.",
+  clave:"En zonas urbanas importa más la intensidad en poco tiempo y la capacidad real del drenaje que solo el acumulado diario."
+ }
+};
+
+const concepts=[
+ ["Cuenca","Territorio donde el agua de lluvia escurre hacia un mismo punto de salida: río, laguna, humedal o desembocadura. Para Tabasco destacan dos Regiones Hidrológicas oficiales: RH-30 Grijalva–Usumacinta y RH-29 Coatzacoalcos; para la operación local se analizan sistemas hidrológicos regionales."],
+ ["Subcuenca","Unidad menor dentro de una cuenca principal. Permite analizar respuestas diferenciadas: Sierra, Samaria–Carrizal, Usumacinta, Chontalpa o Costa–Pantanos."],
+ ["Gasto","Volumen de agua que pasa por una sección del río cada segundo, expresado en m³/s. Ayuda a dimensionar la magnitud real de una creciente."],
+ ["Nivel hidrométrico","Altura del agua respecto a una escala local. Debe interpretarse junto con gasto, tendencia, NAMO/NAME y ubicación de la estación."],
+ ["Hidrograma","Gráfica que muestra cómo cambia el nivel o gasto de un río en el tiempo. Permite observar ascenso, pico, meseta, descenso o segundo pulso."],
+ ["Remanso","Elevación o lentitud del flujo causada por niveles altos aguas abajo, confluencias, marea, obstáculos o salida limitada."],
+ ["Laminación","Atenuación de una avenida por almacenamiento temporal en presas, humedales, planicies o cauces amplios."],
+ ["Tiempo de respuesta","Lapso entre la lluvia relevante en la cuenca y el reflejo de la creciente en una comunidad, estación o tramo del río."]
+];
+
+const glossary=[
+ {term:"Acumulado de lluvia",def:"Cantidad total de lluvia registrada en un periodo.",ex:"80 mm en 6 horas puede tener más impacto que 80 mm en 24 horas si cae sobre una cuenca serrana.",rel:"intensidad, duración, escurrimiento"},
+ {term:"Avenida",def:"Incremento notable del gasto o nivel de un río durante un evento.",ex:"Una avenida del Usumacinta puede propagarse progresivamente hacia Los Ríos y Centla.",rel:"hidrograma, pico, gasto"},
+ {term:"Azolvamiento",def:"Acumulación de sedimentos en cauces, drenes, lagunas o bocanas.",ex:"En la costa puede reducir la capacidad de salida del agua hacia el Golfo.",rel:"bocana, sedimentos, drenaje"},
+ {term:"Bocana",def:"Comunicación natural o artificial entre laguna/cauce y mar.",ex:"Una bocana estrecha o azolvada puede prolongar anegamientos en Costa–Pantanos.",rel:"marea, costa, azolvamiento"},
+ {term:"Caudal o gasto",def:"Volumen de agua que pasa por una sección por segundo.",ex:"Se expresa en m³/s y permite comparar magnitud entre ríos.",rel:"nivel, hidrograma"},
+ {term:"Cuenca",def:"Territorio que drena hacia un punto común.",ex:"El Usumacinta integra aportes de Guatemala, Chiapas y Tabasco.",rel:"subcuenca, escurrimiento"},
+ {term:"Escurrimiento",def:"Agua que fluye sobre la superficie después de la lluvia.",ex:"Aumenta cuando el suelo está saturado o la pendiente es fuerte.",rel:"saturación, lluvia"},
+ {term:"Hidrograma",def:"Gráfica de nivel o gasto en función del tiempo.",ex:"Permite identificar el pico de una creciente o una meseta prolongada.",rel:"nivel, gasto, avenida"},
+ {term:"Zona de regulación natural",def:"Planicie, bajo, laguna, humedal o brazo secundario que almacena temporalmente agua durante una creciente y reduce el pico aguas abajo.",ex:"Al comparar Landsat de una creciente máxima con el evento actual puede estimarse cuántas hectáreas siguen disponibles para amortiguar el agua.",rel:"humedal, laminación, planicie"},
+{term:"Humedal",def:"Ecosistema saturado de agua que puede almacenar y regular flujos.",ex:"Pantanos de Centla funcionan como zona de regulación natural.",rel:"laminación, planicie"},
+ {term:"Laminación",def:"Reducción o atenuación de una avenida por almacenamiento temporal.",ex:"Puede ocurrir en presas, humedales o planicies.",rel:"avenida, regulación"},
+ {term:"Marea",def:"Oscilación del nivel del mar.",ex:"La marea alta puede dificultar la salida del agua en Costa–Pantanos.",rel:"costa, remanso"},
+ {term:"NAMO",def:"Nivel de Aguas Máximas Ordinarias, referencia de operación hidráulica.",ex:"Se usa en presas y cuerpos de agua como referencia técnica.",rel:"nivel, operación"},
+ {term:"Remanso",def:"Efecto de elevación o lentitud del flujo por condiciones aguas abajo.",ex:"Puede presentarse con río alto, marea alta o confluencias.",rel:"marea, confluencia"},
+ {term:"Saturación",def:"Estado de humedad elevada del suelo.",ex:"Con suelo saturado, lluvias moderadas pueden producir escurrimiento significativo.",rel:"lluvia antecedente, escurrimiento"},
+ {term:"Subcuenca",def:"Parte de una cuenca mayor con dinámica propia.",ex:"Los ríos serranos pueden analizarse por subcuencas para anticipar respuesta.",rel:"cuenca, microcuenca"},
+ {term:"Tiempo de traslado",def:"Tiempo que tarda una creciente en moverse de un punto a otro.",ex:"En el Usumacinta permite anticipar efectos aguas abajo.",rel:"propagación, hidrograma"},
+ {term:"Cuenca alta",def:"Parte de la cuenca donde suele generarse el escurrimiento inicial, generalmente con mayor pendiente.",ex:"Sierra de Tabasco y Chiapas para ríos de respuesta rápida.",rel:"pendiente, escurrimiento"},
+ {term:"Cuenca baja",def:"Zona de menor pendiente donde el río se acerca a planicies, humedales, lagunas o costa.",ex:"Planicie tabasqueña y delta Grijalva-Usumacinta.",rel:"planicie, remanso"},
+ {term:"Cuenca regulada",def:"Cuenca donde presas u obras de control modifican el comportamiento natural del flujo.",ex:"Alto Alto Grijalva regulado en Chiapas por La Angostura, Chicoasén, Malpaso y Peñitas.",rel:"presa, gasto"},
+ {term:"Cuenca libre",def:"Cuenca donde no existe una gran presa que controle los principales volúmenes de creciente.",ex:"Usumacinta y varios ríos serranos.",rel:"creciente, propagación"},
+ {term:"Inundación mixta",def:"Inundación donde coinciden varios mecanismos: lluvia local, río alto, remanso, marea o drenaje insuficiente.",ex:"Chontalpa y Costa-Pantanos pueden presentar escenarios mixtos.",rel:"fluvial, pluvial, remanso"}
+];
+
+// Rangos usados por el SMN (acumulado 24 h, mm)
+const rainRanges=[
+ {v:2.5,  label:"Lluvias aisladas (0.1–5 mm)",       cat:"aisladas",      color:"#10b981"},
+ {v:15,   label:"Intervalos de chubascos (5.1–25 mm)",  cat:"chubascos",   color:"#84cc16"},
+ {v:37.5, label:"Lluvias fuertes (25.1–50 mm)",   cat:"fuertes",     color:"#f59e0b"},
+ {v:62.5, label:"Lluvias muy fuertes (50.1–75 mm)",cat:"muy fuertes",color:"#f97316"},
+ {v:112,  label:"Lluvias intensas (75.1–150 mm)", cat:"intensas",    color:"#ef4444"},
+ {v:200,  label:"Lluvias torrenciales (150.1–250 mm)",cat:"torrenciales",color:"#dc2626"},
+ {v:300,  label:"Lluvias extraordinarias (>250 mm)",   cat:"extraordinarias",    color:"#7f1d1d"}
+];
+const durations=[1,3,6,12,24];
+
+/* SHARED COMPONENT HTML */
+function accordion(items){
+ return items.map((it,idx)=>`
+ <div class="accordion">
+  <div class="acc-head" onclick="toggleAcc(this)"><span>${it[0]}</span><span>＋</span></div>
+  <div class="acc-body">${it[1]}</div>
+ </div>`).join("");
+}
+function wrapTables(html){return html.replace(/<table/g,'<div class="table-wrap"><table').replace(/<\/table>/g,'</table></div>');}
+function flipCards(list=concepts.slice(0,8)){
+ return `<div class="flip-grid">`+list.map(c=>`
+ <div class="flip-card" onclick="this.classList.toggle('flipped')">
+  <div class="flip-inner">
+   <div class="flip-front">${c[0]}</div>
+   <div class="flip-back"><b>${c[0]}</b><br>${c[1]}</div>
+  </div>
+ </div>`).join("")+`</div>`;
+}
+function lluviaSelectorHTML(id){
+ return `
+ <div class="interactive-box">
+  <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+   <span style="font-size:18px">🌧</span>
+   <h3 style="margin:0">Intérprete de lluvia por sistema regional</h3>
+  </div>
+  <div style="background:linear-gradient(135deg,#eff6ff,#f0fdf4);border:1px solid #bae6fd;border-radius:10px;padding:10px 14px;margin-bottom:12px;font-size:13px">
+   <b>Rangos usados por el SMN (Servicio Meteorológico Nacional de México) — acumulado 24 h:</b><br>
+   <span style="display:flex;flex-wrap:wrap;gap:5px;margin-top:7px">
+    <span style="background:#10b981;color:white;padding:2px 9px;border-radius:999px;font-size:11px;font-weight:700">Aisladas 0.1–5 mm</span>
+    <span style="background:#84cc16;color:white;padding:2px 9px;border-radius:999px;font-size:11px;font-weight:700">Chubascos 5.1–25</span>
+    <span style="background:#f59e0b;color:white;padding:2px 9px;border-radius:999px;font-size:11px;font-weight:700">Fuertes 25.1–50</span>
+    <span style="background:#f97316;color:white;padding:2px 9px;border-radius:999px;font-size:11px;font-weight:700">Muy fuertes 50.1–75</span>
+    <span style="background:#ef4444;color:white;padding:2px 9px;border-radius:999px;font-size:11px;font-weight:700">Intensas 75.1–150</span>
+    <span style="background:#dc2626;color:white;padding:2px 9px;border-radius:999px;font-size:11px;font-weight:700">Torrenciales 150.1–250</span>
+    <span style="background:#7f1d1d;color:white;padding:2px 9px;border-radius:999px;font-size:11px;font-weight:700">Extraordinarias &gt;250</span>
+   </span>
+  </div>
+  <p style="font-size:13px;color:var(--muted);margin:0 0 10px">Selecciona condiciones para obtener interpretación hidrológica con base en la escala oficial del SMN.</p>
+  <div class="grid4">
+   <div><label>Sistema hidrológico regional</label><select id="${id}_reg">${Object.keys(regionData).map(r=>`<option>${r}</option>`).join("")}</select></div>
+   <div><label>Categoría SMN (acumulado 24 h)</label><select id="${id}_rain">${rainRanges.map(r=>`<option value="${r.v}">${r.label}</option>`).join("")}</select></div>
+   <div><label>Duración</label><select id="${id}_dur">${durations.map(d=>`<option value="${d}">${d} h</option>`).join("")}</select></div>
+   <div><label>Condición antecedente</label><select id="${id}_soil"><option>Suelo seco</option><option>Suelo húmedo</option><option>Suelo saturado</option></select></div>
+  </div>
+  <button class="btn-blue" onclick="interpretRain('${id}')">Interpretar lluvia</button>
+  <div id="${id}_out" class="result">La interpretación aparecerá aquí.</div>
+ </div>`;
+}
+function mapHTML(){ return ``; }
+function regionTable(r){
+ const d=regionData[r];
+ return `<h3>${r}</h3><div class="table-wrap"><table>
+ <tr><th>Origen del agua</th><td>${d.origen}</td></tr>
+ <tr><th>Ríos/sistemas</th><td>${d.rios}</td></tr>
+ <tr><th>Municipios o zonas</th><td>${d.municipios}</td></tr>
+ <tr><th>Respuesta</th><td>${d.respuesta}</td></tr>
+ <tr><th>Duración</th><td>${d.duracion}</td></tr>
+ <tr><th>Factor crítico</th><td>${d.factor}</td></tr>
+ <tr><th>Tipo de inundación</th><td>${d.tipo}</td></tr>
+ </table></div><div class="key">${d.clave}</div>`;
+}
+function routeHTML(kind){
+ const steps = kind==="grijalva" ? [
+  ["Grijalva tabasqueño","En Tabasco se expresa por ríos serranos y de planicie como Oxolotán, Amatán, Tacotalpa, La Sierra, Teapa, Puyacatengo y Pichucalco."],
+  ["Aporte regulado del Alto Grijalva","La cascada de presas almacena, regula y lamina volúmenes. Su aporte llega a Tabasco por Mezcalapa–Carrizal y se incorpora localmente aguas abajo de Villahermosa."],
+  ["Descarga hacia Mezcalapa","Desde Peñitas el flujo ingresa hacia el sistema Mezcalapa, donde empieza la lectura de planicie."],
+  ["Aportación del Platanar","El río Platanar aporta al sistema antes de la bifurcación, modificando condiciones locales."],
+  ["Bifurcación Samaria–Carrizal","El flujo se distribuye hacia dos brazos principales, lo que condiciona impactos diferenciados aguas abajo."],
+  ["El Macayo y control hidráulico","La estructura regula el ingreso hacia Carrizal y modifica el comportamiento hacia zonas urbanas y periurbanas."],
+  ["Planicie tabasqueña","La baja pendiente, lluvias locales y niveles aguas abajo pueden generar remansos y permanencia del agua."]
+ ] : [
+  ["Lluvias en Guatemala","La cuenca alta puede generar volumen significativo aunque no llueva con igual intensidad en Tabasco."],
+  ["La Pasión y Usumacinta","Aportaciones guatemaltecas se integran al sistema principal."],
+  ["Lacantún desde Chiapas","El Lacantún incorpora aportes de la Selva de Chiapas antes de Boca del Cerro."],
+  ["Boca del Cerro","Punto clave de entrada y lectura para anticipar comportamiento en Los Ríos."],
+  ["Tenosique","Primer tramo tabasqueño con lectura temprana de creciente."],
+  ["Balancán y Emiliano Zapata","La creciente se propaga progresivamente con desfases en tiempo."],
+  ["Jonuta y Centla","La planicie, humedales y confluencias favorecen permanencia prolongada."],
+  ["Delta y humedales","El sistema se integra con lagunas, pantanos y desembocaduras hacia el Golfo."]
+ ];
+ const id="route_"+kind;
+ return `<div class="route-box">
+  <div class="route-steps">${steps.map((s,i)=>`<button onclick='selectRouteStep("${id}",${i})' id="${id}_b${i}" class="${i==0?'active':''}">${i+1}. ${s[0]}</button>`).join("")}</div>
+  <div class="card">
+   <h3 id="${id}_title">${steps[0][0]}</h3>
+   <p id="${id}_txt">${steps[0][1]}</p>
+   <div class="progress"><span id="${id}_bar" style="width:${100/steps.length}%"></span></div>
+   <div class="actions"><button class="btn-light" onclick='prevRoute("${id}")'>Anterior</button><button class="btn-blue" onclick='nextRoute("${id}")'>Siguiente</button></div>
+  </div>
+ </div>`;
+}
+function hydrographHTML(){
+ return `
+ <div class="hydro-wrap">
+  <svg class="hydro-svg" viewBox="0 0 720 420">
+   <line x1="60" y1="350" x2="670" y2="350" stroke="#94a3b8" stroke-width="3"/>
+   <line x1="60" y1="350" x2="60" y2="55" stroke="#94a3b8" stroke-width="3"/>
+   <text x="310" y="395" fill="#475569" font-size="18">Tiempo</text>
+   <text x="15" y="45" fill="#475569" font-size="18">Nivel / gasto</text>
+   <path d="M65 326 C110 324,130 318,160 292 C196 260,205 190,245 150 C285 110,330 96,370 120 C410 145,423 190,465 190 C515 190,545 188,580 228 C610 260,626 300,660 318" fill="none" stroke="#0b638f" stroke-width="8" stroke-linecap="round"/>
+   <g class="hydro-point" onclick="selectHydro('Inicio del ascenso','La cuenca empieza a responder a lluvia local o aportes aguas arriba. La rapidez del ascenso indica la velocidad de respuesta.')"><circle cx="150" cy="300" r="13"/><text x="105" y="284" font-size="14">Ascenso</text></g>
+   <g class="hydro-point" onclick="selectHydro('Pico máximo','Representa el mayor nivel o gasto del evento. No siempre ocurre al mismo tiempo en todas las estaciones.')"><circle cx="315" cy="103" r="13"/><text x="285" y="78" font-size="14">Pico</text></g>
+   <g class="hydro-point" onclick="selectHydro('Meseta','El sistema se mantiene elevado. Puede indicar gran volumen, planicie llena, remanso o salida lenta.')"><circle cx="468" cy="190" r="13"/><text x="435" y="166" font-size="14">Meseta</text></g>
+   <g class="hydro-point" onclick="selectHydro('Descenso','El sistema libera agua. En planicies de baja pendiente puede descender lentamente.')"><circle cx="610" cy="276" r="13"/><text x="575" y="252" font-size="14">Descenso</text></g>
+  </svg>
+  <div class="card">
+   <h3 id="hydroTitle">Lector de hidrogramas</h3>
+   <p id="hydroText">Haz clic en los puntos de la gráfica para interpretar las fases de una creciente.</p>
+   <div class="note"><b>Clave:</b> no basta decir que un río subió; se debe observar cuánto sube, qué tan rápido, cuánto permanece y si hay nuevos pulsos.</div>
+  </div>
+ </div>`;
+}
+function comparatorHTML(){
+ return `
+ <div class="interactive-box">
+  <h3>Comparador de sistemas hidrológicos regionales de Tabasco</h3><p class="small"><b>Nota técnica:</b> aquí no se comparan Regiones Hidrológicas oficiales, sino sistemas hidrológicos regionales usados para lectura operativa del riesgo.</p>
+  <div class="grid2">
+   <div><label>Sistema A</label><select id="compA">${Object.keys(regionData).map(r=>`<option>${r}</option>`).join("")}</select></div>
+   <div><label>Sistema B</label><select id="compB">${Object.keys(regionData).map(r=>`<option>${r}</option>`).join("")}</select></div>
+  </div>
+  <button class="btn-blue" onclick="compareRegions()">Comparar sistemas</button>
+  <div id="compOut" class="result">Selecciona dos sistemas hidrológicos regionales para comparar.</div>
+ </div>`;
+}
+function scenarioHTML(id){
+ return `
+ <div class="interactive-box">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px">
+   <span style="font-size:20px">🔬</span>
+   <h3 style="margin:0">Constructor de escenarios hidrológicos</h3>
+  </div>
+  <p style="font-size:13px;color:var(--muted);margin:0 0 14px">Selecciona las condiciones y genera una interpretación diferenciada por sistema regional, combinación de factores y estado de las zonas de regulación.</p>
+  <div class="grid4">
+   <div>
+    <label>Fenómeno</label>
+    <select id="${id}_fen" onchange="previewSeverity('${id}')">
+     <option>Frente frío</option><option>Onda tropical</option><option>Ciclón tropical</option>
+     <option>Evento de Norte</option><option>Lluvia convectiva</option><option>Interacción frente–ciclón</option>
+    </select>
+   </div>
+   <div>
+    <label>Región</label>
+    <select id="${id}_reg" onchange="previewSeverity('${id}')">
+     ${Object.keys(regionData).map(r=>`<option>${r}</option>`).join("")}
+    </select>
+   </div>
+   <div>
+    <label>Estado del suelo</label>
+    <select id="${id}_soil" onchange="previewSeverity('${id}')">
+     <option>Seco</option><option>Húmedo</option><option>Saturado</option>
+    </select>
+   </div>
+   <div>
+    <label>Estado del río</label>
+    <select id="${id}_river" onchange="previewSeverity('${id}')">
+     <option>Bajo</option><option>Medio</option><option>Alto</option>
+    </select>
+   </div>
+   <div>
+    <label>Condición costera</label>
+    <select id="${id}_coast" onchange="previewSeverity('${id}')">
+     <option>Normal</option><option>Marea alta</option><option>Norte fuerte</option>
+    </select>
+   </div>
+   <div>
+    <label>Zonas de regulación</label>
+    <select id="${id}_regulacion" onchange="previewSeverity('${id}')">
+     <option>Disponibles</option><option>En llenado</option><option>Saturadas o reducidas</option>
+    </select>
+   </div>
+  </div>
+  <div id="${id}_preview" style="height:6px;background:var(--border);border-radius:999px;margin:10px 0;overflow:hidden;transition:all .3s">
+   <div id="${id}_preview_bar" style="height:100%;width:15%;background:var(--emerald);border-radius:999px;transition:all .4s ease"></div>
+  </div>
+  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px">
+   <button class="btn-blue" onclick="buildScenario('${id}')">Generar interpretación</button>
+   <span id="${id}_preview_label" style="font-size:13px;font-weight:700;color:var(--muted)">Selecciona condiciones</span>
+  </div>
+  <div id="${id}_out" class="result" style="display:none"></div>
+ </div>`;
+}
+function casesHTML(){
+ return `
+ <div class="case-card" data-answer="1">
+  <h3>Caso 1. Lluvia intensa en la Sierra</h3>
+  <p>Se registran 110 mm en 6 horas sobre una cuenca serrana con suelo saturado. Los ríos menores presentan ascenso rápido.</p>
+  <button class="option" onclick="caseAnswer(this,0)">Evento local con respuesta gradual.</button>
+  <button class="option" onclick="caseAnswer(this,1)">Creciente rápida por pendiente y suelo.</button>
+  <button class="option" onclick="caseAnswer(this,2)">Escenario costero con marea alta.</button>
+  <button class="option" onclick="caseAnswer(this,3)">Anegamiento menor sin escurrimiento.</button>
+  <div class="result hidden">En cuencas serranas, intensidad, pendiente y humedad antecedente pueden generar crecientes rápidas aun sin superar 150 mm.</div>
+ </div>
+ <div class="case-card" data-answer="2">
+  <h3>Caso 2. Costa–Pantanos con Norte</h3>
+  <p>Se presenta río alto, marea elevada, viento del Norte y bocana con azolvamiento.</p>
+  <button class="option" onclick="caseAnswer(this,0)">Descenso rápido por mayor pendiente.</button>
+  <button class="option" onclick="caseAnswer(this,1)">Salida libre por cercanía al litoral.</button>
+  <button class="option" onclick="caseAnswer(this,2)">Remanso con permanencia prolongada.</button>
+  <button class="option" onclick="caseAnswer(this,3)">Creciente súbita de cuenca alta.</button>
+  <div class="result hidden">La interacción río-laguna-mar puede dificultar el desalojo y prolongar la inundación.</div>
+ </div>
+ <div class="case-card" data-answer="0">
+  <h3>Caso 3. Usumacinta en ascenso</h3>
+  <p>Hay lluvias intensas en Guatemala y Chiapas, y después comienza a incrementarse Boca del Cerro.</p>
+  <button class="option" onclick="caseAnswer(this,0)">Propagación de creciente aguas abajo.</button>
+  <button class="option" onclick="caseAnswer(this,1)">Impacto nulo sin lluvia municipal.</button>
+  <button class="option" onclick="caseAnswer(this,2)">Solo anegamiento pluvial urbano.</button>
+  <button class="option" onclick="caseAnswer(this,3)">Proceso exclusivo de zona costera.</button>
+  <div class="result hidden">El Usumacinta debe leerse por propagación de creciente y volumen de cuenca, no solo por lluvia local.</div>
+ </div>
+ <div class="case-card" data-answer="2">
+  <h3>Caso 4. Área urbana con lluvia intensa</h3>
+  <p>Caen 65 mm en una hora sobre una cabecera municipal; hay rejillas obstruidas, cárcamos al límite y dren receptor alto.</p>
+  <button class="option" onclick="caseAnswer(this,0)">Riesgo bajo por no ser río mayor.</button>
+  <button class="option" onclick="caseAnswer(this,1)">Vigilancia centrada solo en cuenca alta.</button>
+  <button class="option" onclick="caseAnswer(this,2)">Inundación pluvial con componente mixto.</button>
+  <button class="option" onclick="caseAnswer(this,3)">Marea como factor único del impacto.</button>
+  <div class="result hidden">En áreas urbanas la intensidad en poco tiempo puede rebasar alcantarillas, cárcamos y pasos bajos; si el receptor está alto, la descarga se vuelve lenta.</div>
+ </div>`;
+}
+
+function interactiveToolsHTML(){
+ return `
+ <h2>Herramientas interactivas de aprendizaje hidrológico</h2>
+ <p>Esta sección reúne ejercicios para practicar la interpretación de lluvias, tipos de inundación, señales hidrológicas, permanencia del agua y lectura de boletines.</p>
+ <div class="grid">
+  <div class="card"><span class="tool-badge">1</span><h3>Simulador de tipo de inundación</h3><p>Identifica si el escenario es pluvial, fluvial, por remanso, costero o mixto.</p></div>
+  <div class="card"><span class="tool-badge">2</span><h3>Semáforo didáctico</h3><p>Clasifica condiciones de complejidad hidrológica sin sustituir alertas oficiales.</p></div>
+  <div class="card"><span class="tool-badge">3</span><h3>Casos regionales</h3><p>Practica con ejemplos de Sierra, Usumacinta, Samaria-Carrizal, Chontalpa y Costa-Pantanos.</p></div>
+ </div>
+ ${floodTypeSimulatorHTML()}
+ ${didacticSemaphoreHTML()}
+ ${regionalCaseBankHTML()}
+ ${mythsHTML()}
+ ${bulletinReaderHTML()}
+ ${causeEffectHTML()}
+ ${permanenceCalculatorHTML()}
+ <div class="key">Estas herramientas no emiten alertas oficiales; su función es didáctica: ayudar a razonar con variables hidrológicas.</div>`;
+}
+
+function floodTypeSimulatorHTML(){
+ return `<div class="interactive-box">
+  <h3>1. Simulador de tipo de inundación</h3>
+  <p>Marca las condiciones presentes. El sistema identificará el tipo dominante de inundación y explicará por qué.</p>
+  <span class="tool-help">Selecciona una o varias condiciones. Mientras más factores se combinen, más probable será un escenario mixto.</span>
+  <div class="check-grid" id="floodChecks">
+   ${[
+    "Lluvia local intensa",
+    "Río alto o desbordado",
+    "Drenaje insuficiente",
+    "Marea alta",
+    "Norte fuerte",
+    "Suelo saturado",
+    "Bocana azolvada",
+    "Lluvia en cuenca alta"
+   ].map((x,i)=>`<label class="check-item"><input type="checkbox" value="${x}"><span>${x}</span></label>`).join("")}
+  </div>
+  <div class="tool-action-row">
+   <button class="btn-blue" onclick="simulateFloodType()">Interpretar tipo de inundación</button>
+   <button class="btn-light" onclick="document.querySelectorAll('#floodChecks input').forEach(x=>x.checked=false);document.getElementById('floodTypeOut').innerHTML='Marca condiciones para obtener la interpretación.'">Limpiar selección</button>
+  </div>
+  <div id="floodTypeOut" class="result">Marca condiciones para obtener la interpretación.</div>
+ </div>`;
+}
+function simulateFloodType(){
+ const vals=[...document.querySelectorAll("#floodChecks input:checked")].map(x=>x.value);
+ let score={pluvial:0,fluvial:0,remanso:0,costera:0,mixta:0};
+ if(vals.includes("Lluvia local intensa")){score.pluvial+=2;score.mixta++}
+ if(vals.includes("Drenaje insuficiente")){score.pluvial++;score.mixta++}
+ if(vals.includes("Río alto o desbordado")){score.fluvial+=2;score.remanso++;score.mixta++}
+ if(vals.includes("Lluvia en cuenca alta")){score.fluvial++;score.mixta++}
+ if(vals.includes("Marea alta")){score.costera+=2;score.remanso++;score.mixta++}
+ if(vals.includes("Norte fuerte")){score.costera++;score.remanso++;score.mixta++}
+ if(vals.includes("Bocana azolvada")){score.remanso+=2;score.costera++;score.mixta++}
+ if(vals.includes("Suelo saturado")){score.pluvial++;score.fluvial++;score.mixta++}
+ let maxType=Object.entries(score).sort((a,b)=>b[1]-a[1])[0][0];
+ if(vals.length>=4) maxType="mixta";
+ const names={pluvial:"Inundación pluvial",fluvial:"Inundación fluvial",remanso:"Inundación por remanso",costera:"Inundación costera-lagunar",mixta:"Inundación mixta"};
+ const explain={
+  pluvial:"Predomina la lluvia local y la capacidad limitada de drenaje. Es típica de zonas urbanas, cabeceras municipales o planicies con drenes insuficientes.",
+  fluvial:"Predomina el incremento del río por lluvia en la cuenca o desbordamiento. Debe observarse nivel, gasto, tendencia y estaciones aguas arriba.",
+  remanso:"Predomina la dificultad de salida del agua por niveles altos aguas abajo, bocanas, marea, confluencias o restricciones hidráulicas.",
+  costera:"Predominan procesos de costa: marea, Norte, oleaje, lagunas y bocanas. El agua puede permanecer aunque la lluvia disminuya.",
+  mixta:"Coinciden varios mecanismos. Es el escenario más común en eventos regionales complejos: lluvia local, río alto, drenaje insuficiente, remanso o costa."
+ };
+ document.getElementById("floodTypeOut").innerHTML=`<div class="tool-result-title">${names[maxType]}</div><p>${explain[maxType]}</p><p><b>Condiciones marcadas:</b> ${vals.join(", ")||"ninguna"}.</p>`;
+}
+
+function didacticSemaphoreHTML(){
+ return `<div class="interactive-box">
+  <h3>2. Semáforo didáctico hidrológico</h3>
+  <p>Selecciona condiciones. El color es didáctico, no oficial.</p>
+  <div class="grid4">
+   <div>
+    <label>Lluvia (escala SMN)</label>
+    <select id="semRain">
+     <option value="1">Lluvias aisladas (0.1–5 mm/24h)</option>
+     <option value="2">Intervalos de chubascos (5.1–25 mm/24h)</option>
+     <option value="3">Lluvias fuertes (25.1–50 mm/24h)</option>
+     <option value="4">Lluvias muy fuertes (50.1–75 mm/24h)</option>
+     <option value="5">Lluvias intensas (75.1–150 mm/24h)</option>
+     <option value="6">Lluvias torrenciales (150.1–250 mm/24h)</option>
+     <option value="7">Lluvias extraordinarias (&gt;250 mm/24h)</option>
+    </select>
+   </div>
+   <div><label>Suelo</label><select id="semSoil"><option>Seco</option><option>Húmedo</option><option>Saturado</option></select></div>
+   <div><label>Río</label><select id="semRiver"><option>Bajo</option><option>Medio</option><option>Alto</option></select></div>
+   <div><label>Costa/drenaje</label><select id="semCoast"><option>Normal</option><option>Drenaje lento</option><option>Marea alta</option><option>Norte fuerte</option></select></div>
+  </div>
+  <button class="btn-blue" onclick="calcSemaphore()">Calcular semáforo didáctico</button>
+  <div class="semaforo-box">
+   <div id="semV" class="sem-card sem-verde">Verde<br><small>ordinario</small></div>
+   <div id="semA" class="sem-card sem-amarillo">Amarillo<br><small>vigilancia</small></div>
+   <div id="semN" class="sem-card sem-naranja">Naranja<br><small>complejo</small></div>
+   <div id="semR" class="sem-card sem-rojo">Rojo<br><small>extremo</small></div>
+  </div>
+  <div id="semOut" class="result">Selecciona condiciones para clasificar el escenario.</div>
+ </div>`;
+}
+// Escala SMN 24 h: 1=Lluvias aisladas 2=Intervalos de chubascos 3=Lluvias fuertes 4=Lluvias muy fuertes 5=Lluvias intensas 6=Lluvias torrenciales 7=Lluvias extraordinarias
+var SMN_LABELS=["","Lluvias aisladas","Intervalos de chubascos","Lluvias fuertes","Lluvias muy fuertes","Lluvias intensas","Lluvias torrenciales","Lluvias extraordinarias"];
+var SMN_RANGE=["","0.1–5 mm/24h","5.1–25 mm/24h","25.1–50 mm/24h","50.1–75 mm/24h","75.1–150 mm/24h","150.1–250 mm/24h",">250 mm/24h"];
+function calcSemaphore(){
+ var s=0;
+ var rainV=Number(semRain.value), soil=semSoil.value, river=semRiver.value, coast=semCoast.value;
+ // Puntuación SMN: Aisladas=0, Chubascos=1, Fuertes=2, Muy fuertes=3, Intensas=4, Torrenciales=5, Extraordinarias=6
+ s+=Math.max(0,rainV-1);
+ if(soil==="Húmedo")s+=1; if(soil==="Saturado")s+=2;
+ if(river==="Medio")s+=1; if(river==="Alto")s+=2;
+ if(coast!=="Normal")s+=1;
+ var rainLabel=SMN_LABELS[rainV]||"Lluvias aisladas";
+ var rainRange=SMN_RANGE[rainV]||"";
+ var level=s>=11?["semR","Rojo — Escenario extremo","Lluvia de categoría "+rainLabel+" ("+rainRange+") combinada con condiciones desfavorables. Respuesta rápida probable, desbordamiento, remanso o permanencia prolongada. Activar protocolos de emergencia."]:s>=7?["semN","Naranja — Escenario complejo","Lluvia "+rainLabel+" ("+rainRange+"). Se recomienda interpretar lluvia, ríos, suelo y drenaje/costa de forma integrada. Vigilancia activa y comunicados preventivos."]:s>=4?["semA","Amarillo — Escenario de vigilancia","Lluvia "+rainLabel+" ("+rainRange+"). Factores que pueden evolucionar si persiste la lluvia o suben los ríos. Monitoreo continuo."]:["semV","Verde — Condiciones ordinarias","Lluvia "+rainLabel+" ("+rainRange+"). Baja complejidad hidrológica con las condiciones actuales. Seguimiento de rutina."];
+ ["semV","semA","semN","semR"].forEach(function(id){document.getElementById(id).classList.remove("active");});
+ document.getElementById(level[0]).classList.add("active");
+ document.getElementById("semOut").innerHTML="<b>"+level[1]+"</b><br>"+level[2]+"<br><br><span style='font-size:13px;color:var(--muted)'><b>Condiciones evaluadas (escala SMN):</b> lluvia "+rainLabel+" · "+rainRange+" | suelo "+soil.toLowerCase()+" | río "+river.toLowerCase()+" | costa/drenaje "+coast.toLowerCase()+"</span>";
+}
+
+function regionalCaseBankHTML(){
+ const cases=[
+  ["Sierra","Llueven 95 mm en 3 horas en zona alta, suelo saturado y arroyos turbios.","Respuesta rápida de cuenca serrana; observar intensidad, tiempo de reflejo y arrastre de sedimentos."],
+  ["Usumacinta","Se reportan lluvias intensas en Guatemala y Chiapas; Boca del Cerro inicia ascenso.","Propagación progresiva de gran cuenca; observar Tenosique, Balancán, Zapata, Jonuta y Centla."],
+  ["Samaria–Carrizal","Descarga regulada coincide con lluvia local y niveles altos aguas abajo.","Escenario combinado: gasto, bifurcación, El Macayo, remanso y planicie saturada."],
+  ["Chontalpa","Lluvias repetidas, drenes lentos y parcelas con agua varios días.","Inundación mixta de planicie agrícola; revisar drenes, pasos hidráulicos y río receptor."],
+  ["Costa–Pantanos","Río alto, Norte fuerte, marea elevada y bocana reducida.","Salida lenta al Golfo, remanso lagunar y permanencia prolongada en zonas bajas."],
+  ["Área urbana","Lluvia intensa en una hora, rejillas obstruidas, cárcamos al límite y río receptor alto.","Inundación pluvial urbana con posible componente mixto; priorizar puntos bajos, pasos deprimidos, cárcamos y cierre preventivo de vialidades."]
+ ];
+ return `<div class="interactive-box"><h3>3. Banco de casos regionales</h3><p>Selecciona un caso para ver la lectura hidrológica.</p>
+ <select id="caseBank">${cases.map((c,i)=>`<option value="${i}">${c[0]}: ${c[1]}</option>`).join("")}</select>
+ <button class="btn-blue" onclick="showRegionalCase()">Analizar caso</button>
+ <div id="caseBankOut" class="result">El análisis aparecerá aquí.</div>
+ <script>window.regionalCases=${JSON.stringify(cases)};<\/script>
+ </div>`;
+}
+function showRegionalCase(){
+ const c=window.regionalCases[Number(caseBank.value)];
+ document.getElementById("caseBankOut").innerHTML=`<b>${c[0]}</b><br><b>Situación:</b> ${c[1]}<br><b>Lectura hidrológica:</b> ${c[2]}`;
+}
+
+function mythsHTML(){
+ const myths=[
+  ["Si no llueve en mi municipio, no puede subir el río.","Sí puede subir si llueve en la cuenca alta. Esto es clave en Usumacinta, Grijalva y ríos serranos."],
+  ["Toda inundación se resuelve desazolvando.","El desazolve puede ayudar en puntos específicos, pero no sustituye gestión de cuenca, drenaje, humedales, remanso y ordenamiento territorial."],
+  ["Las presas eliminan las inundaciones.","Las presas regulan y laminan, pero no eliminan lluvias locales, saturación, remansos ni problemas de planicie."],
+  ["El nivel del río basta para entender el riesgo.","También se necesita tendencia, gasto, lluvia aguas arriba, saturación, drenaje y salida hacia el mar."],
+  ["Los humedales son terrenos vacíos.","Son zonas de regulación natural que almacenan agua, reducen velocidad del flujo y sostienen biodiversidad."]
+ ];
+ return `<div class="interactive-box"><h3>4. Mitos y realidades</h3><p>Toca cada tarjeta para ver la realidad hidrológica.</p>${myths.map(m=>`<div class="myth-card" onclick="this.classList.toggle('open')"><b>Mito:</b> ${m[0]}<div class="realidad"><b>Realidad:</b> ${m[1]}</div></div>`).join("")}</div>`;
+}
+
+function bulletinReaderHTML(){
+ return `<div class="interactive-box">
+  <h3>5. Lectura de boletín hidrometeorológico</h3>
+  <p>Ejercicio: interpreta un boletín ficticio como si fueras a explicar el escenario hidrológico.</p>
+  <div class="warn"><b>Boletín:</b> Se prevén lluvias de 75 a 150 mm en Sierra de Tabasco y norte de Chiapas durante las próximas 24 horas. Ríos serranos con tendencia de ascenso; Usumacinta en nivel medio; viento del Norte moderado en costa.</div>
+  <div class="grid2">
+   <div><label>Región más sensible</label><select id="bolReg"><option>Sierra</option><option>Usumacinta</option><option>Chontalpa</option><option>Costa–Pantanos</option></select></div>
+   <div><label>Dato prioritario</label><select id="bolDato"><option>Intensidad de lluvia y ríos serranos</option><option>Solo temperatura</option><option>Color del cielo</option><option>Nombre del municipio</option></select></div>
+  </div>
+  <button class="btn-blue" onclick="readBulletin()">Interpretar boletín</button>
+  <div id="bolOut" class="result">Selecciona una respuesta y revisa la retroalimentación.</div>
+ </div>`;
+}
+function readBulletin(){
+ const ok=bolReg.value==="Sierra" && bolDato.value==="Intensidad de lluvia y ríos serranos";
+ document.getElementById("bolOut").innerHTML= ok ? 
+ "<b>Interpretación adecuada.</b><br>La combinación de lluvias intensas en Sierra y norte de Chiapas con ríos serranos en ascenso indica posible respuesta rápida. Deben vigilarse acumulados horarios, arroyos, turbiedad, arrastre y estaciones aguas abajo. El Norte moderado también debe observarse en costa si el evento se prolonga." :
+ "<b>Revisa la lectura.</b><br>El boletín apunta primero a Sierra por lluvias intensas y tendencia de ascenso en ríos serranos. El dato prioritario es la intensidad de lluvia y la evolución de cauces, no variables aisladas.";
+}
+
+function causeEffectHTML(){
+ const effects=["Mayor escurrimiento","Salida lenta al Golfo","Respuesta rápida","Permanencia del agua","Remanso lagunar","Creciente del Usumacinta"];
+ const answers={"Suelo saturado":"Mayor escurrimiento","Norte fuerte":"Salida lenta al Golfo","Pendiente alta":"Respuesta rápida","Planicie baja":"Permanencia del agua","Bocana azolvada":"Remanso lagunar","Lluvia en Guatemala":"Creciente del Usumacinta"};
+ return `<div class="interactive-box"><h3>6. Relación causa–efecto</h3><p>Relaciona cada causa con su efecto hidrológico.</p>
+ ${Object.keys(answers).map((c,i)=>`<div class="relation-row"><b>${c}</b><select id="rel_${i}">${effects.map(e=>`<option>${e}</option>`).join("")}</select><span id="rel_${i}_out"></span></div>`).join("")}
+ <button class="btn-blue" onclick="checkRelations()">Revisar relaciones</button>
+ <div id="relOut" class="result">Resultado pendiente.</div>
+ <script>window.relationAnswers=${JSON.stringify(answers)};<\/script>
+ </div>`;
+}
+function checkRelations(){
+ let causes=Object.keys(window.relationAnswers), ok=0;
+ causes.forEach((c,i)=>{
+  const sel=document.getElementById("rel_"+i).value;
+  const good=sel===window.relationAnswers[c];
+  if(good)ok++;
+  document.getElementById("rel_"+i+"_out").innerHTML=good?"✅":"❌";
+ });
+ document.getElementById("relOut").innerHTML=`Aciertos: <b>${ok} de ${causes.length}</b>. ${ok===causes.length?"Excelente: identificaste las relaciones hidrológicas básicas.":"Revisa las relaciones marcadas con ❌."}`;
+}
+
+function permanenceCalculatorHTML(){
+ return `<div class="interactive-box">
+  <h3>7. Calculadora de permanencia del agua</h3>
+  <p>Marca factores que pueden hacer que el agua tarde más en bajar.</p>
+  <span class="tool-help">Útil para Costa–Pantanos, Chontalpa y zonas bajas con drenaje lento.</span>
+  <div class="check-grid" id="permChecks">
+   ${["Baja pendiente","Laguna saturada","Río alto","Marea alta","Bocana reducida","Drenes obstruidos","Norte fuerte","Humedales saturados"].map(x=>`<label class="check-item"><input type="checkbox" value="${x}"><span>${x}</span></label>`).join("")}
+  </div>
+  <div class="tool-action-row">
+   <button class="btn-blue" onclick="calcPermanence()">Calcular permanencia</button>
+   <button class="btn-light" onclick="document.querySelectorAll('#permChecks input').forEach(x=>x.checked=false);document.getElementById('permOut').innerHTML='Marca factores para calcular.'">Limpiar selección</button>
+  </div>
+  <div id="permOut" class="result">Marca factores para calcular.</div>
+ </div>`;
+}
+function calcPermanence(){
+ const vals=[...document.querySelectorAll("#permChecks input:checked")].map(x=>x.value);
+ let s=vals.length;
+ if(vals.includes("Baja pendiente"))s++;
+ if(vals.includes("Marea alta"))s++;
+ if(vals.includes("Norte fuerte"))s++;
+ let label=s>=7?"permanencia alta":s>=4?"permanencia media":"permanencia baja";
+ let exp=s>=7?"La combinación reduce la pendiente hidráulica, limita salidas y mantiene niveles altos por más tiempo.":s>=4?"Existen varios factores que pueden retrasar la salida; debe observarse drenaje, niveles y costa.":"Hay pocos factores de permanencia; el agua podría bajar con mayor facilidad si no aumenta la entrada.";
+ document.getElementById("permOut").innerHTML=`<div class="tool-result-title">${label.toUpperCase()}</div><p>${exp}</p><p><b>Factores:</b> ${vals.join(", ")||"ninguno"}.</p>`;
+}
+
+const miniQuestions=[
+ ["¿Qué enfoque resume mejor esta guía?",["Leer cuencas, lluvia y contexto","Ordenar municipios por población","Memorizar nombres sin análisis","Usar solo división política"],0],
+ ["¿Qué diferencia acumulado e intensidad?",["El sitio donde cayó la lluvia","El tiempo en que se concentró","El nombre del fenómeno local","La distancia hacia la costa"],1],
+ ["¿Cómo debe entenderse el ENOS?",["Un nivel oficial de los ríos","Un patrón océano-atmósfera","Un drenaje urbano regional","Una escala de refugios"],1],
+ ["¿Por qué Tabasco puede retener agua?",["Por baja pendiente y humedales","Por montañas muy encajonadas","Por cauces secos permanentes","Por ausencia de pantanos"],0],
+ ["¿Qué caracteriza a una cuenca regulada?",["La marea controla todo el flujo","Las obras modifican parte del flujo","Solo responde a lluvia urbana","No se conecta con otros cauces"],1],
+ ["¿Qué distingue a los sistemas regionales?",["Origen, pendiente, salida y duración","Color asignado a cada municipio","Número de caminos federales","Cantidad de colonias urbanas"],0],
+ ["¿Qué debe observarse en Samaria–Carrizal?",["Oleaje, salinidad y playas","Nieve y deshielo estacional","Bifurcación, control y remanso","Solo lluvia en Villahermosa"],2],
+ ["¿Por qué el Usumacinta puede subir sin lluvia local?",["Depende del drenaje urbano","Recibe aportes aguas arriba","No tiene conexión regional","La marea fija su nivel"],1],
+ ["¿Qué caracteriza a ríos serranos?",["Salida lenta por lagunas","Respuesta rápida por pendiente","Permanencia por bocanas","Aislamiento de la lluvia"],1],
+ ["¿Qué es crítico en Chontalpa Grande?",["Drenes, canales y planicie","Nieve, volcanes y glaciares","Playas abiertas y oleaje","Ausencia de cauces locales"],0],
+ ["¿Qué prolonga agua en Costa–Pantanos?",["Pendientes fuertes y cauces profundos","Marea, Norte y bocanas limitadas","Rocas permeables y suelos secos","Vientos secos sin interacción"],1],
+ ["¿Qué compara la dinámica diferenciada?",["Rutas carreteras disponibles","Temperatura máxima diaria","Velocidad, duración y origen","Nombres de colonias locales"],2],
+ ["¿Qué muestra un hidrograma?",["Población por municipio","Nivel o gasto en el tiempo","Refugios por localidad","Temperatura del Golfo"],1],
+ ["¿Qué es un escenario hidrológico?",["Una foto sin interpretación","Un dato aislado de lluvia","Una predicción sin error","Combinación de condiciones"],3],
+ ["¿Qué busca la gestión de cuencas?",["Analizar desde origen hasta salida","Atender solo el punto afectado","Sustituir monitoreo por percepción","Separar ríos y territorio"],0],
+ ["¿Qué combina la gestión de inundaciones?",["Una obra única para todo","Solo desazolve previo","Datos aislados sin coordinación","Conocimiento, prevención y operación"],3],
+ ["¿Para qué sirve el glosario?",["Guardar contraseñas locales","Consultar términos regionales","Reemplazar la evaluación","Definir colores decorativos"],1],
+ ["¿Qué evalúan los casos prácticos?",["Preferencia por una región","Rapidez para cambiar módulos","Aplicación de condiciones reales","Memoria visual de iconos"],2],
+ ["¿Qué resume el cierre de la guía?",["Usar un solo dato para alertas","Ignorar subcuencas y regulación","Separar lluvia, ríos y drenaje","Comprender cuenca y contexto"],3]
+];
+function miniEvalBlock(i){
+ if(i<0 || i>=miniQuestions.length) return "";
+ const q=miniQuestions[i];
+ return `<div class="mini-eval"><h3>Mini evaluación del módulo</h3><p><b>${q[0]}</b></p>${q[1].map((o,j)=>`<button class="option" onclick="miniAnswer(this,${j},${q[2]})">${o}</button>`).join("")}<div class="result hidden"></div></div>`;
+}
+function miniAnswer(btn,idx,ans){
+ const box=btn.closest(".mini-eval");
+ box.querySelectorAll(".option").forEach(o=>o.classList.remove("correct","wrong"));
+ btn.classList.add(idx===ans?"correct":"wrong");
+ const res=box.querySelector(".result");
+ res.classList.remove("hidden");
+ res.innerHTML=idx===ans?"Correcto. Continúa con el siguiente tema.":"Revisa de nuevo el mensaje técnico clave del módulo.";
+}
+
+
+const finalExamQuestions=[
+ {q:"Al revisar 80 mm en dos horas, ¿qué dato cambia la lectura del riesgo?",o:["Duración e intensidad del evento","Promedio anual de temperatura","Nombre político del municipio","Color visible de la nubosidad"]},
+ {q:"Un río puede subir aunque no llueva en la comunidad cuando:",o:["Disminuye la temperatura nocturna","Recibe aportes generados aguas arriba","Cambia la humedad relativa","Aumenta la nubosidad alta"]},
+ {q:"Una cuenca serrana con pendiente fuerte suele presentar:",o:["Permanencia larga por mareas","Salida nula hacia cauces","Respuesta rápida del escurrimiento","Comportamiento solo costero"]},
+ {q:"El Usumacinta debe analizarse principalmente como:",o:["Dren urbano de respuesta local","Laguna aislada sin aportes","Canal artificial de corto tramo","Sistema transfronterizo de volumen"]},
+ {q:"El gasto de un río se refiere a:",o:["Altura total de un puente","Volumen que pasa por segundo","Ancho urbano de una calle","Lluvia media de temporada"]},
+ {q:"Un hidrograma es útil porque permite ver:",o:["Ascenso, pico y descenso","Tipo de pavimento urbano","Población total de cuenca","Nombre de cada estación"]},
+ {q:"El remanso puede presentarse cuando:",o:["El suelo se mantiene seco","La salida hidráulica se limita","La nubosidad desaparece","Aumenta la insolación diaria"]},
+ {q:"En Costa–Pantanos conviene vigilar especialmente:",o:["Horas de sol y nubes altas","Tránsito local en vialidades","Marea, bocanas, lagunas y Norte","Altitud media del municipio"]},
+ {q:"Una inundación pluvial urbana se asocia con:",o:["Oleaje lejano sin lluvia","Lluvia intensa y drenaje rebasado","Embalse vacío y suelo seco","Cuenca cerrada sin escurrimiento"]},
+ {q:"Una inundación mixta ocurre cuando:",o:["No existe lluvia ni escurrimiento","Actúa solo un factor aislado","Los ríos no tienen variación","Coinciden varios procesos de agua"]},
+ {q:"El Alto Grijalva se reconoce como un sistema:",o:["Regulado por presas y operación","Endorreico sin salida regional","Exclusivamente costero-lagunar","Sin infraestructura hidráulica"]},
+ {q:"La bifurcación Samaria–Carrizal influye en:",o:["Temperatura superficial del mar","Distribución del flujo en planicie","Altura de nubes convectivas","Tipo de suelo urbano"]},
+ {q:"En Chontalpa Grande es especialmente relevante:",o:["Hielo de montaña estacional","Drenaje de planicie e infraestructura","Marea oceánica como único factor","Sismicidad local dominante"]},
+ {q:"Cuando el suelo está saturado, normalmente:",o:["Aumenta el escurrimiento superficial","Disminuye toda respuesta hídrica","Se vacían los cauces principales","Baja automáticamente la marea"]},
+ {q:"La lluvia orográfica se relaciona con:",o:["Drenaje sanitario urbano","Marea astronómica y oleaje","Relieve, humedad y ascenso del aire","Azolve de bocanas costeras"]},
+ {q:"Una planicie de inundación cumple la función de:",o:["Concentrar flujo en una calle","Expandir y almacenar temporalmente agua","Aislar al río de humedales","Operar como presa cerrada"]},
+ {q:"La gestión integral de cuencas exige analizar:",o:["Solo el punto con daños","Únicamente el centro urbano","El sistema hídrico completo","Solamente la franja costera"]},
+ {q:"Un evento de Norte fuerte puede favorecer:",o:["Descenso rápido en toda costa","Sequía inmediata en humedales","Cauce seco en ríos mayores","Remanso y salida lenta al Golfo"]},
+ {q:"Para interpretar un dato hidrométrico se requiere:",o:["Solo el número publicado","Color del mapa municipal","Tendencia, umbral y contexto","Hora oficial del boletín"]},
+ {q:"La gestión integral de inundaciones combina:",o:["Una sola obra para todo","Conocimiento, prevención y coordinación","Desazolve aislado como única acción","Datos separados sin operación"]}
+];
+function finalEvaluationHTML(){
+ return `<h2>Evaluación final de acreditación</h2>
+ <p>Responde las 20 preguntas. Para aprobar se requiere un mínimo de <b>80% de aciertos</b>, es decir, al menos <b>16 respuestas correctas de 20</b>.</p>
+ <div class="warn"><b>Criterio de acreditación:</b> el diploma digital solo estará disponible si se obtiene 80% o más. Las respuestas fueron equilibradas para evitar que la correcta sea identificable por longitud.</div>
+ <div id="finalExamBox">
+  ${finalExamQuestions.map((q,i)=>`
+   <div class="final-question" id="fq_${i}">
+    <h3>${i+1}. ${q.q}</h3>
+    ${q.o.map((op,j)=>`<button class="final-option" onclick="selectFinalOption(${i},${j},this)">${op}</button>`).join("")}
+   </div>`).join("")}
+ </div>
+ <div class="interactive-box">
+  <h3>Calificación</h3>
+  <p>Al terminar, presiona calificar. Si apruebas, podrás generar el diploma digital.</p>
+  <button class="btn-green" onclick="gradeFinalEvaluation()">Calificar evaluación final</button>
+  <button class="btn-light" onclick="resetFinalEvaluation()">Limpiar respuestas</button>
+  <div id="evalOut" class="result">Resultado pendiente.</div>
+ </div>`;
+}
+
+function selectFinalOption(qIndex,optIndex,btn){
+ const box=document.getElementById("fq_"+qIndex);
+ box.dataset.selected=optIndex;
+ box.querySelectorAll(".final-option").forEach(o=>o.classList.remove("selected","correct","wrong"));
+ btn.classList.add("selected");
+}
+
+function resetFinalEvaluation(){
+ document.querySelectorAll(".final-question").forEach(q=>{
+  delete q.dataset.selected;
+  q.querySelectorAll(".final-option").forEach(o=>o.classList.remove("selected","correct","wrong"));
+ });
+ const out=document.getElementById("evalOut");
+ if(out) out.innerHTML="Resultado pendiente.";
+}
+
+function gradeFinalEvaluation(){
+ if(typeof window.gradeFinalEvaluationCloud==="function") return window.gradeFinalEvaluationCloud();
+ alert("La evaluación oficial requiere conexión con Supabase.");
+}
+
+/* MODULES */
+const modules=[
+{short:"Inicio",t:"Inicio",html:`
+<h2>Guía Interactiva de Hidrología e Inundaciones de Tabasco</h2>
+<figure class="amh-visual"><img loading="lazy" src="images/img_03.webp" alt="Portada visual de la Guía Interactiva de Hidrología Regional de Tabasco" decoding="async"></figure>
+<p>Esta guía presenta los fundamentos de hidrología aplicada e inundaciones de Tabasco, diferenciando las regiones hidrológicas oficiales y los sistemas hidrológicos regionales que influyen en el estado. Integra explicación técnica con elementos interactivos para que el usuario pueda interpretar lluvias, comparar sistemas, seguir rutas del agua, leer hidrogramas, construir escenarios y resolver casos.</p>
+<div class="note"><b>Cómo usar esta guía si no conoces hidrología:</b> piensa en la cuenca como un “embudo natural”. La lluvia cae en una superficie amplia, escurre por laderas, arroyos y ríos, se concentra en cauces mayores, llega a planicies, humedales, lagunas y finalmente al mar. En Tabasco, ese embudo no termina rápido: la pendiente es baja, los ríos se conectan con lagunas y pantanos, y la salida al Golfo puede frenarse por marea, viento del Norte o bocanas azolvadas.</div>
+<div class="grid2">
+ <div class="card"><h3>Preguntas que guían el aprendizaje</h3><ul><li>¿Dónde llovió: en mi localidad, en la Sierra, en Chiapas o en Guatemala?</li><li>¿La lluvia fue intensa en pocas horas o acumulada durante varios días?</li><li>¿El suelo estaba seco, húmedo o saturado?</li><li>¿El río tiene salida libre o hay remanso aguas abajo?</li><li>¿La región responde rápido, lento o de forma prolongada?</li></ul></div>
+ <div class="card"><h3>Lectura sencilla del territorio</h3><p>La Sierra funciona como zona de generación rápida de escurrimientos; la planicie central como zona de conducción, distribución y almacenamiento; y la costa-delta como zona de salida lenta, mezcla con lagunas y contacto con el mar.</p></div>
+</div>
+
+<div class="grid">
+ <div class="card"><h3>Propósito</h3><p>Fortalecer la cultura hídrica y la comprensión técnica de las inundaciones diferenciadas en Tabasco.</p></div>
+ <div class="card"><h3>Enfoque</h3><p>Cuencas, subcuencas, lluvia, escurrimiento, gasto, nivel, remanso, planicie, costa y gestión integral.</p></div>
+ <div class="card"><h3>Aprendizaje activo</h3><p>La guía incluye menús desplegables, tarjetas, selectores, mapas, rutas, hidrogramas, comparadores y evaluación por casos.</p></div>
+</div>
+
+<div class="key">Idea rectora: no se puede comprender una inundación sin comprender primero la cuenca que la produce.</div>`},
+
+{short:"1. Fenómenos y lluvias",t:"Fenómenos meteorológicos e intensidad de lluvias",html:`
+<h2>1. Fenómenos meteorológicos comunes e interpretación de lluvias</h2>
+<div class="amh-gallery"><figure class="amh-visual"><img loading="lazy" src="images/img_04.webp" alt="Fenómenos meteorológicos comunes en Tabasco y clasificación de precipitación acumulada" decoding="async"></figure></div>
+<p>La lluvia en Tabasco puede originarse por ondas tropicales, frentes fríos, eventos de Norte, ciclones tropicales, canales de baja presión, convección local y lluvia orográfica. Para interpretar el riesgo no basta preguntar “cuánto llovió”: también importa <b>dónde llovió, en cuánto tiempo, cómo estaba la cuenca y qué tan altos venían los ríos</b>.</p>
+<figure class="amh-visual"><img loading="lazy" alt="Interacción frente frío y ciclón tropical" src="images/img_05.webp" decoding="async"></figure>
+
+<div class="youth-band">
+ <div class="youth-card"><b>🌧️ Acumulado</b>Cuánta lluvia cayó en total, normalmente en 24 horas.</div>
+ <div class="youth-card"><b>⏱️ Intensidad</b>Qué tan rápido cayó. 80 mm en 1 hora puede impactar más que 80 mm repartidos en 24 horas.</div>
+ <div class="youth-card"><b>🗺️ Ubicación</b>Puede llover poco en una comunidad y aun así subir el río por lluvia aguas arriba.</div>
+ <div class="youth-card"><b>🧽 Suelo</b>Un suelo saturado convierte más lluvia en escurrimiento.</div>
+ <div class="youth-card"><b>🟦 Regulación natural</b>Las planicies, bajos, lagunas y humedales se van llenando; cuando pierden espacio libre, la creciente se extiende y dura más.</div>
+</div>
+<div class="note"><b>Explicación para iniciar:</b> un fenómeno meteorológico es el proceso atmosférico que genera lluvia, viento, nubosidad o tormentas. Para la hidrología, lo importante es traducir ese fenómeno en una lectura de cuenca: volumen, duración, trayectoria, llenado de zonas de regulación y respuesta del río.</div>
+
+<h3>Fenómenos frecuentes y lectura hidrológica</h3>
+<table><tr><th>Fenómeno</th><th>Qué observar</th><th>Posible efecto hidrológico</th></tr>
+<tr><td>Onda tropical</td><td>Bandas de lluvia, a veces intermitentes.</td><td>Saturación progresiva si se repite varios días.</td></tr>
+<tr><td>Frente frío</td><td>Lluvia persistente, descenso de temperatura y viento del Norte.</td><td>Elevación de ríos, encharcamientos y salida lenta al mar.</td></tr>
+<tr><td>Evento de Norte</td><td>Viento fuerte, oleaje y presión sobre la costa.</td><td>Puede dificultar el desalojo en bocanas, lagunas y zonas costeras.</td></tr>
+<tr><td>Ciclón tropical</td><td>Bandas nubosas extensas, no solo el centro del ciclón.</td><td>Lluvia regional simultánea sobre varias cuencas.</td></tr>
+<tr><td>Tormenta convectiva</td><td>Lluvia fuerte de corta duración, comúnmente vespertina.</td><td>Anegamientos urbanos, crecidas rápidas en arroyos y drenes.</td></tr>
+<tr><td>Lluvia orográfica</td><td>Lluvia reforzada por montañas y laderas.</td><td>Crecientes rápidas en ríos serranos.</td></tr>
+<tr><td>Interacción frente–ciclón</td><td>Humedad tropical más aire frío y lluvia persistente.</td><td>Escenario de alto impacto por lluvias extensas y prolongadas.</td></tr></table>
+
+<h3>Rangos de lluvia usados por el SMN para acumulados en 24 horas</h3>
+<span class="badge-smn">SMN · acumulado 24 h</span>
+<table>
+<tr><th>Rango aproximado</th><th>Clasificación</th><th>Lectura hidrológica para Tabasco</th></tr>
+<tr><td>0.1 a 5 mm</td><td>Lluvias aisladas</td><td>Humedece superficies; impacto limitado si el suelo está seco.</td></tr>
+<tr><td>5.1 a 25 mm</td><td>Intervalos de chubascos</td><td>Puede generar encharcamientos puntuales si el drenaje es limitado.</td></tr>
+<tr><td>25.1 a 50 mm</td><td>Lluvias fuertes</td><td>Activa escurrimientos, drenes y cauces menores, especialmente con suelo húmedo.</td></tr>
+<tr><td>50.1 a 75 mm</td><td>Lluvias muy fuertes</td><td>Puede incrementar ríos secundarios, drenes, zonas bajas y vialidades urbanas.</td></tr>
+<tr><td>75.1 a 150 mm</td><td>Lluvias intensas</td><td>Puede detonar crecientes importantes en Sierra, Chontalpa, zona urbana o ríos de rápida respuesta.</td></tr>
+<tr><td>150.1 a 250 mm</td><td>Lluvias torrenciales</td><td>Escenario de alto impacto: inundaciones urbanas/rurales, desbordamientos y saturación generalizada.</td></tr>
+<tr><td>Mayor de 250 mm</td><td>Lluvias extraordinarias</td><td>Evento excepcional con potencial de emergencia mayor si coincide con cuencas saturadas o ríos altos.</td></tr>
+</table>
+${lluviaSelectorHTML("rain1")}
+<div class="key">Mensaje clave: la lluvia debe leerse junto con duración, ubicación, saturación de suelo, niveles de ríos y condición de salida hacia planicie, lagunas o Golfo de México.</div>`},
+
+{short:"2. Clima y ENOS",t:"Cambio climático, variabilidad climática, ENOS y eventos extremos",html:`
+<h2>2. Cambio climático, variabilidad climática, ENOS y eventos extremos</h2>
+<figure class="amh-visual"><img loading="lazy" src="images/img_06.webp" alt="Cambio climático y extremos hidrológicos" decoding="async"></figure>
+<p>La hidrología regional se modifica por dos procesos que deben distinguirse: la <b>variabilidad climática</b>, que explica por qué unos años son más secos o lluviosos que otros, y el <b>cambio climático</b>, que modifica las condiciones de fondo del sistema climático durante décadas.</p>
+<div class="youth-band">
+ <div class="youth-card"><b>🌡️ Más calor</b>Mayor temperatura favorece evaporación y una atmósfera con más vapor de agua disponible.</div>
+ <div class="youth-card"><b>🌧️ Lluvias más intensas</b>Puede aumentar la probabilidad de eventos concentrados en pocas horas.</div>
+ <div class="youth-card"><b>🏜️ Sequía + lluvia</b>Periodos secos pueden alternarse con lluvias extremas, elevando el contraste hidrológico.</div>
+ <div class="youth-card"><b>🌊 Costa vulnerable</b>El aumento del nivel del mar, erosión y bocanas azolvadas pueden dificultar el desalojo.</div>
+</div>
+
+<div class="grid2">
+ <div class="card"><h3>¿Qué es cambio climático?</h3><p>Es la modificación sostenida del clima de la Tierra, asociada principalmente al incremento de gases de efecto invernadero. En Tabasco puede expresarse como mayor temperatura, lluvias más intensas, periodos secos más marcados, erosión costera y eventos extremos con impactos superiores a los históricos.</p></div>
+ <div class="card"><h3>¿Qué es variabilidad climática?</h3><p>Son cambios naturales de una temporada a otra. Un año puede ser más seco o más húmedo por patrones oceánicos y atmosféricos, sin que eso contradiga la tendencia de largo plazo del cambio climático.</p></div>
+</div>
+
+
+<figure class="amh-visual"><img loading="lazy" alt="ENOS y fases climáticas" src="images/img_07.webp" decoding="async"></figure>
+<h3>ENOS explicado sin tecnicismos: El Niño, La Niña y Neutral</h3>
+<table><tr><th>Fase</th><th>Idea sencilla</th><th>Lectura para Tabasco</th></tr>
+<tr><td>El Niño</td><td>Calentamiento anómalo del Pacífico ecuatorial.</td><td>Generalmente puede favorecer condiciones más cálidas y secas, menor lluvia relativa y menor actividad ciclónica en el Atlántico; aun así, no elimina lluvias extremas por frentes, ondas o sistemas locales.</td></tr>
+<tr><td>La Niña</td><td>Enfriamiento anómalo del Pacífico ecuatorial.</td><td>Generalmente puede favorecer temporadas más húmedas, mayor actividad ciclónica del Atlántico y lluvias persistentes; en Tabasco aumenta la vigilancia por inundaciones, sobre todo si hay frentes y ríos altos.</td></tr>
+<tr><td>Neutral</td><td>No domina claramente El Niño ni La Niña.</td><td>Los frentes fríos, ondas tropicales, humedad del Golfo, ciclones y condiciones locales pueden controlar el escenario.</td></tr></table>
+
+<div class="warn"><b>Importante:</b> El Niño o La Niña no “producen” por sí solos una inundación. Modifican la probabilidad de ciertos escenarios. La emergencia se construye cuando coinciden lluvia intensa, suelo saturado, ríos altos, drenaje limitado, marea, viento del Norte o vulnerabilidad urbana/rural.</div>
+
+${accordion([
+["Cambio climático en lenguaje sencillo","Es como cambiar las condiciones base del juego: más calor, mayor energía disponible, contrastes más fuertes y posibilidad de lluvias intensas concentradas."],
+["Efectos esperados en Tabasco","Más estrés por calor, periodos secos más marcados, lluvias extremas de corta duración, erosión costera, intrusión salina local y mayores retos para drenes, ríos y zonas bajas."],
+["El Niño","En Tabasco suele asociarse con tendencia a condiciones más cálidas y secas, aunque pueden ocurrir lluvias puntuales fuertes por frentes, tormentas o sistemas tropicales."],
+["La Niña","Suele aumentar la vigilancia por lluvias, actividad ciclónica del Atlántico y escenarios persistentes de humedad, especialmente si interactúa con frentes fríos."],
+["Eventos extremos","Incluyen lluvias torrenciales, frentes persistentes, ciclones, interacción frente–ciclón, crecientes simultáneas y periodos prolongados de anegamiento."]
+])}
+
+<div class="interactive-box">
+ <h3>Reto rápido</h3>
+ <p>Si hay suelo saturado, ríos altos y pronóstico de lluvias persistentes, ¿qué lectura es más adecuada?</p>
+ <button class="option" onclick="quickFeedback(this,true,'Correcto. La lectura debe integrar lluvia, cuenca, suelo, ríos, costa y vulnerabilidad.')">Integrar lluvia, cuenca y niveles.</button>
+ <button class="option" onclick="quickFeedback(this,false,'No es suficiente. La lluvia local aislada no explica todos los impactos en Tabasco.')">Usar solo lluvia del municipio.</button>
+ <button class="option" onclick="quickFeedback(this,false,'Incorrecto. En Tabasco los aportes aguas arriba pueden ser determinantes.')">Descartar aportes externos.</button>
+ <div class="result hidden"></div>
+</div>
+<div class="key">Mensaje clave: cambio climático y ENOS obligan a trabajar con escenarios, incertidumbre y lectura integral de cuencas.</div>`},
+
+{short:"3. Territorio del agua",t:"Tabasco como territorio del agua",html:`
+<h2>3. Tabasco como territorio del agua</h2>
+<figure class="amh-visual"><img loading="lazy" src="images/img_08.webp" alt="Mapa de regiones hidrológicas y red hidrográfica de Tabasco" decoding="async"></figure>
+<p>Tabasco es una planicie de baja pendiente donde confluyen ríos de gran caudal, humedales, lagunas, drenes, zonas agrícolas, áreas urbanas y desembocaduras al Golfo de México. En términos oficiales, el estado se relaciona principalmente con dos <b>Regiones Hidrológicas</b>: <b>RH-30 Grijalva–Usumacinta</b> y <b>RH-29 Coatzacoalcos</b>. Para capacitación y operación se analizan además los <b>sistemas hidrológicos regionales</b>, porque ayudan a distinguir cómo responde cada zona ante la lluvia y las crecientes.</p>
+
+
+<figure class="amh-visual amh-fullwidth">
+  <img loading="lazy" alt="Distribución de la población por cuencas en Tabasco" src="images/img_09.webp" decoding="async">
+</figure>
+
+<div class="grid2">
+ <div class="card">
+<h3>1. RH-30 Grijalva–Usumacinta</h3><p>Es la Región Hidrológica dominante para Tabasco. Integra sistemas regulados y no regulados: Alto Grijalva, Mezcalapa, Samaria, Carrizal, Sierra, Puxcatán, Tulijá, Macuspana y Usumacinta. Recibe aportes de Chiapas, Guatemala y lluvias locales, y explica buena parte de las inundaciones regionales y prolongadas.</p></div>
+ <div class="card"><h3>2. RH-29 Coatzacoalcos / sistema Tonalá–Zanapa</h3><p>Influye principalmente en el occidente del estado, especialmente Huimanguillo y Cárdenas. Incluye dinámica de ríos regionales, drenes, planicie agrícola y sistemas asociados al Tonalá–Zanapa, con respuesta importante ante lluvias intensas en la Sierra Norte de Chiapas, Veracruz y la Chontalpa Grande.</p></div>
+</div>
+
+<h3>Las tres piezas hidrológicas de Tabasco</h3>
+<figure class="amh-visual"><img loading="lazy" alt="Tres zonas hidrológicas de Tabasco" src="images/img_10.webp" decoding="async"></figure>
+
+<div class="grid">
+ <div class="card"><h3>🏔️ Sierra y transición</h3><p>La pendiente acelera el escurrimiento. La lluvia se concentra rápido en arroyos y ríos; pueden aparecer crecientes súbitas, arrastre de sedimentos y ascensos en pocas horas.</p></div>
+ <div class="card"><h3>🌾 Planicie baja</h3><p>Convergen ríos principales, drenes, canales y humedales. La pendiente es mínima; el agua se mueve lentamente, se almacena o se estanca cuando los ríos están altos.</p></div>
+ <div class="card"><h3>🌊 Delta y costa</h3><p>Zona de desembocaduras, lagunas y pantanos. Se mezclan crecientes fluviales, marea, viento del Norte, oleaje y bocanas; el agua puede tardar más en salir.</p></div>
+</div>
+
+<h3>Por qué Tabasco no se interpreta como una sola cuenca</h3>
+<p>No basta decir “llovió en Tabasco”. Hay que distinguir si la lluvia cayó en la cuenca alta, en la planicie, en zona urbana, en la costa o aguas arriba fuera del estado. Una comunidad puede tener poca lluvia local y recibir una creciente horas o días después por aportes de Chiapas, Guatemala o Veracruz.</p>
+<div class="note"><b>Explicación sencilla:</b> Tabasco es una zona de llegada, reparto, almacenamiento y salida del agua. Lo que ocurre en montañas, presas, ríos libres, drenes agrícolas, lagunas y bocanas termina conectándose en la planicie.</div>
+
+<div class="youth-band">
+ <div class="youth-card"><b>📍 Pregunta 1</b>¿Dónde llovió realmente: localidad, cuenca alta, costa o región vecina?</div>
+ <div class="youth-card"><b>📈 Pregunta 2</b>¿Los ríos ya venían altos o estaban cerca de su nivel crítico?</div>
+ <div class="youth-card"><b>🚧 Pregunta 3</b>¿El drenaje, bocana o salida al mar está libre o limitada?</div>
+ <div class="youth-card"><b>🕒 Pregunta 4</b>¿La respuesta será rápida, lenta o prolongada?</div>
+</div>
+
+<div class="key">Mensaje clave: no debe confundirse una Región Hidrológica oficial con un sistema hidrológico regional. Para Tabasco, las grandes referencias oficiales son RH-30 Grijalva–Usumacinta y RH-29 Coatzacoalcos; la operación local se entiende mejor mediante sistemas como Sierra, Usumacinta, Samaria–Carrizal, Chontalpa y Costa–Pantanos.</div>`},
+
+{short:"4. Conceptos de cuenca",t:"Conceptos básicos para entender una cuenca",html:`
+<h2>4. Conceptos básicos para entender una cuenca</h2>
+<div class="amh-gallery"><figure class="amh-visual"><img loading="lazy" src="images/img_11.webp" alt="Ciclo hidrológico: el agua en movimiento continuo" decoding="async"></figure></div>
+<p>Una cuenca es el territorio donde el agua de lluvia escurre hacia un punto común. Comprender sus partes permite interpretar por qué una lluvia en montaña puede reflejarse horas después en una planicie o por qué un río se mantiene alto sin lluvia local.</p>
+
+<div class="amh-gallery"><figure class="amh-visual"><img loading="lazy" src="images/img_12.webp" alt="Anatomía de una cuenca hidrológica tropical" decoding="async"></figure></div>
+<h3>Tipos de cuencas explicados para principiantes</h3>
+<p>Una cuenca puede clasificarse de varias formas. Estas clasificaciones ayudan a entender por qué unas responden rápido y otras lentamente.</p>
+<table><tr><th>Tipo de cuenca</th><th>Qué significa</th><th>Ejemplo o lectura para Tabasco</th></tr>
+<tr><td>Cuenca alta</td><td>Zona de montaña o pendiente donde se genera escurrimiento.</td><td>Sierra de Tabasco y Chiapas: lluvia intensa produce respuesta rápida.</td></tr>
+<tr><td>Cuenca media</td><td>Zona de transición donde se integran afluentes y aumenta el caudal.</td><td>Tramos donde ríos serranos y regionales van sumando aportes.</td></tr>
+<tr><td>Cuenca baja</td><td>Planicie cercana a desembocaduras, con baja pendiente.</td><td>Tabasco funciona ampliamente como cuenca baja de sistemas regionales.</td></tr>
+<tr><td>Cuenca exorreica</td><td>El agua llega finalmente al mar.</td><td>Grijalva, Usumacinta, González y Tonalá descargan hacia el Golfo.</td></tr>
+<tr><td>Cuenca endorreica</td><td>El agua no llega al mar; se queda en lagos o depresiones cerradas.</td><td>No es la condición dominante estatal, pero sirve para distinguir sistemas cerrados.</td></tr>
+<tr><td>Cuenca regulada</td><td>Su flujo está influido por presas u obras de control.</td><td>Alto Grijalva por La Angostura, Chicoasén, Malpaso y Peñitas.</td></tr>
+<tr><td>Cuenca libre o no regulada</td><td>No tiene grandes embalses que controlen sus crecientes principales.</td><td>Usumacinta y varios ríos serranos mantienen comportamiento predominantemente natural.</td></tr>
+<tr><td>Cuenca urbana</td><td>Superficie con calles, techos, pavimento y drenaje artificial.</td><td>Villahermosa y cabeceras municipales: la impermeabilización acelera escurrimiento.</td></tr>
+<tr><td>Cuenca costera-lagunar</td><td>Combina escurrimientos, lagunas, bocanas, marea y mar.</td><td>Paraíso, Centla y sistemas asociados a Mecoacán, González y Tres Brazos.</td></tr></table>
+<div class="note"><b>Diferencia clave:</b> una cuenca serrana se parece a una rampa: el agua baja rápido. Una cuenca de planicie se parece a una mesa casi plana: el agua se extiende y tarda en salir. Una cuenca costera-lagunar se parece a una puerta al mar que a veces se abre y a veces se frena por marea, viento o azolvamiento.</div>
+
+${flipCards(concepts)}
+<div class="note"><b>Secuencia didáctica:</b> lluvia en zona alta → escurrimiento en laderas → afluentes → río principal → planicie → humedal o laguna → desembocadura.</div>
+<div class="key">Mensaje clave: una inundación se explica por el comportamiento de toda la cuenca, no solo por un tramo visible del río.</div>`},
+
+{short:"5. Sistemas hidrológicos",t:"Grandes sistemas hidrológicos que influyen en Tabasco",html:`
+<h2>5. Grandes sistemas hidrológicos que influyen en Tabasco</h2>
+<p>Tabasco se entiende mejor distinguiendo entre las <b>Regiones Hidrológicas oficiales</b> —RH-30 Grijalva–Usumacinta y RH-29 Coatzacoalcos— y los <b>sistemas hidrológicos regionales</b> que funcionan dentro del territorio estatal, con origen, pendiente, tiempo de respuesta, propagación y tipo de inundación dominante.</p>
+<h3>Cómo leer un sistema hidrológico</h3>
+<p>Para entender cualquier sistema se recomienda responder seis preguntas: ¿dónde nace?, ¿qué ríos lo integran?, ¿qué tan rápido responde?, ¿cuánto volumen mueve?, ¿dónde se almacena o se desborda?, y ¿por dónde sale el agua?</p>
+<table><tr><th>Sistema</th><th>Qué debe entender el usuario</th><th>Riesgo hidrológico dominante</th></tr>
+<tr><td>Alto Grijalva</td><td>Es un sistema regulado por presas; su comportamiento depende de lluvia en Chiapas, almacenamiento y operación.</td><td>Crecientes reguladas, variación de gasto y efectos en planicie.</td></tr>
+<tr><td>Usumacinta</td><td>Es una gran cuenca transfronteriza libre, con aportes de Guatemala y Chiapas.</td><td>Crecientes de gran volumen y permanencia prolongada.</td></tr>
+<tr><td>Sierra</td><td>Son cuencas cortas de pendiente fuerte.</td><td>Crecientes súbitas y arrastre de sedimentos.</td></tr>
+<tr><td>Samaria–Carrizal</td><td>Sistema asociado al Alto Grijalva regulado en Chiapas, Mezcalapa, bifurcación Samaria–Carrizal, estructura El Macayo, lluvia local y planicie de baja pendiente.</td><td>Inundación fluvial, pluvial y por remanso; depende de gasto proveniente del Alto Grijalva regulado en Chiapas, distribución del flujo, niveles aguas abajo y saturación de planicie.</td></tr>
+<tr><td>Chontalpa Grande<br><small>Cuenca Coatzacoalcos–Tonalá</small></td><td>Región de Huimanguillo y Cárdenas vinculada hidrológicamente a la cuenca Coatzacoalcos–Tonalá, con influencia de ríos, drenes, canales agrícolas, planicie de baja pendiente e infraestructura carretera.</td><td>Anegamiento prolongado por drenaje insuficiente, lluvia acumulada, saturación de suelos, niveles altos en ríos receptores y limitada capacidad de desalojo en la planicie.</td></tr>
+<tr><td>Costa-Pantanos</td><td>Es zona fluvio-lagunar y costera.</td><td>Remanso, marea, bocanas y lenta salida al Golfo.</td></tr></table>
+<figure class="amh-visual"><img loading="lazy" alt="Sistemas hidrológicos regionales de Tabasco" src="images/img_13.webp" decoding="async"></figure>
+
+
+
+${comparatorHTML()}
+<div class="key">Mensaje clave: cada región de Tabasco tiene una lógica hidrológica propia, por eso las inundaciones no se comportan igual.</div>`},
+
+{short:"6. Grijalva tabasqueño",t:"Sistema Grijalva tabasqueño, ríos serranos y aporte limitado del Alto Grijalva",html:`
+<h2>6. Sistema Grijalva tabasqueño, ríos serranos y aporte limitado del Alto Grijalva</h2>
+<p>En Tabasco, el Grijalva debe explicarse distinguiendo el <b>Grijalva tabasqueño</b> —conformado por los ríos Oxolotán, Amatán, Tacotalpa, La Sierra, Teapa, Puyacatengo y Pichucalco— y la <b>aportación regulada ya muy limitada</b> que llega del Sistema de Presas y del Platanar por el río Carrizal, aguas abajo de los malecones de Villahermosa, en La Pigua.</p>
+<figure class="amh-visual"><img loading="lazy" alt="Sistema Alto Grijalva en Chiapas" src="images/img_14.webp" decoding="async"></figure>
+
+<h3>Explicación paso a paso: Grijalva tabasqueño y aporte regulado del Alto Grijalva en Chiapas</h3>
+<p>Para la lectura hidrológica local, el Sistema de Presas no debe presentarse como el componente dominante del Grijalva tabasqueño. Su señal llega <b>atenuada y condicionada</b>, mientras que la respuesta local depende de los ríos serranos y de planicie, la lluvia sobre Tacotalpa, Teapa, Jalapa y Centro, el remanso y la capacidad de salida hacia la planicie baja y Pantanos de Centla.</p>
+<div class="grid2">
+ <div class="card"><h3>Grijalva tabasqueño</h3><p>El <b>Grijalva tabasqueño</b> lo conforman los ríos <b>Oxolotán, Amatán, Tacotalpa, La Sierra, Teapa, Puyacatengo y Pichucalco</b>, que transitan por los municipios de <b>Tacotalpa, Teapa, Jalapa y Centro</b>.</p></div>
+ <div class="card"><h3>Aporte regulado del Alto Grijalva en Chiapas</h3><p>Cuando se hable de <b>Grijalva regulado</b>, debe entenderse como el <b>Alto Grijalva en Chiapas</b>, asociado al sistema de presas. En el Grijalva tabasqueño, esa influencia llega ya muy limitada por el río Carrizal, junto con aportes del Platanar, aguas abajo de los malecones de Villahermosa, en el sitio conocido como <b>La Pigua</b>.</p></div>
+ <div class="card"><h3>Qué significa regulación</h3><p>Regular no es detener toda el agua. Significa administrar entradas y salidas de un embalse para reducir picos, mantener seguridad hidráulica y transferir volúmenes bajo reglas de operación.</p></div>
+ <div class="card"><h3>Por qué puede haber impacto aunque haya presas</h3><p>Si llueve mucho en la planicie, si los ríos serranos suben, si hay remanso o si se reduce la capacidad de salida, el sistema puede generar anegamientos aunque exista regulación aguas arriba.</p></div>
+</div>
+<h3>Conceptos que debe dominar el usuario</h3>
+<ul><li><b>Ríos formadores:</b> Oxolotán, Amatán, Tacotalpa, La Sierra, Teapa, Puyacatengo y Pichucalco.</li><li><b>Aporte regulado del Alto Grijalva en Chiapas:</b> volumen ya atenuado del sistema de presas que llega a Tabasco por la red Mezcalapa–Carrizal; junto con el Platanar, se incorpora al Grijalva tabasqueño aguas abajo de los malecones de Villahermosa, en La Pigua.</li><li><b>Confluencia local:</b> sitio donde se suman aportes de ríos serranos, Carrizal, lluvia urbana y remanso.</li><li><b>Remanso:</b> cuando el agua no puede avanzar con libertad por niveles altos aguas abajo.</li><li><b>Planicie saturada:</b> cuando drenes, suelos y zonas bajas ya no tienen capacidad de recibir más agua.</li></ul>
+<figure class="amh-visual"><img loading="lazy" alt="Influencia del sistema de presas en Tabasco" src="images/img_15.webp" decoding="async"></figure>
+
+
+${routeHTML("grijalva")}
+${accordion([
+["Regulación hidráulica","Las presas almacenan, regulan y laminan volúmenes. La operación modifica el gasto que llega a la planicie tabasqueña."],
+["Ríos serranos del Grijalva tabasqueño","Oxolotán, Amatán, Tacotalpa, La Sierra, Teapa, Puyacatengo y Pichucalco aportan la señal hidrológica local que transita por Tacotalpa, Teapa, Jalapa y Centro."],
+["Alto Grijalva en Chiapas, Platanar y Carrizal","El aporte regulado corresponde al Alto Grijalva en Chiapas y llega ya muy limitado a Tabasco. Junto con el Platanar, se conduce por el río Carrizal y se incorpora al Grijalva tabasqueño aguas abajo de los malecones de Villahermosa, en La Pigua."],
+["Bifurcación Samaria–Carrizal","La distribución del flujo condiciona efectos diferenciados en Nacajuca, Jalpa de Méndez, Cunduacán, Centro y zona urbana."],
+["El Macayo","La estructura regula el ingreso hacia Carrizal, influyendo en el comportamiento hidráulico aguas abajo."],
+["Remanso","Puede generarse por niveles altos aguas abajo, confluencias, lluvia local o restricciones hidráulicas."],
+["Puxcatán, Tulijá y Chilapa","Puxcatán y Tulijá forman parte del sistema que da origen al Chilapa. El Chilapa aporta al Grijalva por la margen derecha en la zona baja de Centla, aproximadamente 20 km aguas arriba de la confluencia Grijalva–Usumacinta."]
+])}
+<div class="key">Mensaje clave: el Grijalva tabasqueño lo conforman Oxolotán, Amatán, Tacotalpa, La Sierra, Teapa, Puyacatengo y Pichucalco. Recibe una aportación ya muy limitada del Sistema de Presas y Platanar por el río Carrizal, aguas abajo de los malecones de Villahermosa, en La Pigua.</div>`},
+
+{short:"7. Usumacinta",t:"Sistema Usumacinta: cuenca transfronteriza",html:`
+<h2>7. Sistema Usumacinta: cuenca transfronteriza y planicie de regulación</h2>
+<p>El Usumacinta integra aportes de Guatemala, Chiapas y Tabasco. Su comportamiento en Los Ríos y Pantanos depende de volumen regional, propagación de crecientes y almacenamiento en planicies.</p>
+<figure class="amh-visual amh-fullwidth">
+  <img loading="lazy" alt="Cuenca del río Usumacinta y Subregión de los Ríos" src="images/img_16.webp" decoding="async">
+</figure>
+
+<h3>El Usumacinta explicado como gran sistema de volumen</h3>
+<p>El Usumacinta no se comporta como una cuenca pequeña donde la lluvia y el impacto ocurren casi al mismo tiempo. Es una cuenca enorme: una parte importante del agua se genera fuera de Tabasco, viaja por cauces mayores, se suma con otros ríos, entra por Boca del Cerro y luego se expande en planicies, brazos, humedales y zonas deltaicas.</p>
+<div class="grid2">
+ <div class="card"><h3>Por qué importa Guatemala y Chiapas</h3><p>Las lluvias en Guatemala y en la Selva de Chiapas pueden elevar el volumen que llega a Boca del Cerro. Por eso, la vigilancia no debe limitarse a la lluvia local en Tenosique o Balancán.</p></div>
+ <div class="card"><h3>Por qué dura más aguas abajo</h3><p>Al avanzar hacia Jonuta y Centla, el río encuentra planicies amplias, humedales y confluencias. El agua se dispersa, se almacena y puede permanecer más tiempo.</p></div>
+ <div class="card"><h3>Llenado de zonas de regulación</h3><p>Las zonas bajas, humedales, lagunas, brazos secundarios y planicies funcionan como amortiguamiento natural. Durante una creciente se van ocupando por etapas; cuando esa capacidad se reduce, el río pierde espacio para expandirse sin daño y aumenta el riesgo en caminos, viviendas, parcelas y localidades.</p></div>
+ <div class="card"><h3>Lectura con imágenes satelitales</h3><p>Comparar imágenes Landsat de crecientes máximas históricas con imágenes de un evento en proceso permite estimar la superficie ya ocupada por agua y calcular cuántas hectáreas quedan disponibles como amortiguamiento o regulación natural.</p></div>
+</div>
+<div class="key"><b>Uso operativo:</b> si el evento actual ya ocupa una proporción alta de la planicie observada en crecientes máximas, debe asumirse menor capacidad de regulación remanente y mayor probabilidad de expansión hacia zonas habitadas o productivas.</div>
+<h3>Lectura sencilla de la propagación</h3>
+<table><tr><th>Tramo</th><th>Qué ocurre</th><th>Qué debe interpretarse</th></tr>
+<tr><td>Cuenca alta</td><td>Se genera el volumen por lluvias regionales.</td><td>La lluvia puede estar lejos de Tabasco.</td></tr>
+<tr><td>Boca del Cerro</td><td>Se observa la señal de entrada.</td><td>Sirve como referencia temprana.</td></tr>
+<tr><td>Tenosique-Balancán-Zapata</td><td>La creciente se propaga.</td><td>El pico no llega igual a todos los puntos.</td></tr>
+<tr><td>Jonuta-Centla</td><td>El agua se expande en planicie y humedales.</td><td>La duración puede ser prolongada.</td></tr></table>
+
+${routeHTML("usumacinta")}
+<div class="interactive-box">
+ <h3>Línea de tiempo de una creciente</h3>
+ <p>Selecciona un momento para revisar cómo puede propagarse una creciente regional.</p>
+ <div class="timeline">
+  <span class="timepoint" onclick="timeInfo(this,'0 h','Lluvia intensa en cuenca alta de Guatemala y Chiapas. Se genera volumen que iniciará su tránsito hacia Tabasco.')">0 h</span>
+  <span class="timepoint" onclick="timeInfo(this,'24 h','Reflejo aproximado en Tenosique/Boca del Cerro, según distribución de lluvias, volumen y condiciones del cauce.')">24 h</span>
+  <span class="timepoint" onclick="timeInfo(this,'48 h','Propagación hacia Balancán; la onda de creciente avanza y se modifica por planicies y aportes laterales.')">48 h</span>
+  <span class="timepoint" onclick="timeInfo(this,'50 h','Posible reflejo hacia Emiliano Zapata con desfase respecto a Balancán.')">50 h</span>
+  <span class="timepoint" onclick="timeInfo(this,'71 h','Efectos hacia Jonuta y zonas de planicie, con mayor permanencia del agua.')">71 h</span>
+  <span class="timepoint" onclick="timeInfo(this,'Posterior','Influencia hacia Centla, humedales, confluencias y planicie deltaica.')">Posterior</span>
+ </div>
+ <div id="timeOut" class="result">Selecciona un punto de la línea de tiempo.</div>
+</div>
+<div class="key">Mensaje clave: el Usumacinta debe interpretarse como gran cuenca transfronteriza de volumen, propagación y permanencia.</div>`},
+
+{short:"8. Ríos serranos",t:"Ríos serranos y respuesta rápida de cuencas cortas",html:`
+<h2>8. Ríos serranos y respuesta rápida de cuencas cortas</h2>
+<p>Los ríos serranos responden rápidamente ante lluvias intensas porque sus cuencas son cortas, con pendientes fuertes y concentración veloz del escurrimiento. La lluvia orográfica puede generar crecientes súbitas con arrastre de sedimentos.</p>
+<h3>Qué es una cuenca de respuesta rápida</h3>
+<p>Una cuenca de respuesta rápida es aquella donde la lluvia se convierte en escurrimiento en poco tiempo. Esto sucede cuando la pendiente es fuerte, el cauce es corto, el suelo está saturado o hay poca cobertura vegetal. En estos casos, el agua no se queda mucho tiempo en el terreno: baja rápido hacia arroyos y ríos.</p>
+<figure class="amh-visual"><img loading="lazy" alt="Comportamiento de un río libre y sin presa en Tabasco" src="images/img_17.webp" decoding="async"></figure>
+
+<div class="grid2">
+ <div class="card"><h3>Para no especialistas</h3><p>Imagina tirar agua sobre una lámina inclinada: el agua corre rápido. Eso se parece a una cuenca serrana. Si además la lámina ya está mojada, el agua corre todavía más.</p></div>
+ <div class="card"><h3>Qué observar</h3><p>Lluvia intensa en poco tiempo, turbiedad del agua, arrastre de ramas o sedimentos, ascenso rápido de arroyos, reportes de laderas inestables y saturación previa.</p></div>
+</div>
+<h3>Procesos asociados</h3>
+<ul><li><b>Creciente súbita:</b> aumento rápido del nivel del río.</li><li><b>Arrastre de sedimentos:</b> material de laderas y cauces que reduce capacidad hidráulica.</li><li><b>Deslizamientos:</b> en laderas saturadas o degradadas.</li><li><b>Transferencia a planicie:</b> el problema baja hacia comunidades y zonas con menor pendiente.</li></ul>
+
+<div class="grid2">
+ <div class="card"><h3>Ríos principales</h3><p>Oxolotán, Amatán, Tacotalpa, La Sierra, Teapa, Puyacatengo y Pichucalco. Estos transitan por Tacotalpa, Teapa, Jalapa y Centro.</p></div>
+ <div class="card"><h3>Sistema Puxcatán–Tulijá–Chilapa</h3><p>El Puxcatán y el Tulijá alimentan el sistema Chilapa. El Chilapa desemboca en el Grijalva por la margen derecha en la zona baja de Centla, antes de la unión Grijalva–Usumacinta.</p></div>
+ <div class="card"><h3>Factores críticos</h3><p>Intensidad de lluvia, saturación del suelo, pendiente, cobertura vegetal, material de arrastre y tiempo de reflejo.</p></div>
+</div>
+${lluviaSelectorHTML("rain8")}
+${scenarioHTML("sc8")}
+<div class="key">Mensaje clave: en ríos serranos, la intensidad y el tiempo de respuesta pueden ser más determinantes que el acumulado total.</div>`},
+
+{short:"9. Chontalpa",t:"Chontalpa Grande: ríos, drenajes y planicie agrícola",html:`
+<h2>9. Chontalpa Grande: ríos, drenajes y planicie agrícola</h2>
+<p>Chontalpa Grande, integrada por Huimanguillo y Cárdenas, presenta una hidrología marcada por planicies agrícolas, sistemas de drenaje, ríos regionales, infraestructura carretera y zonas bajas donde el agua puede acumularse por varios mecanismos simultáneos. Como referencia territorial, al ponderar la superficie municipal con los porcentajes hidrológicos de INEGI, aproximadamente <b>89% de la Chontalpa Grande</b> corresponde a la Región Hidrológica 29 Coatzacoalcos, asociada localmente al sistema Tonalá–Zanapa; el resto drena hacia Grijalva–Usumacinta.</p>
+<h3>La Chontalpa como planicie de drenaje complejo</h3>
+<p>En Chontalpa Grande no siempre domina un gran desbordamiento de río. Muchas veces el problema se construye por lluvia local, suelos de baja permeabilidad, drenes agrícolas saturados, canales con poco mantenimiento, pasos hidráulicos insuficientes y caminos que funcionan como barreras al flujo natural.</p>
+
+<figure class="amh-visual" style="margin:18px 0 24px;">
+  <img src="images/img_18.jpg" alt="Red hidrográfica principal de la cuenca del río Tonalá-Zanapa, Región Hidrológica RH-29 Coatzacoalcos" style="width:100%;max-width:none;display:block;margin:0 auto;border-radius:14px;" loading="lazy" decoding="async">
+</figure>
+<div class="grid2">
+ <div class="card"><h3>Drenaje agrícola y planicie</h3><p>Los drenes ayudan a desalojar agua de zonas productivas, pero si el río receptor está alto o hay marea/remanso, el dren no descarga con facilidad. Entonces el agua permanece en parcelas, caminos y comunidades.</p></div>
+ <div class="card"><h3>Zonas de regulación en Chontalpa Grande</h3><p>Los bajos, cuerpos lagunares, humedales, drenes y parcelas anegables funcionan como almacenamiento temporal. Cuando estas zonas ya están llenas, reducidas por bordos o interrumpidas por caminos, disminuye la capacidad de amortiguamiento y aumenta la permanencia del agua en zonas productivas y localidades.</p></div>
+ <div class="card"><h3>Interacción regional</h3><p>Además de lluvia local, puede haber influencia de sistemas como Tonalá, Zanapa, Mezcalapa y Samaria, por lo que el diagnóstico debe considerar ríos, drenes y planicie juntos.</p></div>
+</div>
+<h3>Señales de inundación mixta</h3>
+<ul><li>Lluvia intensa sobre suelos ya húmedos.</li><li>Drenes con niveles altos o flujo lento.</li><li>Río receptor alto.</li><li>Caminos o bordos que impiden el flujo transversal.</li><li>Agua que permanece varios días aun sin lluvia nueva.</li></ul>
+
+<table>
+<tr><th>Tipo de inundación</th><th>Cómo se genera</th><th>Lectura regional</th></tr>
+<tr><td>Fluvial</td><td>Incremento y desbordamiento de cauces.</td><td>Río alto con planicie saturada.</td></tr>
+<tr><td>Pluvial</td><td>Lluvia local supera capacidad de drenaje.</td><td>Acumulaciones urbanas o rurales inmediatas.</td></tr>
+<tr><td>Por drenaje insuficiente</td><td>Drenes, canales o pasos hidráulicos no desalojan el volumen.</td><td>Agua permanece en parcelas, caminos o zonas bajas.</td></tr>
+<tr><td>Mixta</td><td>Coinciden lluvia local, río alto, suelo saturado y bloqueo hidráulico.</td><td>Mayor duración e impacto territorial.</td></tr>
+</table>
+<div class="interactive-box">
+ <h3>Clasificador de tipo de inundación</h3>
+ <p>Selecciona el caso y revisa la interpretación.</p>
+ <select id="chCase">
+  <option value="fluvial">Río alto y desbordamiento en zona baja</option>
+  <option value="pluvial">Lluvia intensa local con calles anegadas</option>
+  <option value="drenaje">Dren agrícola saturado y agua retenida en parcelas</option>
+  <option value="mixta">Río alto, lluvia local y drenaje insuficiente</option>
+ </select>
+ <button class="btn-blue" onclick="classifyChontalpa()">Interpretar</button>
+ <div id="chOut" class="result">La interpretación aparecerá aquí.</div>
+</div>
+<div class="key">Mensaje clave: Chontalpa Grande se entiende como una planicie productiva donde ríos, drenes, suelos saturados, infraestructura y zonas de regulación natural interactúan.</div>`},
+
+{short:"10. Costa-Pantanos",t:"Costa–Pantanos: interacción río, laguna, humedal y mar",html:`
+<h2>10. Costa–Pantanos: interacción río, laguna, humedal y mar</h2>
+<figure class="amh-visual"><img loading="lazy" src="images/img_19.webp" alt="Funcionamiento de una planicie inundable" decoding="async"></figure>
+<p>En Centla, Paraíso y Comalcalco se combinan ríos, lagunas, humedales, barras, bocanas, mareas, viento del Norte y baja pendiente. El problema hidrológico no siempre es la entrada de agua, sino su lenta salida hacia el Golfo.</p>
+<h3>Cómo funciona una zona fluvio-lagunar-costera</h3>
+<p>En Costa–Pantanos, el agua no solo baja por ríos. También circula por lagunas, esteros, humedales, drenes y bocanas. La salida hacia el Golfo puede reducirse cuando hay marea alta, viento del Norte, oleaje, barras arenosas o azolvamiento. Por eso una lluvia que ya terminó puede seguir generando agua acumulada.</p>
+<div class="grid2">
+ <div class="card"><h3>Río González y Paraíso</h3><p>El sistema costero-lagunar asociado a Mecoacán, lagunas, arroyos y el río González funciona como eje de descarga hacia el Golfo. Si la salida se frena, el agua puede regresar o permanecer en zonas bajas.</p></div>
+ <div class="card"><h3>Centla y Tres Brazos</h3><p>En Centla confluyen grandes volúmenes del Usumacinta y Grijalva. Los humedales almacenan agua, pero cuando están saturados, la permanencia aumenta y la salida depende de condiciones deltaicas y costeras.</p></div>
+</div>
+<h3>Factores costeros que un usuario debe distinguir</h3>
+<table><tr><th>Factor</th><th>Explicación sencilla</th><th>Efecto</th></tr>
+<tr><td>Marea alta</td><td>El nivel del mar sube.</td><td>Dificulta que ríos y lagunas descarguen.</td></tr>
+<tr><td>Norte fuerte</td><td>Viento empuja agua hacia la costa.</td><td>Puede elevar niveles y favorecer remanso.</td></tr>
+<tr><td>Bocana azolvada</td><td>La salida se estrecha por sedimentos.</td><td>Reduce capacidad de desalojo.</td></tr>
+<tr><td>Laguna saturada</td><td>El cuerpo lagunar ya almacenó mucha agua.</td><td>Prolonga anegamientos.</td></tr></table>
+
+<div class="grid">
+ <div class="card"><h3>Centla</h3><p>Integra grandes volúmenes del Usumacinta y Grijalva, humedales extensos, Tres Brazos y conexiones deltaicas.</p></div>
+ <div class="card"><h3>Paraíso</h3><p>Interacción entre sistemas lagunares, costa, bocanas, erosión, azolvamiento y ríos como el Seco.</p></div>
+ <div class="card"><h3>Comalcalco</h3><p>Planicies bajas, drenajes, zonas productivas y conexión con sistemas lagunares y costeros.</p></div>
+</div>
+${scenarioHTML("sc10")}
+<div class="interactive-box">
+ <h3>¿Por qué no baja el agua?</h3>
+ <p>Activa factores para construir una explicación.</p>
+ <span class="choice-chip" onclick="toggleChip(this)">Río alto</span>
+ <span class="choice-chip" onclick="toggleChip(this)">Marea alta</span>
+ <span class="choice-chip" onclick="toggleChip(this)">Norte fuerte</span>
+ <span class="choice-chip" onclick="toggleChip(this)">Bocana azolvada</span>
+ <span class="choice-chip" onclick="toggleChip(this)">Laguna saturada</span>
+ <span class="choice-chip" onclick="toggleChip(this)">Baja pendiente</span>
+ <br><button class="btn-blue" onclick="whyWaterStays()">Explicar</button>
+ <div id="whyOut" class="result">Selecciona factores.</div>
+</div>
+<div class="key">Mensaje clave: en Costa–Pantanos, la permanencia del agua depende de la interacción entre río, laguna, humedal, bocana, marea, viento y baja pendiente.</div>`},
+
+{short:"11. Dinámica diferenciada",t:"Dinámica diferenciada de las inundaciones por sistema regional",html:`
+<h2>11. Dinámica diferenciada de las inundaciones por sistema regional</h2>
+
+<figure class="amh-visual"><img loading="lazy" src="images/img_20.webp" alt="Sistema Alto Grijalva, Chiapas" decoding="async"></figure>
+<p>Una misma lluvia puede generar efectos muy distintos según el sistema hidrológico regional. La Sierra responde rápido; el Usumacinta propaga volumen; Samaria–Carrizal combina regulación y remanso; Chontalpa depende de drenaje; Costa–Pantanos depende de salida al mar.</p>
+<h3>Cómo comparar sistemas sin confundirse</h3>
+<figure class="amh-visual"><img loading="lazy" alt="Tipos de inundación en Tabasco" src="images/img_21.webp" decoding="async"></figure>
+
+<p>La pregunta central no es “¿dónde llovió más?”, sino “¿qué sistema tiene condiciones para responder más rápido, almacenar más agua o desalojar más lento?”. Por eso, la guía compara origen del agua, pendiente, drenaje, volumen y salida.</p>
+<div class="grid">
+ <div class="card"><h3>Respuesta rápida</h3><p>Sierra: domina intensidad de lluvia, pendiente y saturación.</p></div>
+ <div class="card"><h3>Respuesta prolongada</h3><p>Usumacinta y Costa–Pantanos: domina volumen, planicie, humedales y salida lenta.</p></div>
+ <div class="card"><h3>Respuesta mixta</h3><p>Samaria–Carrizal y Chontalpa: interactúan ríos, drenes, infraestructura, lluvia local y remanso.</p></div>
+</div>
+
+${comparatorHTML()}
+<table>
+<tr><th>Región</th><th>Origen dominante</th><th>Velocidad</th><th>Duración</th><th>Factor crítico</th></tr>
+<tr><td>Sierra</td><td>Lluvia orográfica y cuencas cortas</td><td>Rápida</td><td>Corta a media</td><td>Intensidad y saturación</td></tr>
+<tr><td>Usumacinta</td><td>Cuenca transfronteriza</td><td>Progresiva</td><td>Prolongada</td><td>Volumen y planicie</td></tr>
+<tr><td>Samaria–Carrizal</td><td>Alto Grijalva regulado en Chiapas, bifurcación y lluvia local</td><td>Media</td><td>Variable</td><td>Gasto del Alto Grijalva regulado en Chiapas, remanso y operación</td></tr>
+<tr><td>Chontalpa Grande<br><small>Coatzacoalcos–Tonalá</small></td><td>Planicie agrícola, ríos, drenes y canales vinculados a la cuenca Coatzacoalcos–Tonalá</td><td>Media</td><td>Media a prolongada</td><td>Capacidad de drenaje y niveles de ríos receptores</td></tr>
+<tr><td>Costa–Pantanos</td><td>Río, laguna, humedal y mar</td><td>Lenta</td><td>Prolongada</td><td>Desalojo hacia el Golfo</td></tr>
+</table>
+<div class="key">Mensaje clave: las inundaciones en Tabasco tienen comportamientos diferenciados y deben analizarse por sistema regional hidrológica.</div>`},
+
+{short:"12. Lectura de datos",t:"Lectura hidrológica de datos: lluvia, niveles y gastos",html:`
+<h2>12. Lectura hidrológica de datos: lluvia, niveles y gastos</h2>
+<figure class="amh-visual"><img loading="lazy" src="images/img_22.webp" alt="Red de monitoreo hidrometeorológico" decoding="async"></figure>
+<p>La información hidrometeorológica permite comprender el comportamiento del agua cuando se interpreta de manera integrada. Un dato aislado puede llevar a conclusiones equivocadas.</p>
+<h3>Cómo leer datos si no eres hidrólogo</h3>
+<p>Un dato aislado puede engañar. Lo importante es observar la tendencia y hacer preguntas: ¿sube rápido o lento?, ¿sigue subiendo?, ¿ya alcanzó pico?, ¿se mantiene en meseta?, ¿hay otro pulso de lluvia aguas arriba?, ¿el río puede descargar o hay remanso?</p>
+<table><tr><th>Dato</th><th>Qué significa</th><th>Error común</th></tr>
+<tr><td>Lluvia acumulada</td><td>Total de agua caída en un periodo.</td><td>Creer que el mismo acumulado tiene igual efecto en todas las regiones.</td></tr>
+<tr><td>Intensidad</td><td>Velocidad con que cae la lluvia.</td><td>No diferenciar lluvia de una hora y lluvia de 24 horas.</td></tr>
+<tr><td>Nivel</td><td>Altura del agua en una estación.</td><td>Comparar niveles de estaciones distintas como si fueran iguales.</td></tr>
+<tr><td>Gasto</td><td>Volumen que pasa por segundo.</td><td>Ignorar que el gasto explica magnitud del flujo.</td></tr>
+<tr><td>Tendencia</td><td>Dirección del cambio: sube, baja o se mantiene.</td><td>Ver solo el dato del momento y no la evolución.</td></tr></table>
+<div class="note"><b>Regla práctica:</b> un río que sube rápido exige atención al tiempo de respuesta; un río que se mantiene alto exige atención al volumen, salida y remanso.</div>
+
+<div class="grid2">
+ <div class="card"><h3>Lluvia</h3><p>Debe leerse por acumulado, intensidad, duración y distribución espacial. 80 mm en una hora no significan lo mismo que 80 mm en 24 horas.</p></div>
+ <div class="card"><h3>Nivel y gasto</h3><p>El nivel muestra altura local; el gasto expresa volumen por segundo. Ambos deben relacionarse con tendencia y ubicación.</p></div>
+</div>
+${hydrographHTML()}
+${flipCards(concepts.slice(2,10))}
+<div class="key">Mensaje clave: tendencia, contexto de cuenca y comparación entre estaciones son más importantes que un dato aislado.</div>`},
+
+{short:"13. Escenarios",t:"Escenarios hidrológicos regionales",html:`
+<h2>13. Escenarios hidrológicos regionales</h2>
+<p>Los escenarios ayudan a integrar variables: fenómeno meteorológico, región, condición antecedente, niveles de ríos, costa, drenaje y tiempo de respuesta.</p>
+<h3>Cómo construir un escenario hidrológico</h3>
+<p>Un escenario no es una predicción exacta; es una lectura ordenada de condiciones que pueden coincidir. Para construirlo se combinan cinco capas: fenómeno meteorológico, lluvia esperada, humedad antecedente, estado de ríos y capacidad de salida, drenaje y zonas de regulación natural.</p>
+<table><tr><th>Capa</th><th>Pregunta guía</th><th>Ejemplo</th></tr>
+<tr><td>Fenómeno</td><td>¿Qué está generando la lluvia?</td><td>Frente frío, onda tropical, ciclón, Norte.</td></tr>
+<tr><td>Lluvia</td><td>¿Cuánto y en cuánto tiempo?</td><td>100 mm en 6 horas no equivale a 100 mm en 24 horas.</td></tr>
+<tr><td>Cuenca</td><td>¿Es serrana, planicie, costera o transfronteriza?</td><td>Sierra responde rápido; Usumacinta propaga volumen.</td></tr>
+<tr><td>Antecedente</td><td>¿El suelo está seco o saturado?</td><td>Suelo saturado produce más escurrimiento.</td></tr>
+<tr><td>Salida y regulación</td><td>¿El agua puede desalojar o almacenarse sin causar daño?</td><td>Dren alto, marea alta, bocana azolvada o zonas de regulación llenas prolongan anegamiento.</td></tr></table>
+
+${scenarioHTML("sc13")}
+<div class="grid2">
+ <div class="card"><h3>Lluvia intensa en Sierra</h3><p>Alta intensidad, pendiente fuerte y suelo saturado. Resultado: respuesta rápida y posible creciente súbita.</p></div>
+ <div class="card"><h3>Usumacinta desde cuenca alta</h3><p>Lluvias en Guatemala y Chiapas. Resultado: propagación progresiva hacia Los Ríos y Centla.</p></div>
+ <div class="card"><h3>Alto Grijalva regulado en Chiapas</h3><p>Corresponde al sistema de presas La Angostura, Chicoasén, Malpaso y Peñitas. Sus descargas se distribuyen hacia Tabasco por Mezcalapa, Samaria y Carrizal; no debe confundirse con el Grijalva tabasqueño de ríos serranos.</p></div>
+ <div class="card"><h3>Costa con Norte</h3><p>Viento, marea, bocanas y lagunas saturadas. Resultado: salida lenta y permanencia prolongada.</p></div>
+</div>
+<div class="key">Mensaje clave: un escenario hidrológico se construye combinando variables, no con una sola causa.</div>`},
+
+{short:"14. Gestión de cuencas",t:"Gestión Integral de Cuencas",html:`
+<h2>14. Gestión Integral de Cuencas</h2>
+<p>La gestión integral de cuencas reconoce que el agua debe analizarse desde su origen hasta su desembocadura. Lo que ocurre en la parte alta modifica la parte media y baja; lo que se altera en humedales, cauces, laderas o planicies cambia el comportamiento de las inundaciones.</p>
+<h3>Gestión de cuencas explicada en lenguaje claro</h3>
+<p>Gestionar una cuenca significa tomar decisiones considerando todo el camino del agua. No basta limpiar un dren si aguas arriba se deforesta, si se ocupan cauces, si se rellenan humedales o si la descarga al mar está obstruida. La cuenca funciona como un sistema conectado.</p>
+<figure class="amh-visual"><img loading="lazy" alt="Gestión integral de cuencas" src="images/img_23.webp" decoding="async"></figure>
+
+<div class="grid2">
+ <div class="card"><h3>Parte alta</h3><p>Conservación de suelos, cobertura vegetal, control de erosión, monitoreo de lluvia y reducción de escurrimiento violento.</p></div>
+ <div class="card"><h3>Parte media y baja</h3><p>Mantenimiento de cauces y drenes, protección de humedales, ordenamiento territorial y respeto a planicies de inundación.</p></div>
+</div>
+<h3>Acciones que reducen o aumentan el problema</h3>
+<table><tr><th>Ayuda a la cuenca</th><th>Perjudica la cuenca</th></tr>
+<tr><td>Conservar vegetación ribereña.</td><td>Eliminar cobertura vegetal en laderas.</td></tr>
+<tr><td>Proteger humedales y zonas de regulación.</td><td>Rellenar bajos naturales y lagunas.</td></tr>
+<tr><td>Monitorear lluvia y niveles aguas arriba.</td><td>Construir sin considerar escurrimientos naturales.</td></tr>
+<tr><td>Dar mantenimiento técnico a drenes y bocanas.</td><td>Obstruir cauces con obras mal diseñadas.</td></tr></table>
+<figure class="amh-visual"><img loading="lazy" alt="Cuenca degradada" src="images/img_24.webp" decoding="async"></figure>
+
+
+${accordion([
+["Unidad territorial","La cuenca es la unidad natural de análisis. Permite conectar lluvia, escurrimiento, sedimentos, drenaje, humedales y costa."],
+["Conservación de suelos y vegetación","La cobertura vegetal reduce erosión, modera escurrimientos y favorece infiltración."],
+["Humedales y zonas de regulación","Los humedales almacenan agua, laminan crecientes y reducen velocidad de flujo."],
+["Ordenamiento territorial","Evita ocupar cauces, zonas bajas y planicies de inundación sin criterios hidráulicos."],
+["Monitoreo hidrometeorológico","Estaciones de lluvia y nivel en cuencas altas permiten anticipar crecientes aguas abajo."],
+["Manejo de sedimentos","El azolvamiento reduce capacidad de cauces, drenes y bocanas; debe tratarse con criterio técnico."]
+])}
+<div class="interactive-box">
+ <h3>Decisiones en la cuenca</h3>
+ <p>Clasifica mentalmente cada acción. Después presiona “ver lectura”.</p>
+ <table><tr><th>Acción</th><th>Lectura hidrológica</th></tr>
+ <tr><td>Conservar humedales</td><td>Ayuda a regular y almacenar agua.</td></tr>
+ <tr><td>Rellenar zonas bajas</td><td>Reduce almacenamiento natural y puede trasladar el problema.</td></tr>
+ <tr><td>Monitorear cuencas altas</td><td>Mejora anticipación de crecientes.</td></tr>
+ <tr><td>Construir en cauces naturales</td><td>Aumenta exposición y puede obstruir flujos.</td></tr>
+ <tr><td>Mantener drenes con criterio técnico</td><td>Mejora conducción sin perder visión integral.</td></tr></table>
+ </div>
+<div class="key">Mensaje clave: la inundación se observa en la planicie, pero muchas de sus causas se construyen o atenúan a escala de cuenca.</div>`},
+
+{short:"15. Gestión de inundaciones",t:"Gestión Integral de Inundaciones",html:`
+<h2>15. Gestión Integral de Inundaciones</h2>
+<figure class="amh-visual"><img loading="lazy" src="images/img_25.webp" alt="Obras hidráulicas en Tabasco" decoding="async"></figure>
+<p>La gestión integral de inundaciones reconoce que inundarse es un proceso natural en planicies aluviales, humedales y zonas bajas. El reto es reducir impactos mediante conocimiento, planeación, infraestructura adecuada, conservación y adaptación territorial.</p>
+<h3>Gestión de inundaciones para entender, no solo reaccionar</h3>
+<figure class="amh-visual"><img loading="lazy" alt="Resiliencia hídrica en Tabasco" src="images/img_26.webp" decoding="async"></figure>
+
+<p>Una inundación no siempre es una falla del sistema: en muchas planicies es un proceso natural. El problema aparece cuando ocupamos zonas inundables sin reconocer su función, cuando los drenes no pueden descargar, cuando se reducen humedales o cuando se espera que una sola obra resuelva toda la dinámica de una cuenca.</p>
+<div class="grid2">
+ <div class="card"><h3>Controlar</h3><p>Usar obras para conducir, contener o regular agua. Es útil, pero tiene límites y requiere mantenimiento.</p></div>
+ <div class="card"><h3>Adaptar</h3><p>Reconocer zonas donde el agua puede entrar, permanecer o expandirse, y planear usos compatibles con esa realidad.</p></div>
+ <div class="card"><h3>Restaurar</h3><p>Recuperar humedales, vegetación ribereña, cauces y zonas de almacenamiento natural.</p></div>
+ <div class="card"><h3>Informar</h3><p>Traducir datos de lluvia, nivel y gasto en mensajes comprensibles para la toma de decisiones.</p></div>
+</div>
+<h3>Tipos de inundación que debe distinguir la guía</h3>
+<table><tr><th>Tipo</th><th>Explicación sencilla</th><th>Ejemplo regional</th></tr>
+<tr><td>Fluvial</td><td>El río crece y rebasa su cauce o se expande a su planicie.</td><td>Usumacinta, Samaria, Carrizal, ríos serranos.</td></tr>
+<tr><td>Pluvial</td><td>La lluvia cae sobre una zona y el drenaje no alcanza.</td><td>Ciudades, cabeceras municipales y zonas agrícolas.</td></tr>
+<tr><td>Por remanso</td><td>El agua no puede avanzar porque aguas abajo el nivel está alto.</td><td>Confluencias, costa, lagunas y drenes que no descargan.</td></tr>
+<tr><td>Costera</td><td>Marea, oleaje o viento elevan niveles en el litoral.</td><td>Paraíso, Centla y barras costeras.</td></tr>
+<tr><td>Mixta</td><td>Se combinan lluvia, río alto, drenaje limitado y costa.</td><td>Eventos regionales complejos.</td></tr></table>
+
+<div class="grid2">
+ <div class="card"><h3>Infraestructura hidráulica</h3><p>Bordos, canales, drenes, compuertas, obras de control y pasos hidráulicos. Son útiles, pero tienen límites y requieren mantenimiento y evaluación de efectos aguas arriba y aguas abajo.</p></div>
+ <div class="card"><h3>Infraestructura natural</h3><p>Humedales, planicies de inundación, vegetación ribereña, zonas de retención y cuerpos lagunares. Ayudan a almacenar, laminar y regular el agua.</p></div>
+</div>
+${casesHTML()}
+<div class="key">Mensaje clave: la mejor estrategia no es una sola obra ni una sola acción; es una combinación de conocimiento, infraestructura, naturaleza, planeación y cultura hídrica.</div>`},
+
+
+{short:"Herramientas",t:"Herramientas interactivas",html:interactiveToolsHTML()},
+
+{short:"Glosario",t:"Glosario hidrológico con buscador",html:`
+<h2>Glosario hidrológico con buscador</h2>
+<p>Consulta términos técnicos de la guía. Cada entrada incluye definición, ejemplo aplicado y términos relacionados.</p>
+<div class="interactive-box">
+ <label>Buscar término</label>
+ <input id="glossSearch" oninput="searchGlossary()" placeholder="Ejemplo: gasto, remanso, bocana, hidrograma, cuenca...">
+ <div id="glossOut" class="glossary-results"></div>
+</div>`},
+
+{short:"Evaluación final",t:"Evaluación final de acreditación",html:finalEvaluationHTML()},
+
+{short:"Cierre",t:"Cierre integrador",html:`
+<h2>Cierre integrador: comprender la cuenca para gestionar mejor el agua</h2>
+<p>Tabasco es un territorio definido por el agua. Sus ríos, lagunas, humedales, planicies y costas forman un sistema hidrológico amplio, dinámico y conectado con las cuencas altas de Chiapas, Guatemala y Veracruz, así como con el Golfo de México.</p>
+<p>Las inundaciones tienen causas diferenciadas: lluvias intensas locales, crecientes que viajan desde cuencas lejanas, descargas reguladas, bifurcaciones, remansos, drenajes de planicie, saturación de suelos, humedales, lagunas, mareas, viento del Norte, bocanas y baja pendiente.</p>
+<p>La gestión integral de cuencas y de inundaciones representa una visión indispensable para el futuro hídrico de Tabasco. Esta visión reconoce que el agua debe entenderse desde su origen hasta su desembocadura, desde la montaña hasta la planicie, desde el cauce principal hasta los humedales, desde la lluvia intensa hasta el comportamiento prolongado de una inundación.</p>
+<h3>Resumen para recordar</h3>
+<ol>
+<li>La lluvia debe interpretarse por intensidad, duración, ubicación y antecedente.</li>
+<li>Las cuencas serranas responden rápido; las planicies almacenan; la costa puede frenar la salida.</li>
+<li>El Usumacinta trae señales desde Guatemala y Chiapas; el Grijalva combina regulación y planicie.</li>
+<li>Chontalpa depende mucho de drenes, canales, suelos y pendientes mínimas.</li>
+<li>La gestión integral exige ver la cuenca completa, no solo el sitio inundado.</li>
+</ol>
+
+<div class="key">Comprender cómo se comporta el agua es el primer paso para planear mejor el territorio, reducir impactos, conservar cuencas y fortalecer la relación de la sociedad con sus ríos, humedales y costas.</div>
+<div class="actions"><button class="btn-green" onclick="showCertificate()">Ver constancia</button><button class="btn-blue" onclick="renderModule(modules.length-2)">Ir a evaluación</button></div>`}
+];
+
+/* AUTH AND APP — servidor/Supabase únicamente */
+let __amhMemoryProgress={done:[]};
+function getUsers(){return []}
+function setUsers(){throw new Error("El almacenamiento local fue deshabilitado. La plataforma requiere Supabase.")}
+function getProgress(){return __amhMemoryProgress}
+function setProgress(p){__amhMemoryProgress=p||{done:[]}}
+function platformRequired(){
+ document.getElementById("hero").classList.add("hidden");
+ const a=document.getElementById("authArea");a.classList.remove("hidden");
+ a.innerHTML=`<h2>Plataforma no conectada</h2><div class="warn"><b>Base de datos no configurada o scripts de plataforma no disponibles.</b><br>Esta versión no guarda usuarios ni avances en el navegador. Verifica <code>config.js</code>, <code>js/cloud.js</code> y la configuración de Supabase.</div><button class="btn-light" onclick="location.reload()">Reintentar</button>`;
+}
+function showLogin(){platformRequired()}
+function showRegister(){platformRequired()}
+function register(){platformRequired()}
+function login(){platformRequired()}
+function showAdminLogin(){return false}
+function adminLogin(){platformRequired()}
+
+function guestAccess(){showLogin()}
+function startApp(){
+ document.getElementById("hero").classList.add("hidden");
+ document.getElementById("authArea").classList.add("hidden");
+ document.getElementById("app").classList.remove("hidden");
+ document.getElementById("userMini").textContent=currentUser.name+(adminMode?" · administrador":guestMode?" · consulta pública":"");
+ renderNav(); renderModule(0);
+}
+function renderNav(){
+ const nav=document.getElementById("nav");
+ nav.innerHTML=modules.map((m,i)=>`<button id="nav${i}" onclick="renderModule(${i});document.getElementById('sidebar').classList.remove('open')">${m.short}</button>`).join("")+
+ `<button onclick="showCertificate()">Diploma digital</button><button onclick="logout()">Salir</button>`;
+}
+function renderModule(i){ if(window.renderModuleCloud) return window.renderModuleCloud(i); }
+function completeModule(i){ alert("El avance se acredita al realizar todas las actividades obligatorias del módulo."); }
+function updateProgress(){ if(window.updateProgressCloud) return window.updateProgressCloud(); }
+
+/* ADMIN — los datos se cargan exclusivamente desde Supabase mediante js/cloud.js */
+function showAdmin(){platformRequired()}
+function exportCSV(){platformRequired()}
+
+/* INTERACTIONS */
+function toggleAcc(head){
+ const body=head.nextElementSibling;
+ const icon=head.querySelector("span:last-child");
+ body.classList.toggle("open");
+ icon.textContent=body.classList.contains("open")?"−":"＋";
+}
+function selectMapRegion(region,el){
+ document.querySelectorAll(".map-zone").forEach(z=>z.classList.remove("active"));
+ if(el)el.classList.add("active");
+ const out=document.getElementById("mapInfo");
+ if(out) out.innerHTML=regionTable(region);
+}
+function interpretRain(id){
+ const reg=document.getElementById(id+"_reg").value;
+ const rainVal=Number(document.getElementById(id+"_rain").value);
+ const dur=Number(document.getElementById(id+"_dur").value);
+ const soil=document.getElementById(id+"_soil").value;
+ const rObj=rainRanges.find(function(r){return r.v===rainVal})||rainRanges[0];
+ let cat=rObj.cat; if(cat==="extraordinaria") cat="extraordinarias";
+ const color=rObj.color, label=rObj.label;
+ const intensity=(rainVal/dur);
+
+ // Categoría referencial por intensidad promedio en la duración seleccionada.
+ // La categoría oficial SMN que se muestra y se evalúa es el acumulado en 24 h.
+ let catHora="débil";
+ if(intensity>100) catHora="extraordinaria";
+ else if(intensity>60) catHora="torrencial";
+ else if(intensity>30) catHora="intensa";
+ else if(intensity>15) catHora="muy fuerte";
+ else if(intensity>6)  catHora="fuerte";
+ else if(intensity>2)  catHora="moderada";
+
+ let d=regionData[reg];
+ const respReg={
+  "Sierra":{
+   "aisladas":"Lluvias aisladas: humedecen laderas sin generar escurrimiento superficial relevante. Vigilar solo si persisten varios días.",
+   "chubascos":"Intervalos de chubascos: infiltración parcial en suelos poco saturados; arroyos con leve ascenso si la lluvia se concentra en poco tiempo.",
+   "fuertes":"Lluvias fuertes: pueden generar escurrimiento activo en cuencas serranas. Vigilar arroyos, turbiedad y tiempo de respuesta de 2 a 6 horas.",
+   "muy fuertes":"Lluvias muy fuertes: escurrimiento acelerado y posibles crecientes rápidas en cauces menores; tiempo de respuesta menor en subcuencas pequeñas.",
+   "intensas":"Lluvias intensas: respuesta rápida con potencial de creciente severa, arrastre de sedimentos y desbordamiento de cauces menores.",
+   "torrenciales":"Lluvias torrenciales: alerta máxima en cuencas serranas; crecientes en horas, arrastre, derrumbes y afectación de infraestructura.",
+   "extraordinarias":"Lluvias extraordinarias: evento extremo. Activación simultánea de múltiples cauces serranos y desbordamientos generalizados."
+  },
+  "Usumacinta":{
+   "aisladas":"Lluvias aisladas locales no modifican significativamente el nivel; observar si ocurren en cuenca alta de Guatemala o Chiapas.",
+   "chubascos":"Chubascos en cuenca alta pueden aportar volumen con desfase; revisar tendencia en Boca del Cerro si la lluvia es regional.",
+   "fuertes":"Lluvias fuertes en cuenca alta indican vigilancia en Boca del Cerro y propagación progresiva hacia Los Ríos.",
+   "muy fuertes":"Lluvias muy fuertes regionales pueden iniciar una creciente transfronteriza; monitorear Tenosique, Balancán y estaciones aguas abajo.",
+   "intensas":"Lluvias intensas sobre la cuenca alta: creciente importante esperada en horas o días, con expansión en planicies de regulación.",
+   "torrenciales":"Lluvias torrenciales en cuenca alta: posible creciente extraordinaria con permanencia prolongada en planicie.",
+   "extraordinarias":"Lluvias extraordinarias en la cuenca transfronteriza: máxima alerta por volumen, propagación y expansión lateral."
+  },
+  "Samaria–Carrizal":{
+   "aisladas":"Lluvias aisladas locales sin impacto relevante, salvo coincidencia con descarga regulada o drenes saturados.",
+   "chubascos":"Chubascos sobre planicie con niveles medios pueden prolongar encharcamientos y saturar drenes locales.",
+   "fuertes":"Lluvias fuertes combinadas con gasto proveniente del Alto Grijalva regulado en Chiapas pueden producir inundación mixta en planicie; vigilar bifurcación y El Macayo.",
+   "muy fuertes":"Lluvias muy fuertes: saturación probable de drenes urbanos y agrícolas; El Macayo y niveles aguas abajo son puntos críticos.",
+   "intensas":"Lluvias intensas: riesgo de combinación lluvia local + regulación + remanso en zonas urbanas y municipios bajos.",
+   "torrenciales":"Lluvias torrenciales: escenario de emergencia para Samaria–Carrizal; activar protocolos del centro de operación.",
+   "extraordinarias":"Lluvias extraordinarias: evento crítico con planicie saturada y desbordamientos en múltiples puntos."
+  },
+  "Chontalpa":{
+   "aisladas":"Lluvias aisladas con drenes funcionales: impacto bajo a corto plazo.",
+   "chubascos":"Chubascos persistentes pueden saturar drenes lentos; vigilar parcelas, pasos hidráulicos y zonas bajas.",
+   "fuertes":"Lluvias fuertes sobre planicie: saturación de drenaje, anegamientos locales y afectación agrícola.",
+   "muy fuertes":"Lluvias muy fuertes: inundación pluvial probable en cabeceras y zonas sin drenaje suficiente; puede coincidir con río receptor alto.",
+   "intensas":"Lluvias intensas: riesgo de inundación mixta pluvial-fluvial; drenes rebasados y agua con permanencia de días.",
+   "torrenciales":"Lluvias torrenciales: emergencia pluvial y agrícola con infraestructura hidráulica bajo presión extrema.",
+   "extraordinarias":"Lluvias extraordinarias: evento severo con anegamientos extensos y posibles pérdidas agropecuarias significativas."
+  },
+  "Costa–Pantanos":{
+   "aisladas":"Lluvias aisladas: impacto bajo si marea, Norte y bocanas están en condición normal.",
+   "chubascos":"Chubascos con Norte o marea alta pueden mantener niveles lagunares elevados; vigilar bocanas.",
+   "fuertes":"Lluvias fuertes en zona costera: lagunas en ascenso; si coincide con Norte, la salida al Golfo puede reducirse.",
+   "muy fuertes":"Lluvias muy fuertes con condiciones costeras adversas: inundación persistente en zonas bajas y humedales.",
+   "intensas":"Lluvias intensas + marea alta o Norte: escenario de inundación costera compleja y prolongada.",
+   "torrenciales":"Lluvias torrenciales: emergencia regional con bocanas limitadas, lagunas desbordadas y remanso.",
+   "extraordinarias":"Lluvias extraordinarias en zona costera: máxima alerta por lluvia, remanso, lagunas y salida lenta al Golfo."
+  },
+  "Área urbana":{
+   "aisladas":"Lluvias aisladas: encharcamientos menores en puntos con rejillas obstruidas, pero sin afectación general si el drenaje funciona.",
+   "chubascos":"Chubascos: pueden generar encharcamientos puntuales en vialidades bajas, pasos deprimidos o zonas con basura en rejillas.",
+   "fuertes":"Lluvias fuertes: probable anegamiento urbano si la intensidad se concentra en menos de 3 horas; revisar cárcamos, drenes y pasos bajos.",
+   "muy fuertes":"Lluvias muy fuertes: riesgo alto de inundación pluvial urbana, afectación vial y rebase de drenaje pluvial.",
+   "intensas":"Lluvias intensas: escenario crítico urbano; la capacidad de alcantarillas, cárcamos y vasos reguladores puede ser superada rápidamente.",
+   "torrenciales":"Lluvias torrenciales: emergencia urbana por acumulación rápida, anegamientos severos, caída de árboles y posible interrupción de servicios.",
+   "extraordinarias":"Lluvias extraordinarias: escenario extremo urbano con posible inundación generalizada, rebase de drenaje y necesidad de cierres preventivos."
+  }
+ };
+ const regResp=(respReg[reg]||{})[cat]||d.clave;
+ let soilNote="";
+ if(soil.includes("saturado")) soilNote="<b>Suelo saturado:</b> la lluvia adicional se convierte rápidamente en escurrimiento superficial. La misma categoría SMN puede producir un impacto mayor que en suelo seco.";
+ else if(soil.includes("húmedo")) soilNote="<b>Suelo húmedo:</b> la capacidad de infiltración es menor; lluvias fuertes o muy fuertes pueden generar respuesta hidrológica más rápida.";
+ else soilNote="<b>Suelo seco:</b> la infiltración inicial amortigua parte del escurrimiento, pero lluvias concentradas en poco tiempo pueden superar esa capacidad.";
+ const smn_ref={
+  "aisladas":{rng:"0.1–5 mm/24h",color:"#10b981",titulo:"Lluvias aisladas"},
+  "chubascos":{rng:"5.1–25 mm/24h",color:"#84cc16",titulo:"Intervalos de chubascos"},
+  "fuertes":{rng:"25.1–50 mm/24h",color:"#f59e0b",titulo:"Lluvias fuertes"},
+  "muy fuertes":{rng:"50.1–75 mm/24h",color:"#f97316",titulo:"Lluvias muy fuertes"},
+  "intensas":{rng:"75.1–150 mm/24h",color:"#ef4444",titulo:"Lluvias intensas"},
+  "torrenciales":{rng:"150.1–250 mm/24h",color:"#dc2626",titulo:"Lluvias torrenciales"},
+  "extraordinarias":{rng:">250 mm/24h",color:"#7f1d1d",titulo:"Lluvias extraordinarias"}
+ };
+ const sRef=smn_ref[cat]||smn_ref.aisladas;
+ const out=document.getElementById(id+"_out");
+ out.style.display="block";
+ out.innerHTML=`
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap">
+   <span style="background:${color};color:white;padding:5px 14px;border-radius:999px;font-weight:800;font-size:13px;text-transform:uppercase">${sRef.titulo}</span>
+   <span style="font-weight:700;font-size:15px;color:var(--navy)">${sRef.rng}</span>
+   <span style="color:var(--muted);font-size:13px">en ${reg}</span>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-bottom:14px">
+   <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:12px">
+    <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)">Categoría SMN · acumulado 24 h</div>
+    <div style="font-weight:800;color:${sRef.color};font-size:16px;margin-top:4px">${sRef.titulo}<br>${sRef.rng}</div>
+   </div>
+   <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:12px">
+    <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)">Intensidad promedio del evento</div>
+    <div style="font-weight:800;color:${sRef.color};font-size:16px;margin-top:4px">${intensity.toFixed(1)} mm/h · ${catHora}</div>
+    <div style="font-size:11px;color:var(--muted);margin-top:4px">Referencial según duración seleccionada; la categoría oficial mostrada es la de 24 h.</div>
+   </div>
+  </div>
+  <p style="margin:0 0 10px"><b>Respuesta hidrológica esperada en ${reg}:</b><br>${regResp}</p>
+  <div style="background:var(--surface);border-left:4px solid ${color};border-radius:0 10px 10px 0;padding:12px 14px;font-size:13px;margin-bottom:10px">${soilNote}</div>
+  <div style="background:linear-gradient(135deg,#eff6ff,#ecfdf5);border-left:4px solid var(--cyan);border-radius:0 10px 10px 0;padding:12px 14px;font-size:13px"><b>Lectura clave:</b> ${d.clave}</div>
+ `;
+}
+function getRouteSteps(id){
+ if(id==="route_grijalva"){
+  return [
+   ["Grijalva tabasqueño","En Tabasco se expresa por ríos serranos y de planicie como Oxolotán, Amatán, Tacotalpa, La Sierra, Teapa, Puyacatengo y Pichucalco."],
+   ["Aporte regulado del Alto Grijalva","La cascada de presas almacena, regula y lamina volúmenes. Su aporte llega a Tabasco por Mezcalapa–Carrizal y se incorpora localmente aguas abajo de Villahermosa."],
+   ["Descarga hacia Mezcalapa","Desde Peñitas el flujo ingresa hacia el sistema Mezcalapa, donde empieza la lectura de planicie."],
+   ["Aportación del Platanar","El río Platanar aporta al sistema antes de la bifurcación, modificando condiciones locales."],
+   ["Bifurcación Samaria–Carrizal","El flujo se distribuye hacia dos brazos principales, lo que condiciona impactos diferenciados aguas abajo."],
+   ["El Macayo y control hidráulico","La estructura regula el ingreso hacia Carrizal y modifica el comportamiento hidráulico aguas abajo."],
+   ["Planicie tabasqueña","La baja pendiente, lluvias locales y niveles aguas abajo pueden generar remansos y permanencia del agua."]
+  ];
+ }
+ if(id==="route_usumacinta"){
+  return [
+   ["Lluvias en Guatemala","La cuenca alta puede generar volumen significativo aunque no llueva con igual intensidad en Tabasco."],
+   ["La Pasión y Usumacinta","Aportaciones guatemaltecas se integran al sistema principal."],
+   ["Lacantún desde Chiapas","El Lacantún incorpora aportes de la Selva de Chiapas antes de Boca del Cerro."],
+   ["Boca del Cerro","Punto clave de entrada y lectura para anticipar comportamiento en Los Ríos."],
+   ["Tenosique","Primer tramo tabasqueño con lectura temprana de creciente."],
+   ["Balancán y Emiliano Zapata","La creciente se propaga progresivamente con desfases en tiempo."],
+   ["Jonuta y Centla","La planicie, humedales y confluencias favorecen permanencia prolongada."],
+   ["Delta y humedales","El sistema se integra con lagunas, pantanos y desembocaduras hacia el Golfo."]
+  ];
+ }
+ return window[id+"_steps"] || [];
+}
+function selectRouteStep(id,i){
+ const steps=getRouteSteps(id);
+ if(!steps.length || !steps[i]) return;
+ window[id+"_idx"]=i;
+ const title=document.getElementById(id+"_title");
+ const txt=document.getElementById(id+"_txt");
+ const bar=document.getElementById(id+"_bar");
+ if(title) title.textContent=steps[i][0];
+ if(txt) txt.textContent=steps[i][1];
+ if(bar) bar.style.width=((i+1)/steps.length*100)+"%";
+ steps.forEach((_,j)=>{let b=document.getElementById(id+"_b"+j); if(b)b.classList.toggle("active",j===i);});
+}
+function nextRoute(id){
+ const steps=getRouteSteps(id);
+ let i=Math.min(steps.length-1,(window[id+"_idx"]||0)+1);
+ selectRouteStep(id,i);
+}
+function prevRoute(id){
+ let i=Math.max(0,(window[id+"_idx"]||0)-1);
+ selectRouteStep(id,i);
+}
+function timeInfo(el,t,txt){
+ document.querySelectorAll(".timepoint").forEach(x=>x.classList.remove("active"));
+ el.classList.add("active");
+ document.getElementById("timeOut").innerHTML=`<b>${t}</b><br>${txt}`;
+}
+function selectHydro(title,txt){
+ document.getElementById("hydroTitle").textContent=title;
+ document.getElementById("hydroText").textContent=txt;
+}
+function compareRegions(){
+ const a=document.getElementById("compA").value,b=document.getElementById("compB").value;
+ const A=regionData[a],B=regionData[b];
+ document.getElementById("compOut").innerHTML=`<div class="table-wrap"><table><tr><th>Elemento</th><th>${a}</th><th>${b}</th></tr>
+ <tr><td>Origen</td><td>${A.origen}</td><td>${B.origen}</td></tr>
+ <tr><td>Ríos/sistemas</td><td>${A.rios}</td><td>${B.rios}</td></tr>
+ <tr><td>Respuesta</td><td>${A.respuesta}</td><td>${B.respuesta}</td></tr>
+ <tr><td>Duración</td><td>${A.duracion}</td><td>${B.duracion}</td></tr>
+ <tr><td>Factor crítico</td><td>${A.factor}</td><td>${B.factor}</td></tr>
+ <tr><td>Lectura clave</td><td>${A.clave}</td><td>${B.clave}</td></tr></table></div>`;
+}
+function buildScenario(id){
+ const fen=document.getElementById(id+"_fen").value;
+ const reg=document.getElementById(id+"_reg").value;
+ const soil=document.getElementById(id+"_soil").value;
+ const river=document.getElementById(id+"_river").value;
+ const coast=document.getElementById(id+"_coast").value;
+ const regulacion=document.getElementById(id+"_regulacion")?.value||"Disponibles";
+ let d=regionData[reg], severity=0;
+
+ // Puntuación diferenciada por REGIÓN + FENÓMENO
+ const fenScore={
+  "Sierra":{"Ciclón tropical":3,"Interacción frente–ciclón":3,"Frente frío":2,"Onda tropical":1,"Lluvia convectiva":2,"Evento de Norte":0},
+  "Usumacinta":{"Ciclón tropical":2,"Interacción frente–ciclón":3,"Frente frío":2,"Onda tropical":2,"Lluvia convectiva":1,"Evento de Norte":1},
+  "Samaria–Carrizal":{"Ciclón tropical":2,"Interacción frente–ciclón":3,"Frente frío":2,"Onda tropical":1,"Lluvia convectiva":2,"Evento de Norte":1},
+  "Chontalpa":{"Ciclón tropical":2,"Interacción frente–ciclón":2,"Frente frío":1,"Onda tropical":1,"Lluvia convectiva":2,"Evento de Norte":1},
+  "Costa–Pantanos":{"Ciclón tropical":3,"Interacción frente–ciclón":3,"Frente frío":2,"Onda tropical":1,"Lluvia convectiva":1,"Evento de Norte":3},
+  "Área urbana":{"Ciclón tropical":2,"Interacción frente–ciclón":3,"Frente frío":2,"Onda tropical":1,"Lluvia convectiva":3,"Evento de Norte":1}
+ };
+ severity+=(fenScore[reg]||{})[fen]||1;
+ if(soil==="Saturado")severity+=2; else if(soil==="Húmedo")severity+=1;
+ if(river==="Alto")severity+=2; else if(river==="Medio")severity+=1;
+ if(coast!=="Normal"){
+  const coastBonus={"Sierra":0,"Usumacinta":1,"Samaria–Carrizal":1,"Chontalpa":1,"Costa–Pantanos":2,"Área urbana":1};
+  severity+=(coastBonus[reg]||0);
+ }
+ if(regulacion==="En llenado") severity+=1;
+ else if(regulacion==="Saturadas o reducidas") severity+=2;
+
+ let label=severity>=8?"ESCENARIO EXTREMO":severity>=5?"ESCENARIO COMPLEJO":severity>=3?"ESCENARIO DE VIGILANCIA":"ESCENARIO ORDINARIO";
+
+ const phenomenon={
+  "Frente frío":"Lluvias persistentes, descenso de temperatura y posible viento del Norte. Su efecto suele ser acumulativo: puede saturar suelos, sostener niveles altos y reducir el desalojo en costa.",
+  "Onda tropical":"Aporta humedad y lluvias de distribución irregular. Si se desplaza lentamente o se combina con baja presión, puede dejar acumulados importantes en subcuencas específicas.",
+  "Ciclón tropical":"No solo importa el punto de impacto. Sus bandas nubosas pueden aportar lluvia regional durante varias horas o días, incluso si el centro del sistema no entra directamente a Tabasco.",
+  "Evento de Norte":"El viento puede elevar niveles en la costa, aumentar oleaje y dificultar la descarga de lagunas, bocanas y ríos hacia el Golfo.",
+  "Lluvia convectiva":"Suele ser intensa y localizada. Puede causar anegamientos urbanos o respuesta rápida en cuencas pequeñas, aunque el acumulado estatal parezca moderado.",
+  "Interacción frente–ciclón":"Escenario de mayor complejidad: el ciclón aporta humedad y el frente favorece ascenso y persistencia de lluvia. Puede activar varias cuencas al mismo tiempo."
+ };
+
+ const regionTemplates={
+  "Sierra":{
+   lectura:"En esta región la variable crítica es el tiempo de respuesta. Las pendientes fuertes y cauces cortos permiten que la lluvia se transforme rápidamente en escurrimiento.",
+   siSuelo:"Con suelo saturado, disminuye la infiltración y aumenta el flujo superficial; pueden presentarse crecientes súbitas, turbiedad, arrastre de ramas, piedras o sedimentos.",
+   siRio:"Si los ríos están altos, cualquier lluvia adicional puede producir ascensos rápidos aguas abajo, especialmente en Oxolotán, Amatán, Tacotalpa, La Sierra, Teapa, Puyacatengo y Pichucalco. En la zona baja también debe vigilarse el sistema Puxcatán–Tulijá–Chilapa.",
+   vigilancia:"Revisar lluvia acumulada en la zona alta, reportes de arroyos, cambios de color del agua, arrastre de sedimentos y evolución de estaciones aguas abajo.",
+   aprendizaje:"La Sierra se analiza por intensidad de lluvia y tiempo de reflejo, más que por el acumulado total estatal."
+  },
+  "Usumacinta":{
+   lectura:"Aquí domina la lógica de gran cuenca transfronteriza. La lluvia puede generarse en Guatemala o Chiapas y reflejarse después en Boca del Cerro y Los Ríos.",
+   siSuelo:"La saturación en planicies ribereñas reduce la capacidad de almacenamiento local y favorece expansión lateral del agua.",
+   siRio:"Si el río está alto, el incremento puede avanzar progresivamente hacia Tenosique, Balancán, Emiliano Zapata, Jonuta y Centla, con permanencia prolongada.",
+   vigilancia:"Observar Boca del Cerro, tendencia de ascenso, reportes aguas arriba, tiempo de propagación y comportamiento de planicies y humedales.",
+   aprendizaje:"El Usumacinta no se interpreta por lluvia local inmediata, sino por volumen, propagación y duración."
+  },
+  "Samaria–Carrizal":{
+   lectura:"Es un sistema influido por el Alto Grijalva regulado en Chiapas y por una red bifurcada. El comportamiento depende de descargas del Alto Grijalva, aportes del Mezcalapa-Platanar, bifurcación Samaria-Carrizal, El Macayo y lluvia local.",
+   siSuelo:"Si la planicie está saturada, drenes y zonas bajas pierden capacidad para recibir más agua, aumentando anegamientos.",
+   siRio:"Con ríos medios o altos puede aparecer remanso, drenaje lento y efectos diferenciados hacia Nacajuca, Jalpa de Méndez, Cunduacán, Centro y Villahermosa.",
+   vigilancia:"Integrar gasto descargado, distribución hacia Samaria y Carrizal, lluvia local, niveles aguas abajo y condición de drenes.",
+   aprendizaje:"En Samaria–Carrizal el riesgo se entiende por combinación: regulación, bifurcación, lluvia local y remanso."
+  },
+  "Chontalpa":{
+   lectura:"En Chontalpa el agua se mueve sobre una planicie agrícola de muy baja pendiente. La capacidad de drenes, canales y pasos hidráulicos es determinante.",
+   siSuelo:"Con suelo saturado, la lluvia adicional se convierte en escurrimiento o encharcamiento; las parcelas y caminos pueden retener agua por más tiempo.",
+   siRio:"Si el río receptor está alto, los drenes pueden no descargar y el agua queda retenida en zonas bajas.",
+   vigilancia:"Revisar drenes agrícolas, pasos de agua, niveles de ríos receptores, acumulados locales y tramos carreteros que funcionen como barrera.",
+   aprendizaje:"En Chontalpa no siempre domina un gran río; muchas veces domina la interacción lluvia-drenaje-planicie-infraestructura."
+  },
+  "Costa–Pantanos":{
+   lectura:"La dinámica depende de la salida del agua. Ríos, lagunas, humedales, bocanas, marea y viento del Norte pueden combinarse para frenar el desalojo.",
+   siSuelo:"Con suelos y humedales saturados disminuye la capacidad de almacenamiento natural, por lo que aumenta la permanencia del agua.",
+   siRio:"Con ríos altos, la marea o el Norte pueden generar remanso y mantener elevados los niveles lagunares.",
+   vigilancia:"Observar marea, viento, oleaje, bocanas, lagunas, río González, Tres Brazos y zonas bajas de Centla, Paraíso y Comalcalco.",
+   aprendizaje:"En Costa–Pantanos el problema puede no ser que entre más agua, sino que el agua no pueda salir con rapidez."
+  },
+  "Área urbana":{
+   lectura:"En el área urbana domina la relación entre intensidad de lluvia, impermeabilización y capacidad del drenaje pluvial. El impacto puede aparecer en minutos.",
+   siSuelo:"Con suelo urbano saturado, rejillas obstruidas o superficies impermeables, aumenta el escurrimiento hacia vialidades, pasos bajos y zonas bajas.",
+   siRio:"Si el río receptor o dren principal está alto, los cárcamos y descargas pierden eficiencia y el agua puede regresar o permanecer en calles.",
+   vigilancia:"Observar intensidad horaria, puntos de anegamiento recurrente, cárcamos, rejillas, drenes, vasos reguladores, pasos deprimidos y niveles de ríos receptores.",
+   aprendizaje:"En área urbana, una lluvia de corta duración puede causar más daño que un acumulado mayor distribuido en todo el día."
+  }
+ };
+
+ // Colores y íconos diferenciados por severidad
+ const sevColor={
+  "ESCENARIO EXTREMO":"background:linear-gradient(135deg,#fff1f2,#fee2e2);border-left:5px solid #f43f5e;",
+  "ESCENARIO COMPLEJO":"background:linear-gradient(135deg,#fff7ed,#ffedd5);border-left:5px solid #f97316;",
+  "ESCENARIO DE VIGILANCIA":"background:linear-gradient(135deg,#fffbeb,#fef3c7);border-left:5px solid #f59e0b;",
+  "ESCENARIO ORDINARIO":"background:linear-gradient(135deg,#f0fdf4,#dcfce7);border-left:5px solid #10b981;"
+ };
+ const sevIcon={"ESCENARIO EXTREMO":"🔴","ESCENARIO COMPLEJO":"🟠","ESCENARIO DE VIGILANCIA":"🟡","ESCENARIO ORDINARIO":"🟢"};
+ const sevBar={"ESCENARIO EXTREMO":100,"ESCENARIO COMPLEJO":70,"ESCENARIO DE VIGILANCIA":42,"ESCENARIO ORDINARIO":18};
+
+ const R=regionTemplates[reg];
+
+ // Combinaciones especiales región+fenómeno
+ const combos={
+  "Sierra|Ciclón tropical":"Las bandas del ciclón sobre cuencas serranas generan el escenario más crítico: lluvia regional intensa y prolongada sobre pendientes altas. El tiempo de reacción puede medirse en horas.",
+  "Sierra|Lluvia convectiva":"La lluvia convectiva vespertina sobre la Sierra puede disparar crecientes súbitas en horas, aun si el acumulado total del día parece moderado.",
+  "Sierra|Interacción frente–ciclón":"Combinación de máxima alerta para la Sierra: lluvia persistente del frente más lluvias intensas del ciclón. Crecientes simultáneas en múltiples cauces.",
+  "Usumacinta|Ciclón tropical":"El ciclón puede aportar lluvia sobre toda la cuenca alta en Guatemala y Chiapas. La señal llegaría a Boca del Cerro con desfase de horas a días.",
+  "Usumacinta|Interacción frente–ciclón":"El escenario más complejo para el Usumacinta: activación simultánea de toda la cuenca transfronteriza. Permanencia del agua muy prolongada en planicies.",
+  "Usumacinta|Evento de Norte":"El Norte por sí solo no genera lluvia significativa en la cuenca alta, pero puede dificultar la salida del agua en Centla si coincide con niveles altos.",
+  "Samaria–Carrizal|Interacción frente–ciclón":"Descarga regulada del Alto Grijalva + lluvia local intensa = combinación crítica. La bifurcación Samaria-Carrizal amplifica los efectos aguas abajo.",
+  "Samaria–Carrizal|Lluvia convectiva":"Lluvia local intensa sobre planicie ya con niveles medios-altos en Carrizal puede generar inundación pluvial-fluvial mixta en Villahermosa y periferia.",
+  "Chontalpa|Lluvia convectiva":"La lluvia convectiva sobre planicie agrícola con drenaje saturado puede mantener parcelas anegadas por días, aun sin desbordamiento del río principal.",
+  "Chontalpa|Frente frío":"Lluvia persistente y difusa sobre Chontalpa: los drenes se saturan progresivamente. El impacto acumulado supera al de lluvias intensas aisladas.",
+  "Costa–Pantanos|Evento de Norte":"Este es el escenario característico de la Costa-Pantanos: viento Norte + marea alta = salida bloqueada. El agua permanece sin importar que ya no llueva.",
+  "Costa–Pantanos|Ciclón tropical":"Ciclón sobre la costa: marea de tormenta, oleaje extremo y cierre total de bocanas. Escenario de mayor complejidad en la región costera.",
+  "Costa–Pantanos|Interacción frente–ciclón":"El peor escenario costero: bloqueo marino sostenido, humedales saturados, lagunas desbordadas y salida al Golfo impedida por días.",
+  "Área urbana|Lluvia convectiva":"Escenario típico de anegamiento urbano: lluvia muy intensa en poco tiempo, drenaje rebasado, rejillas obstruidas y acumulación rápida en pasos bajos.",
+  "Área urbana|Interacción frente–ciclón":"La persistencia de lluvia más pulsos intensos puede rebasar cárcamos y vasos reguladores, especialmente si el río receptor está alto.",
+  "Área urbana|Frente frío":"Lluvia persistente sobre la ciudad puede saturar drenes y mantener anegamientos aun cuando la intensidad no sea extrema."
+ };
+ const comboKey=reg+"|"+fen;
+ const comboTxt=combos[comboKey]||"";
+
+ let condicion="";
+ if(soil==="Saturado") condicion+=`<p><b>Suelo saturado:</b> ${R.siSuelo}</p>`;
+ else if(soil==="Húmedo") condicion+=`<p><b>Humedad antecedente:</b> El suelo tiene capacidad de infiltración reducida. Si la lluvia continúa o se intensifica, el escenario puede escalar en pocas horas.</p>`;
+ else condicion+=`<p><b>Suelo seco:</b> Parte de la lluvia inicial se infiltrará, pero lluvias intensas de corta duración pueden generar escurrimiento rápido especialmente en suelos compactos o con pendiente.</p>`;
+
+ if(river==="Alto") condicion+=`<p><b>Río alto:</b> ${R.siRio}</p>`;
+ else if(river==="Medio") condicion+=`<p><b>Río en nivel medio:</b> Margen limitado. Un ascenso adicional de 0.5–1 m puede cambiar el escenario radicalmente. Vigilancia prioritaria de tendencia.</p>`;
+ else condicion+=`<p><b>Río bajo:</b> Hay margen inicial, pero la cuenca alta puede estar aportando sin que eso se refleje aún aguas abajo. No descartar ascenso diferido.</p>`;
+
+ if(coast==="Norte fuerte") condicion+=`<p><b>Norte fuerte:</b> ${reg==="Costa–Pantanos"?"El Norte bloquea la salida al Golfo: bocanas cerradas, lagunas sin drenaje, remanso generalizado. Factor determinante en esta región.":"Puede dificultar descarga costera y lagunar. Si el sistema se mantiene, los efectos se acumulan aguas arriba de bocanas y puntos de salida."}</p>`;
+ else if(coast==="Marea alta") condicion+=`<p><b>Marea alta:</b> ${reg==="Costa–Pantanos"?"La marea alta reduce el diferencial de nivel hacia el Golfo. El agua no puede salir con rapidez, prolongando la permanencia en zonas bajas y lagunas.":"La marea puede generar remanso en desembocaduras y dificultar el drenaje de zonas costeras y deltaicas."}</p>`;
+
+ const regText={
+  "Sierra":"En cuencas serranas la regulación natural es limitada; por eso la respuesta suele ser rápida y depende más de pendientes, cauces y saturación.",
+  "Usumacinta":"Las planicies, bajos, lagunas y humedales funcionan como grandes zonas de regulación: almacenan volumen, reducen el pico y prolongan la permanencia del agua.",
+  "Samaria–Carrizal":"La regulación combina presas, bifurcación, estructuras de control y planicie; si los bajos ya están ocupados, aumenta el remanso y la permanencia.",
+  "Chontalpa":"En Chontalpa los bajos, drenes, lagunas interiores y parcelas anegables amortiguan parte del volumen; si están llenos o reducidos por bordos/caminos, el anegamiento se extiende.",
+  "Costa–Pantanos":"Humedales, lagunas y barras costeras regulan el agua, pero si están saturados y la salida al Golfo está bloqueada, la inundación se vuelve prolongada.",
+  "Área urbana":"Los vasos reguladores, parques inundables, cárcamos y drenes son la regulación urbana; si están llenos o sin mantenimiento, la lluvia se traduce en anegamiento rápido."
+ };
+ let regEstado = regulacion==="Disponibles" ? "todavía existe capacidad de amortiguamiento, aunque debe vigilarse su ritmo de ocupación." :
+                 regulacion==="En llenado" ? "la capacidad de amortiguamiento se está consumiendo; el escenario puede escalar si continúa la lluvia o suben los ríos." :
+                 "la capacidad de amortiguamiento está comprometida; el agua buscará caminos, parcelas, calles o zonas habitadas.";
+ condicion+=`<p><b>Zonas de regulación ${regulacion.toLowerCase()}:</b> ${regText[reg]} En este escenario, ${regEstado}</p>`;
+
+ // Puntuación visual normalizada sobre 10
+ const maxP={"ESCENARIO EXTREMO":10,"ESCENARIO COMPLEJO":7,"ESCENARIO DE VIGILANCIA":4,"ESCENARIO ORDINARIO":2};
+ const puntaje=maxP[label];
+
+ let html=`
+  <div style="${sevColor[label]};padding:16px 18px;border-radius:12px;margin-bottom:14px">
+   <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+    <span style="font-size:24px">${sevIcon[label]}</span>
+    <span style="font-size:17px;font-weight:900;color:var(--navy);font-family:'Fraunces',serif">${label}</span>
+    <span style="color:var(--muted);font-size:13px">en ${reg}</span>
+   </div>
+   <div style="margin:10px 0 4px;height:6px;background:rgba(0,0,0,.1);border-radius:999px;overflow:hidden">
+    <div style="height:100%;width:${sevBar[label]}%;background:${label==="ESCENARIO EXTREMO"?"#f43f5e":label==="ESCENARIO COMPLEJO"?"#f97316":label==="ESCENARIO DE VIGILANCIA"?"#f59e0b":"#10b981"};border-radius:999px;transition:width .8s ease"></div>
+   </div>
+   <div style="font-size:12px;color:var(--muted);margin-top:2px">Puntaje combinado: ${puntaje}/10</div>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px">
+   <span style="background:rgba(10,37,64,.08);border-radius:999px;padding:4px 12px;font-size:12px;font-weight:700">⛅ ${fen}</span>
+   <span style="background:rgba(10,37,64,.08);border-radius:999px;padding:4px 12px;font-size:12px;font-weight:700">🗺 ${reg}</span>
+   <span style="background:rgba(10,37,64,.08);border-radius:999px;padding:4px 12px;font-size:12px;font-weight:700">🌱 Suelo ${soil}</span>
+   <span style="background:rgba(10,37,64,.08);border-radius:999px;padding:4px 12px;font-size:12px;font-weight:700">🌊 Río ${river}</span>
+   ${coast!=="Normal"?`<span style="background:rgba(10,37,64,.08);border-radius:999px;padding:4px 12px;font-size:12px;font-weight:700">🌬 ${coast}</span>`:""}
+   <span style="background:rgba(10,37,64,.08);border-radius:999px;padding:4px 12px;font-size:12px;font-weight:700">🟦 Regulación: ${regulacion}</span>
+  </div>
+  ${comboTxt?`<div style="background:rgba(14,165,233,.08);border-left:4px solid var(--cyan);padding:12px 14px;border-radius:0 10px 10px 0;margin-bottom:12px;font-weight:600;font-size:14px">💡 ${comboTxt}</div>`:""}
+  <p><b>Lectura meteorológica:</b> ${phenomenon[fen]}</p>
+  <p><b>Lectura hidrológica regional:</b> ${R.lectura}</p>
+  ${condicion}
+  <p><b>Qué observar:</b> ${R.vigilancia}</p>
+  <div style="background:linear-gradient(135deg,#eff6ff,#ecfdf5);border-left:4px solid var(--cyan);padding:14px 16px;border-radius:0 10px 10px 0;margin-top:12px">
+   <b>Aprendizaje del escenario:</b> ${R.aprendizaje}
+  </div>`;
+
+ var outEl=document.getElementById(id+"_out");outEl.style.display='block';outEl.innerHTML=html;
+}
+function previewSeverity(id){
+ const fen=document.getElementById(id+"_fen")?.value||"Frente frío";
+ const reg=document.getElementById(id+"_reg")?.value||"Sierra";
+ const soil=document.getElementById(id+"_soil")?.value||"Seco";
+ const river=document.getElementById(id+"_river")?.value||"Bajo";
+ const coast=document.getElementById(id+"_coast")?.value||"Normal";
+ const regulacion=document.getElementById(id+"_regulacion")?.value||"Disponibles";
+ const fenScore={
+  "Sierra":{"Ciclón tropical":3,"Interacción frente–ciclón":3,"Frente frío":2,"Onda tropical":1,"Lluvia convectiva":2,"Evento de Norte":0},
+  "Usumacinta":{"Ciclón tropical":2,"Interacción frente–ciclón":3,"Frente frío":2,"Onda tropical":2,"Lluvia convectiva":1,"Evento de Norte":1},
+  "Samaria–Carrizal":{"Ciclón tropical":2,"Interacción frente–ciclón":3,"Frente frío":2,"Onda tropical":1,"Lluvia convectiva":2,"Evento de Norte":1},
+  "Chontalpa":{"Ciclón tropical":2,"Interacción frente–ciclón":2,"Frente frío":1,"Onda tropical":1,"Lluvia convectiva":2,"Evento de Norte":1},
+  "Costa–Pantanos":{"Ciclón tropical":3,"Interacción frente–ciclón":3,"Frente frío":2,"Onda tropical":1,"Lluvia convectiva":1,"Evento de Norte":3},
+  "Área urbana":{"Ciclón tropical":2,"Interacción frente–ciclón":3,"Frente frío":2,"Onda tropical":1,"Lluvia convectiva":3,"Evento de Norte":1}
+ };
+ let s=(fenScore[reg]||{})[fen]||1;
+ if(soil==="Saturado")s+=2; else if(soil==="Húmedo")s+=1;
+ if(river==="Alto")s+=2; else if(river==="Medio")s+=1;
+ if(coast!=="Normal"){const cb={"Sierra":0,"Usumacinta":1,"Samaria–Carrizal":1,"Chontalpa":1,"Costa–Pantanos":2,"Área urbana":1};s+=(cb[reg]||0);}
+ if(regulacion==="En llenado") s+=1; else if(regulacion==="Saturadas o reducidas") s+=2;
+ const pct=Math.min(100,Math.round(s/10*100));
+ const color=s>=8?"#f43f5e":s>=5?"#f97316":s>=3?"#f59e0b":"#10b981";
+ const lbl=s>=8?"🔴 Extremo":s>=5?"🟠 Complejo":s>=3?"🟡 Vigilancia":"🟢 Ordinario";
+ const bar=document.getElementById(id+"_preview_bar");
+ const lab=document.getElementById(id+"_preview_label");
+ if(bar){bar.style.width=pct+"%";bar.style.background=color;}
+ if(lab){lab.textContent=lbl;lab.style.color=color;}
+}
+
+function classifyChontalpa(){
+ const v=document.getElementById("chCase").value;
+ const map={
+  fluvial:"Predomina una inundación fluvial: el cauce alto se expande hacia la planicie. Debe observarse tendencia del nivel y capacidad de conducción.",
+  pluvial:"Predomina una inundación pluvial: la lluvia local supera la capacidad de drenaje. Puede ocurrir aun sin desbordamiento de río principal.",
+  drenaje:"Predomina insuficiencia de drenaje: el agua no logra salir de parcelas o zonas bajas por drenes saturados, obstruidos o con poca pendiente.",
+  mixta:"Escenario mixto: coinciden río alto, lluvia local, drenaje insuficiente y suelo saturado. Es el escenario de mayor complejidad en planicie agrícola."
+ };
+ document.getElementById("chOut").innerHTML=map[v];
+}
+function toggleChip(el){el.classList.toggle("selected")}
+function whyWaterStays(){
+ const selected=[...document.querySelectorAll(".choice-chip.selected")].map(x=>x.textContent);
+ let txt=selected.length?`Factores seleccionados: <b>${selected.join(", ")}</b>.<br>`:"";
+ txt+="La permanencia del agua aumenta cuando la entrada por ríos o lluvia supera la capacidad de salida hacia el Golfo. La baja pendiente, lagunas saturadas, marea alta, Norte fuerte y bocanas azolvadas pueden producir remanso o salida lenta.";
+ document.getElementById("whyOut").innerHTML=txt;
+}
+function quickFeedback(btn,ok,msg){
+ const box=btn.parentElement;
+ box.querySelectorAll(".option").forEach(o=>o.classList.remove("correct","wrong"));
+ btn.classList.add(ok?"correct":"wrong");
+ const res=box.querySelector(".result");
+ res.classList.remove("hidden");res.innerHTML=msg;
+}
+function caseAnswer(btn,idx){
+ const card=btn.closest(".case-card");
+ const ans=Number(card.dataset.answer);
+ card.querySelectorAll(".option").forEach(o=>o.classList.remove("correct","wrong"));
+ btn.classList.add(idx===ans?"correct":"wrong");
+ const res=card.querySelector(".result");
+ res.classList.remove("hidden");
+ card.dataset.done = idx===ans ? "1":"0";
+}
+function gradeCaseEvaluation(){
+ const cards=[...document.querySelectorAll(".case-card")];
+ const correct=cards.filter(c=>c.dataset.done==="1").length;
+ const pct=Math.round(correct/cards.length*100);
+ document.getElementById("evalOut").innerHTML=`<b>Resultado de práctica: ${pct}%</b><br>Este ejercicio es formativo. La acreditación se obtiene en la evaluación final de 20 preguntas.`;
+}
+function searchGlossary(){
+ const q=(document.getElementById("glossSearch")?.value||"").toLowerCase();
+ const list=glossary.filter(g=>!q||g.term.toLowerCase().includes(q)||g.def.toLowerCase().includes(q)||g.rel.toLowerCase().includes(q));
+ const out=document.getElementById("glossOut");
+ if(out) out.innerHTML=list.map(g=>`<div class="card"><h3>${g.term}</h3><p><b>Definición:</b> ${g.def}</p><p><b>Ejemplo en Tabasco:</b> ${g.ex}</p><p><b>Relacionado con:</b> ${g.rel}</p></div>`).join("") || "<p>No se encontraron resultados.</p>";
+}
+function showCertificate(){
+ if(adminMode){alert("El diploma digital es para usuarios participantes.");return}
+ if(guestMode){
+  document.getElementById("content").innerHTML=`<section class="module"><h2>Diploma digital</h2><div class="warn">Estás en modo de consulta pública. Puedes revisar el contenido sin iniciar sesión, pero para guardar tu resultado y generar diploma debes registrarte o ingresar con una cuenta.</div><div class="actions"><button class="btn-green" onclick="showRegister()">Registrarme</button><button class="btn-light" onclick="showLogin()">Ingresar con cuenta</button></div></section>`;
+  return;
+ }
+ let p=getProgress();
+ let ok=(p.finalScore||0)>=80;
+ const evalIndex=modules.findIndex(m=>m.short==="Evaluación final");
+ const logoSrc=document.querySelector(".hero-logo")?.src || document.querySelector(".sidebar-logo")?.src || "";
+ document.getElementById("content").innerHTML=`<section class="module"><h2>Diploma digital</h2>${ok?`
+ <div class="diploma-digital">
+  ${logoSrc?`<img src="${logoSrc}" alt="Logo AMH Sección Tabasco" class="diploma-logo" loading="lazy" decoding="async">`:""}
+  <div class="diploma-title">Diploma Digital</div>
+  <div class="diploma-subtitle">Asociación Mexicana de Hidráulica · Sección Tabasco</div>
+  <p class="diploma-text">Otorga el presente diploma a</p>
+  <div class="diploma-name">${currentUser.name}</div>
+  <p class="diploma-text">por haber aprobado satisfactoriamente la</p>
+  <h3>Guía Interactiva de Hidrología e Inundaciones de Tabasco</h3>
+  <p class="diploma-text">Cuencas, subcuencas, lluvias, ríos, sistemas hidrológicos regionales e inundaciones.</p>
+  <p><b>Resultado:</b> ${p.finalScore}% &nbsp; | &nbsp; <b>Aciertos:</b> ${p.finalCorrect||Math.round((p.finalScore||0)*20/100)} de ${p.finalTotal||20}</p>
+  <p><b>Fecha de acreditación:</b> ${new Date().toLocaleDateString()}</p>
+  <div class="signature-box">
+   <div class="signature-name">Gilberto Segovia Quintero</div>
+   <div class="signature-line">Gilberto Segovia Quintero</div>
+   <div class="signature-role">Presidente de la Sección Tabasco de la AMH</div>
+  </div>
+ </div>
+ <div class="actions noPrint"><button class="btn-green" onclick="window.print()">Imprimir / guardar PDF</button></div>`:
+ `<div class="warn"><b>Diploma no disponible.</b><br>Para generar el diploma digital se requiere aprobar la evaluación final con mínimo 80% de aciertos. Presenta la evaluación de 20 preguntas y obtén al menos 16 respuestas correctas.</div><button class="btn-green" onclick="renderModule(${evalIndex>=0?evalIndex:modules.length-2})">Ir a evaluación final</button>`}</section>`;
+}
+
+
+// ─── MEJORAS DE INTERACTIVIDAD ───────────────────────────────
+// Toast notifications
+function showToast(msg, type='info', duration=2800){
+  var c=document.getElementById('toast-container');
+  if(!c){c=document.createElement('div');c.id='toast-container';document.body.appendChild(c);}
+  var t=document.createElement('div');
+  t.className='toast '+type;
+  t.textContent=msg;
+  c.appendChild(t);
+  setTimeout(function(){t.classList.add('fade');setTimeout(function(){c.removeChild(t)},300);},duration);
+}
+
+// Wrap completeModule to show toast
+var _origComplete=typeof completeModule==='function'?completeModule:null;
+if(_origComplete){
+  completeModule=function(i){
+    _origComplete(i);
+    showToast('✓ Módulo marcado como revisado','success');
+  };
+}
+
+// Animate progress bar on update
+var _origUpdateProgress=typeof updateProgress==='function'?updateProgress:null;
+if(_origUpdateProgress) updateProgress=_origUpdateProgress;
+
+// Smooth scroll on module render
+var _origRenderMod=typeof renderModule==='function'?renderModule:null;
+if(_origRenderMod){
+  renderModule=function(i){
+    _origRenderMod(i);
+    window.scrollTo({top:0,behavior:'smooth'});
+    // Close sidebar on mobile after navigation
+    if(window.innerWidth<=1050){
+      var sb=document.getElementById('sidebar');
+      if(sb)sb.classList.remove('open');
+    }
+  };
+}
+
+// Inject toast container
+document.addEventListener('DOMContentLoaded',function(){
+  var tc=document.createElement('div');
+  tc.id='toast-container';
+  document.body.appendChild(tc);
+});
+
+// Enhanced admin CSV export toast
+var _origExportCSV=typeof exportCSV==='function'?exportCSV:null;
+if(_origExportCSV){
+  exportCSV=function(){
+    _origExportCSV();
+    showToast('📊 CSV exportado correctamente','success');
+  };
+}
+
+// Toast on login/register success
+var _origStartApp=typeof startApp==='function'?startApp:null;
+if(_origStartApp){
+  startApp=function(){
+    _origStartApp();
+    showToast('👋 Bienvenido a la guía','success');
+  };
+}
+
+</script>
+
+<script>
+// Refuerzo de navegación inicial: garantiza acceso aunque el navegador bloquee algún onclick inline.
+document.addEventListener('DOMContentLoaded',function(){
+  var btns=document.querySelectorAll('#hero .actions button');
+  if(btns[0]) btns[0].addEventListener('click',function(e){e.preventDefault(); if(typeof guestAccess==='function') guestAccess();});
+  if(btns[1]) btns[1].addEventListener('click',function(e){e.preventDefault(); if(typeof showLogin==='function') showLogin();});
+  if(btns[2]) btns[2].addEventListener('click',function(e){e.preventDefault(); if(typeof showRegister==='function') showRegister();});
+});
+</script>
+<!-- Backend multiusuario y diploma verificable -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="config.js?v=4"></script>
+<script src="js/analytics.js?v=4"></script>
+<script src="js/pwa.js?v=4"></script>
+<script src="js/cloud.js?v=4"></script>
+</body>
+</html>
