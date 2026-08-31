@@ -18,7 +18,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="Hidrología AMH">
 <link rel="manifest" href="manifest.webmanifest">
-<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 :root{
@@ -448,6 +448,36 @@ header.hero .actions{
 img{content-visibility:auto}
 
 .activity-lock{border:1px solid #fde68a;background:#fffbeb;border-radius:14px;padding:14px 16px;margin:16px 0}.activity-ok{border:1px solid #a7f3d0;background:#ecfdf5;border-radius:14px;padding:14px 16px;margin:16px 0}.req-list{display:grid;gap:8px;margin:10px 0}.req-item{display:flex;align-items:center;gap:10px;padding:9px 11px;background:#fff;border:1px solid var(--border);border-radius:10px}.req-item .state{font-weight:900;min-width:22px}.nav button.locked{opacity:.45;cursor:not-allowed}.nav button.done::after{content:" ✓";color:var(--emerald)}.offline-banner{position:fixed;left:0;right:0;bottom:0;z-index:10000;background:#7c2d12;color:#fff;text-align:center;padding:8px 12px;font-weight:700}.update-banner{position:fixed;left:12px;right:12px;bottom:14px;z-index:10001;background:#0a2540;color:#fff;padding:12px 14px;border-radius:14px;box-shadow:var(--shl);display:flex;justify-content:space-between;align-items:center;gap:12px}@media(max-width:560px){.update-banner{flex-direction:column;align-items:stretch}}
+</style>
+
+<style id="mobile-cover-v418">
+/* v4.1.8: portada móvil a pantalla completa, sin modificar lógica de la aplicación */
+@media (max-width:700px){
+  header.hero{
+    min-height:100svh!important;
+    min-height:100dvh!important;
+    box-sizing:border-box!important;
+    display:flex!important;
+    align-items:flex-start!important;
+    background:linear-gradient(160deg,#062040 0%,#0a3459 54%,#0e4d3b 100%)!important;
+  }
+  header.hero.hidden{display:none!important}
+  header.hero .hero-inner{
+    width:100%!important;
+    min-height:100%!important;
+  }
+  header.hero .actions{
+    gap:10px!important;
+    margin-top:0!important;
+  }
+  #networkStatus{
+    padding:0 18px 22px!important;
+    margin-top:16px!important;
+  }
+}
+@supports not (height:100dvh){
+  @media (max-width:700px){header.hero{min-height:100vh!important}}
+}
 </style>
 </head>
 <body>
@@ -2261,7 +2291,7 @@ document.addEventListener('DOMContentLoaded',function(){
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script src="config.js?v=414"></script>
 <script src="js/analytics.js?v=414"></script>
-<script src="js/pwa.js?v=416"></script>
-<script src="js/cloud.js?v=416"></script>
+<script src="js/pwa.js?v=418"></script>
+<script src="js/cloud.js?v=418"></script>
 </body>
 </html>

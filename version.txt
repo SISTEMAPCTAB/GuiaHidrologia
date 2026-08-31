@@ -1,3 +1,3 @@
-Guía Hidrología AMH
-Versión: 4.1.5
-Correcciones: favicon 404 eliminado, referencias explícitas de icono y caché PWA actualizada.
+Guía Interactiva de Hidrología e Inundaciones de Tabasco
+Versión 4.1.8
+Portada móvil a pantalla completa + icono HIDRO TABASCO
