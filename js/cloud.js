@@ -36,11 +36,57 @@
  async function loadCert(){const {data}=await client().from('certificates').select('*').eq('user_id',currentUser.id).eq('course_code',cfg.COURSE_CODE||'AMH-HID-2026').maybeSingle();cloudCertificate=data||null;return cloudCertificate}
  window.getProgress=()=>cloudProgress;window.setProgress=p=>{cloudProgress=p||{done:[],activities:{}}};
  window.togglePassword=function(inputId,button){const input=document.getElementById(inputId);if(!input||!button)return;const showing=input.type==='text';input.type=showing?'password':'text';button.textContent=showing?'👁 Mostrar':'🙈 Ocultar';button.setAttribute('aria-label',showing?'Mostrar contraseña':'Ocultar contraseña');button.setAttribute('aria-pressed',showing?'false':'true')};
- window.showRegister=function(){document.getElementById('hero').classList.add('hidden');const a=document.getElementById('authArea');a.classList.remove('hidden');a.innerHTML=`<h2>Crear cuenta</h2>${configured()?'':notice()}<div class="grid2"><div><label>Nombre completo</label><input id="rName" autocomplete="name"></div><div><label>Cargo o perfil</label><input id="rRole"></div><div><label>Institución / dependencia</label><input id="rInst"></div><div><label>Municipio</label><input id="rMun"></div><div><label>Correo electrónico</label><input id="rEmail" type="email" autocomplete="email"></div><div><label>Teléfono opcional</label><input id="rTel" autocomplete="tel"></div><div><label>Usuario</label><input id="rUser" autocomplete="username"></div><div><label>Contraseña</label><div class="password-wrap"><input id="rPass" type="password" minlength="8" autocomplete="new-password"><button class="password-toggle" type="button" onclick="togglePassword('rPass',this)" aria-label="Mostrar contraseña" aria-pressed="false">👁 Mostrar</button></div></div></div><button class="btn-green" onclick="register()">Crear cuenta</button> <button class="btn-light" onclick="showLogin()">Ya tengo cuenta</button><p class="small">El avance académico se conserva centralmente en Supabase.</p>`};
- window.showLogin=function(){document.getElementById('hero').classList.add('hidden');const a=document.getElementById('authArea');a.classList.remove('hidden');a.innerHTML=`<h2>Ingresar</h2>${configured()?'':notice()}<label>Correo electrónico</label><input id="loginUser" type="email" autocomplete="email"><label>Contraseña</label><div class="password-wrap"><input id="loginPass" type="password" autocomplete="current-password"><button class="password-toggle" type="button" onclick="togglePassword('loginPass',this)" aria-label="Mostrar contraseña" aria-pressed="false">👁 Mostrar</button></div><button class="btn-green" onclick="login()">Ingresar</button> <button class="btn-light" onclick="showRegister()">Crear cuenta</button><p class="small">El registro es obligatorio para cursar, conservar avance, presentar el examen y obtener diploma.</p>`};
- window.register=async function(){const c=client();if(!c){alert('Configura Supabase primero.');return}const meta={full_name:rName.value.trim(),role_title:rRole.value.trim(),institution:rInst.value.trim(),municipality:rMun.value.trim(),phone:rTel.value.trim(),username:rUser.value.trim()};const email=rEmail.value.trim().toLowerCase(),password=rPass.value;if(!meta.full_name||!email||!meta.username||password.length<8){alert('Completa nombre, correo, usuario y contraseña de al menos 8 caracteres.');return}const {data,error}=await c.auth.signUp({email,password,options:{data:meta}});if(error){alert('No fue posible crear la cuenta: '+error.message);return}if(!data.session){document.getElementById('authArea').innerHTML='<h2>Cuenta creada</h2><div class="note">Revisa tu correo para confirmar tu cuenta y después inicia sesión.</div><button class="btn-green" onclick="showLogin()">Ingresar</button>';return}await enter(data.user,await loadProfile(data.user));window.amhTrack?.('sign_up',{method:'email'})};
- window.login=async function(){const c=client();if(!c){alert('Configura Supabase primero.');return}const {data,error}=await c.auth.signInWithPassword({email:loginUser.value.trim().toLowerCase(),password:loginPass.value});if(error){alert('Correo o contraseña incorrectos.');return}const profile=await loadProfile(data.user);if(profile.is_admin){await c.auth.signOut();alert('Esta cuenta corresponde al área administrativa y no puede entrar desde la aplicación de participantes.');return}await enter(data.user,profile);window.amhTrack?.('login',{method:'email'})};
- async function enter(u,p){currentUser={id:u.id,email:u.email,name:p.full_name,role:p.role_title,inst:p.institution,mun:p.municipality,tel:p.phone,user:p.username};adminMode=false;guestMode=false;await Promise.all([loadProgress(),loadCert(),touch()]);startApp();renderNavCloud();renderModuleCloud(firstAvailable())}
+ window.showRegister=function(){
+  document.getElementById('hero').classList.add('hidden');
+  const a=document.getElementById('authArea');a.classList.remove('hidden');
+  a.innerHTML=`<h2>Crear cuenta</h2>${configured()?'':notice()}<div class="grid2"><div><label>Nombre completo</label><input id="rName" autocomplete="name"></div><div><label>Cargo o perfil</label><input id="rRole"></div><div><label>Institución / dependencia</label><input id="rInst"></div><div><label>Municipio</label><input id="rMun"></div><div><label>Correo electrónico</label><input id="rEmail" type="email" autocomplete="email"></div><div><label>Teléfono opcional</label><input id="rTel" autocomplete="tel"></div><div><label>Usuario</label><input id="rUser" autocomplete="username"></div><div><label>Contraseña</label><div class="password-wrap"><input id="rPass" type="password" minlength="8" autocomplete="new-password"><button class="password-toggle" type="button" onclick="togglePassword('rPass',this)" aria-label="Mostrar contraseña" aria-pressed="false">👁 Mostrar</button></div></div></div><button class="btn-green" id="registerBtn" type="button">Crear cuenta</button> <button class="btn-light" type="button" onclick="showLogin()">Ya tengo cuenta</button><div id="authMsg"></div><p class="small">El avance académico se conserva centralmente en Supabase.</p>`;
+  document.getElementById('registerBtn').addEventListener('click',window.amhRegister);
+ };
+ window.showLogin=function(){
+  document.getElementById('hero').classList.add('hidden');
+  const a=document.getElementById('authArea');a.classList.remove('hidden');
+  a.innerHTML=`<h2>Ingresar</h2>${configured()?'':notice()}<label>Correo electrónico</label><input id="loginUser" type="email" autocomplete="email"><label>Contraseña</label><div class="password-wrap"><input id="loginPass" type="password" autocomplete="current-password"><button class="password-toggle" type="button" onclick="togglePassword('loginPass',this)" aria-label="Mostrar contraseña" aria-pressed="false">👁 Mostrar</button></div><button class="btn-green" id="loginBtnParticipant" type="button">Ingresar</button> <button class="btn-light" type="button" onclick="showRegister()">Crear cuenta</button><div id="authMsg"></div><p class="small">El registro es obligatorio para cursar, conservar avance, presentar el examen y obtener diploma.</p>`;
+  document.getElementById('loginBtnParticipant').addEventListener('click',window.amhLogin);
+  document.getElementById('loginPass').addEventListener('keydown',e=>{if(e.key==='Enter')window.amhLogin()});
+ };
+ function setAuthMessage(text,type='warn'){
+  const el=document.getElementById('authMsg');if(el)el.innerHTML=text?`<div class="${type}">${esc(text)}</div>`:'';
+ }
+ function setBusy(id,busy,label){const b=document.getElementById(id);if(!b)return;b.disabled=busy;b.textContent=busy?'Procesando…':label;}
+ window.amhRegister=async function(){
+  const c=client();if(!c){setAuthMessage('No fue posible conectar con Supabase.');return}
+  const $=id=>document.getElementById(id);
+  const meta={full_name:$('rName').value.trim(),role_title:$('rRole').value.trim(),institution:$('rInst').value.trim(),municipality:$('rMun').value.trim(),phone:$('rTel').value.trim(),username:$('rUser').value.trim()};
+  const email=$('rEmail').value.trim().toLowerCase(),password=$('rPass').value;
+  if(!meta.full_name||!email||!meta.username||password.length<8){setAuthMessage('Completa nombre, correo, usuario y contraseña de al menos 8 caracteres.');return}
+  setBusy('registerBtn',true,'Crear cuenta');setAuthMessage('');
+  try{
+   const emailRedirectTo=new URL('./',document.baseURI).href;
+   const {data,error}=await c.auth.signUp({email,password,options:{data:meta,emailRedirectTo}});
+   if(error){setAuthMessage('No fue posible crear la cuenta: '+error.message);return}
+   if(!data.session){document.getElementById('authArea').innerHTML='<h2>Cuenta creada</h2><div class="note">Revisa tu correo para confirmar tu cuenta y después inicia sesión.</div><button class="btn-green" type="button" onclick="showLogin()">Ingresar</button>';return}
+   await enter(data.user,await loadProfile(data.user));window.amhTrack?.('sign_up',{method:'email'});
+  }catch(e){console.error('Registro:',e);setAuthMessage('Ocurrió un problema al crear la cuenta. Intenta nuevamente.')}finally{setBusy('registerBtn',false,'Crear cuenta')}
+ };
+ window.amhLogin=async function(){
+  const c=client();if(!c){setAuthMessage('No fue posible conectar con Supabase.');return}
+  const email=document.getElementById('loginUser')?.value.trim().toLowerCase()||'';
+  const password=document.getElementById('loginPass')?.value||'';
+  if(!email||!password){setAuthMessage('Escribe tu correo electrónico y contraseña.');return}
+  setBusy('loginBtnParticipant',true,'Ingresar');setAuthMessage('');
+  try{
+   const {data,error}=await c.auth.signInWithPassword({email,password});
+   if(error||!data?.user){setAuthMessage('Correo o contraseña incorrectos.');return}
+   let profile;
+   try{profile=await loadProfile(data.user)}catch(pe){console.error('Perfil:',pe);await c.auth.signOut();setAuthMessage('La cuenta fue autenticada, pero no se pudo cargar su perfil. Contacta al administrador.');return}
+   if(profile.is_admin){await c.auth.signOut();setAuthMessage('Esta cuenta corresponde al área administrativa. Ingresa desde el panel de administración.');return}
+   await enter(data.user,profile);window.amhTrack?.('login',{method:'email'});
+  }catch(e){console.error('Ingreso:',e);setAuthMessage('No fue posible completar el ingreso. Revisa tu conexión e intenta nuevamente.')}finally{setBusy('loginBtnParticipant',false,'Ingresar')}
+ };
+ // Alias de compatibilidad. Se mantienen, pero los botones usan nombres AMH propios
+ // para evitar colisiones con funciones antiguas del HTML.
+ window.register=window.amhRegister;
+ window.login=window.amhLogin;
  window.logout=async()=>{if(client())await client().auth.signOut();location.reload()};
  function firstAvailable(){const d=cloudProgress.done||[];for(let i=0;i<(cfg.REQUIRED_MODULES||18);i++)if(!d.includes(i))return i;return cloudCertificate?19:18}
  function isComplete(i){return (cloudProgress.done||[]).includes(i)}
