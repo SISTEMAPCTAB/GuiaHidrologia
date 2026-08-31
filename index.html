@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="shortcut icon" href="favicon.ico">
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="theme-color" content="#0a2540" />
@@ -428,6 +430,10 @@ header.hero .actions{
     border-radius:0 0 12px 12px!important;
   }
 }
+
+
+/* v4.1.6: el menú flotante solo existe visualmente dentro de la guía autenticada */
+.layout.hidden + .menuToggle{display:none!important}
 
 </style>
 
@@ -2255,7 +2261,7 @@ document.addEventListener('DOMContentLoaded',function(){
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script src="config.js?v=414"></script>
 <script src="js/analytics.js?v=414"></script>
-<script src="js/pwa.js?v=414"></script>
-<script src="js/cloud.js?v=414"></script>
+<script src="js/pwa.js?v=416"></script>
+<script src="js/cloud.js?v=416"></script>
 </body>
 </html>
