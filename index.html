@@ -74,6 +74,12 @@ header.hero::after{content:'';position:absolute;width:600px;height:600px;border-
 label{font-weight:600;color:var(--navy);font-size:13px;text-transform:uppercase;letter-spacing:.05em}
 input,select,textarea{width:100%;padding:12px 14px;border:2px solid var(--border);border-radius:var(--rs);margin:6px 0 14px;font:inherit;font-size:15px;background:var(--wh);transition:border-color .2s,box-shadow .2s;color:var(--ink)}
 input:focus,select:focus,textarea:focus{outline:none;border-color:var(--cyan);box-shadow:0 0 0 3px rgba(14,165,233,.12)}
+.password-wrap{position:relative;margin:6px 0 14px}
+.password-wrap input{margin:0;padding-right:118px}
+.password-toggle{position:absolute;right:8px;top:50%;transform:translateY(-50%);border:1px solid var(--border);background:#f8fafc;color:var(--navy);border-radius:9px;padding:7px 10px;font:inherit;font-size:13px;font-weight:700;cursor:pointer;line-height:1;white-space:nowrap;min-height:34px}
+.password-toggle:hover{background:#eef6fb;border-color:#a8c9dc}
+.password-toggle:focus-visible{outline:3px solid rgba(14,165,233,.25);outline-offset:2px}
+@media(max-width:560px){.password-wrap input{padding-right:104px}.password-toggle{font-size:12px;padding:7px 8px}}
 .layout{display:grid;grid-template-columns:300px 1fr;max-width:1600px;margin:auto;min-height:100vh;overflow-x:hidden}
 aside{background:var(--wh);border-right:1px solid var(--border);min-height:100vh;position:sticky;top:0;height:100vh;overflow:auto;padding:16px 14px;scrollbar-width:thin;scrollbar-color:var(--border) transparent}
 .logoBox{display:flex;gap:10px;align-items:center;border-bottom:1px solid var(--border);padding-bottom:14px;margin-bottom:14px}
