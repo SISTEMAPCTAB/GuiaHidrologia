@@ -1040,11 +1040,11 @@ function readBulletin(){
 function causeEffectHTML(){
  const effects=["Mayor escurrimiento","Salida lenta al Golfo","Respuesta rápida","Permanencia del agua","Remanso lagunar","Creciente del Usumacinta"];
  const answers={"Suelo saturado":"Mayor escurrimiento","Norte fuerte":"Salida lenta al Golfo","Pendiente alta":"Respuesta rápida","Planicie baja":"Permanencia del agua","Bocana azolvada":"Remanso lagunar","Lluvia en Guatemala":"Creciente del Usumacinta"};
+ window.relationAnswers=answers;
  return `<div class="interactive-box"><h3>6. Relación causa–efecto</h3><p>Relaciona cada causa con su efecto hidrológico.</p>
  ${Object.keys(answers).map((c,i)=>`<div class="relation-row"><b>${c}</b><select id="rel_${i}">${effects.map(e=>`<option>${e}</option>`).join("")}</select><span id="rel_${i}_out"></span></div>`).join("")}
  <button class="btn-blue" onclick="checkRelations()">Revisar relaciones</button>
  <div id="relOut" class="result">Resultado pendiente.</div>
- <script>window.relationAnswers=${JSON.stringify(answers)};<\/script>
  </div>`;
 }
 function checkRelations(){
