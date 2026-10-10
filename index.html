@@ -992,15 +992,17 @@ function regionalCaseBankHTML(){
   ["Costa–Pantanos","Río alto, Norte fuerte, marea elevada y bocana reducida.","Salida lenta al Golfo, remanso lagunar y permanencia prolongada en zonas bajas."],
   ["Área urbana","Lluvia intensa en una hora, rejillas obstruidas, cárcamos al límite y río receptor alto.","Inundación pluvial urbana con posible componente mixto; priorizar puntos bajos, pasos deprimidos, cárcamos y cierre preventivo de vialidades."]
  ];
+ window.regionalCases=cases;
  return `<div class="interactive-box"><h3>3. Banco de casos regionales</h3><p>Selecciona un caso para ver la lectura hidrológica.</p>
  <select id="caseBank">${cases.map((c,i)=>`<option value="${i}">${c[0]}: ${c[1]}</option>`).join("")}</select>
  <button class="btn-blue" onclick="showRegionalCase()">Analizar caso</button>
  <div id="caseBankOut" class="result">El análisis aparecerá aquí.</div>
- <script>window.regionalCases=${JSON.stringify(cases)};<\/script>
  </div>`;
 }
 function showRegionalCase(){
- const c=window.regionalCases[Number(caseBank.value)];
+ const select=document.getElementById('caseBank');
+ const c=window.regionalCases?.[Number(select?.value)];
+ if(!c)return;
  document.getElementById("caseBankOut").innerHTML=`<b>${c[0]}</b><br><b>Situación:</b> ${c[1]}<br><b>Lectura hidrológica:</b> ${c[2]}`;
 }
 
